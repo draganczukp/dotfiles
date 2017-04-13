@@ -1,0 +1,68 @@
+favorites=
+recent=Thunar.desktop,wps-office-wps.desktop,k3d.desktop,guvcview.desktop,playonlinux.desktop,pamac-manager.desktop,dropbox.desktop,android-studio.desktop,nm-connection-editor.desktop,dbx_preference.desktop
+button-title=Programy
+button-icon=/home/killermenpl/Pictures/icon.png
+button-single-row=false
+show-button-title=false
+show-button-icon=true
+launcher-show-name=true
+launcher-show-description=true
+launcher-show-tooltip=true
+item-icon-size=2
+hover-switch-category=false
+category-show-name=true
+category-icon-size=1
+load-hierarchy=false
+recent-items-max=10
+favorites-in-recent=true
+display-recent-default=true
+position-search-alternate=false
+position-commands-alternate=false
+position-categories-alternate=false
+menu-width=418
+menu-height=500
+menu-opacity=100
+command-settings=xfce4-settings-manager
+show-command-settings=true
+command-lockscreen=xflock4
+show-command-lockscreen=true
+command-switchuser=gdmflexiserver
+show-command-switchuser=true
+command-logout=xfce4-session-logout
+show-command-logout=true
+command-menueditor=menulibre
+show-command-menueditor=true
+command-profile=mugshot
+show-command-profile=true
+search-actions=5
+
+[action0]
+name=Strony podręcznika
+pattern=#
+command=exo-open --launch TerminalEmulator man %s
+regex=false
+
+[action1]
+name=Wyszukiwarka internetowa
+pattern=?
+command=exo-open --launch WebBrowser https://duckduckgo.com/?q=%u
+regex=false
+
+[action2]
+name=Wikipedia
+pattern=!w
+command=exo-open --launch WebBrowser https://en.wikipedia.org/wiki/%u
+regex=false
+
+[action3]
+name=Uruchom w terminalu
+pattern=!
+command=exo-open --launch TerminalEmulator %s
+regex=false
+
+[action4]
+name=Otwórz adres URI
+pattern=^(file|http|https):\\/\\/(.*)$
+command=exo-open \\0
+regex=true
+

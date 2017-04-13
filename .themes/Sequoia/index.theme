@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Sequoia
+Comment=A flat Elementary OS inspired dark theme 
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Sequoia
+MetacityTheme=Sequoia
+IconTheme=gnome
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close
