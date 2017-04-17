@@ -204,15 +204,16 @@ for_window [instance="Godot_Engine"] floating enable
 for_window [class="(?i)pamac-*"] floating enable
 for_window [class="(?i)feh*"] floating enable
 for_window [class="RotateGame"] floating enable
+for_window [class="xfce4-panel"] floating enable
 
 workspace $w1 output DVI-0
-workspace $w2 output DVI-1
+#workspace $w2 output VGA-0
 workspace $w3 output DVI-0
 workspace $w4 output DVI-0
 workspace $w5 output DVI-0
 workspace $w6 output DVI-0
 workspace $w9 output DVI-1
-workspace $w10 output DVI-1
+workspace $w10 output VGA-0
 
 
 
@@ -228,11 +229,11 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/arch.png
+exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.jpg
 exec spotify
 exec opera
 #exec_always --no-startup-id compton -bf &
-#exec --no-startup-id xfce4-panel -d
+exec_always --no-startup-id xfce4-panel -d
 
 #set $bg-color            #2f343f
 #set $inactive-bg-color   #2f343f
@@ -257,8 +258,8 @@ exec opera
 
 for_window [class="^.*"] border pixel 5
 
-#gaps inner 10
-#gaps outer 5
+gaps inner 10
+gaps outer 5
 smart_gaps on
 smart_borders on
 bindsym $mod+y gaps inner current minus 6

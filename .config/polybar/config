@@ -47,8 +47,8 @@ font-2 = siji:pixelsize=12
 font-3 = FontAwesome:pixelsize=12;0
 
 modules-left = i3
-modules-center = music volume
-modules-right = memory cpu wlan battery date powermenu
+modules-center = date
+modules-right = volume memory cpu
 
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -63,8 +63,9 @@ wm-restack = i3
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
 [bar/bar1]
-modules-left = apps i3
+
 inherit = bar/base
 monitor = DVI-0
 tray-position = right
