@@ -50,8 +50,6 @@ modules-left = i3
 modules-center = date
 modules-right = volume memory cpu
 
-;tray-transparent = true
-;tray-background = #0063ff
 
 ;wm-restack = bspwm
 wm-restack = i3
@@ -68,8 +66,6 @@ scroll-down = i3wm-wsprev
 
 inherit = bar/base
 monitor = DVI-0
-tray-position = right
-tray-padding = 2
 
 [bar/bar2]
 inherit=bar/base
