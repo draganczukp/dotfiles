@@ -3,30 +3,30 @@
 @import "functions";
 
 // default color scheme
-$bg_color: if($variant == "dark", #e0e0e0, #202020);
-$fg_color: if($variant == "dark", #202020, #e0e0e0);
-$base_color: if($variant == "dark", #f5f5f5, #303030);
-$text_color: if($variant == "dark", #303030, #f5f5f5);
-$button_bg_color: if($variant == "dark", #ddb26f, #151515);
-$button_fg_color: if($variant == "dark", #151515, #ddb26f);
+$bg_color: if($variant == "dark", #e0e0e0, #333333);
+$fg_color: if($variant == "dark", #333333, #e0e0e0);
+$base_color: if($variant == "dark", #fafafa, #303030);
+$text_color: if($variant == "dark", #303030, #fafafa);
+$button_bg_color: if($variant == "dark", #25d718, #151515);
+$button_fg_color: if($variant == "dark", #151515, #25d718);
 $header_button_bg_color: #303030;
-$header_button_fg_color: #d0d0d0;
-$selected_bg_color: #fb9fb1;
-$selected_fg_color: #151515;
-$tooltip_bg_color: #202020;
+$header_button_fg_color: #25d718;
+$selected_bg_color: #777;
+$selected_fg_color: #fafafa;
+$tooltip_bg_color: #333333;
 $tooltip_fg_color: #e0e0e0;
 
 // dark colors
-$dark_bg_color: #151515;
-$dark_fg_color: #ddb26f;
+$dark_bg_color: #333333;
+$dark_fg_color: #25d718;
 
 // shadows
 $dark_shadow: #000;
 $light_shadow: #fff;
 
 // caret
-$primary_caret_color: #f5f5f5;
-$secondary_caret_color: #f5f5f5;
+$primary_caret_color: #fafafa;
+$secondary_caret_color: #fafafa;
 $caret_aspect_ratio: 0.04;
 
 // white and black
@@ -42,7 +42,7 @@ $question_fg_color: #fff;
 $question_bg_color: #673ab7;
 $error_fg_color: #fff;
 $error_bg_color: #f44336;
-$link_color: #fb9fb1;
+$link_color: #777;
 $success_color: #4caf50;
 $warning_color: #ef6c00;
 $error_color: #f44336;
@@ -82,8 +82,8 @@ $wm_icons_unfocused_prelight: $selected_bg_color;
 $wm_icons_unfocused_pressed: shade($selected_bg_color, .8);
 
 // widget styles
-$roundness: 0px;
-$spacing: 3px;
+$roundness: 4px;
+$spacing: 4px;
 $gradient: 0.0;
 
 $contrast: .8;
