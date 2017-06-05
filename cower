@@ -1,3 +1,0 @@
-#!/bin/bash
-gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-
