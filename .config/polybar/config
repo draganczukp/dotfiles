@@ -64,6 +64,7 @@ scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
 monitor = DVI-0
+modules-right = musicprev musicplaypause musicnext music volume memory cpu
 
 [bar/bar2]
 inherit=bar/base
@@ -78,7 +79,7 @@ click-left = ~/.config/polybar/pymenu.py
 
 [module/music]
 type = custom/script
-interval = 2
+interval = 1
 
 label = %output:0:45:...%
 exec = ~/.config/polybar/mpris.sh
@@ -127,7 +128,7 @@ label-mode-background = ${colors.primary}
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.background-alt}
 label-focused-padding = 2
 
 label-unfocused = %icon%
@@ -168,11 +169,11 @@ label = %percentage_used%%
 type = internal/date
 interval = 1
 
-date-alt =
-date = %Y-%m-%d
+date =
+date-alt = %Y-%m-%d
 
-time-alt = %H:%M
-time = %H:%M:%S
+time = %H:%M
+time-alt = %H:%M:%S
 
 #format-prefix = " "
 #format-prefix-foreground = ${colors.foreground}
@@ -192,11 +193,11 @@ format-muted-foreground = ${colors.foreground}
 label-muted = sound muted
 
 bar-volume-width = 20
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = #acc267
+bar-volume-foreground-1 = #acc267
+bar-volume-foreground-2 = #acc267
+bar-volume-foreground-3 = #acc267
+bar-volume-foreground-4 = #acc267
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
@@ -265,6 +266,21 @@ menu-2-0 = power off
 menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/musicprev]
+type = custom/text
+content = ""
+click-left = playerctl previous
+
+[module/musicnext]
+type = custom/text
+content = ""
+click-left = playerctl next
+
+[module/musicplaypause]
+type = custom/text
+content = ""
+click-left = playerctl play-pause
 
 [settings]
 screenchange-reload = true
