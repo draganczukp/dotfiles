@@ -201,13 +201,16 @@ assign [class="Pavucontrol"] $w10
 assign [class="Xfce4-terminal"] $w2
 assign [class="Eclipse"] $w3
 assign [class="itom"] $w3
-assign [class="krita"] $w4
+assign [class="krita"] $w6
+assign [class="Thunar"] $w4
+assign [class="Civ5XP"] $w5
+
+
 for_window [instance="Godot_Engine"] floating enable
 for_window [class="(?i)pamac-*"] floating enable
 for_window [class="(?i)feh*"] floating enable
 for_window [class="RotateGame"] floating enable
 for_window [class="xfce4-panel"] floating enable
-
 
 
 
