@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+files = ('.themes/oomox-ChalkTheme' 'Obrazy/Wallpapers' '.fonts' 'bin' '.zshrc')
+
+if [ $1 -eq "laptop" ]
+then
+	patch < laptop.patch
+fi
+
+for file in "${files[@]}" 
+do
+	ln -sf "$file" "~/$file"
+done
+
+cd .config
+for file in `ls -1`
+do
+	ln -sf "$file" "~/.config/$file"
+done
