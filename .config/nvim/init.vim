@@ -123,6 +123,6 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-
+map <Leader>f :NERDTreeToggle<CR>
 map <Leader>g gg=G
 map <Leader>o :CtrlPMixed<CR>

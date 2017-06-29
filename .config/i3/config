@@ -207,7 +207,7 @@ for_window [class="(?i)pamac-*"] floating enable
 for_window [class="(?i)feh*"] floating enable
 for_window [class="RotateGame"] floating enable
 for_window [class="xfce4-panel"] floating enable
-
+for_window [class="(?i)Tilda"] floating enable
 
 
 
@@ -223,7 +223,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-center /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
+exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
 exec spotify
 exec opera
 exec_always --no-startup-id xfce4-panel -d
