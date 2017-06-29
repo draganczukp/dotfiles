@@ -5,9 +5,13 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-sensible'
 
-Plug 'scrooloose/syntastic'
-
 Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'tpope/vim-repeat'
+
+Plug 'scrooloose/syntastic'
 
 Plug 'mattn/emmet-vim'
 
@@ -23,13 +27,13 @@ Plug 'valloric/youcompleteme'
 
 Plug 'plasticboy/vim-markdown'
 
-Plug 'godlygeek/tabular'
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'flazz/vim-colorschemes'
+
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'farmergreg/vim-lastplace'
 
 call plug#end()
 
@@ -52,7 +56,6 @@ let g:syntastic_aggregate_errors = 1
 
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
-set guifont=Fira\ Mono\ Medium\ for\ Powerline:h9
 let g:airline_theme='base16_chalk'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
@@ -121,7 +124,5 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 
-map <Leader>b :w<CR> :!build<CR>
-map <Leader>d :!devenv<CR>
 map <Leader>g gg=G
 map <Leader>o :CtrlPMixed<CR>
