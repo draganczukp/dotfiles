@@ -35,6 +35,10 @@ Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'farmergreg/vim-lastplace'
 
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'roman/golden-ratio'
+
 call plug#end()
 
 "Syntastic
@@ -46,7 +50,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
- 
+
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
@@ -74,7 +78,7 @@ set ruler
 
 " Highlight search results
 set hlsearch
-" Makes search act like search in modern browsers 
+" Makes search act like search in modern browsers
 set incsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
