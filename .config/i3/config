@@ -211,7 +211,7 @@ for_window [class="(?i)pamac-*"] floating enable
 for_window [class="(?i)feh*"] floating enable
 for_window [class="RotateGame"] floating enable
 for_window [class="xfce4-panel"] floating enable
-
+for_window [class="(?i)tilda"] border none
 
 
 # Pulse Audio controls
@@ -227,10 +227,16 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 exec_always feh --bg-center /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
-exec spotify
+
+#	Wait a bit with starting spotify because of high disc usage
+exec sh -c "sleep 30; spotify"
+
 exec opera
 exec_always --no-startup-id xfce4-panel -d
 exec compton --xrender-sync-fence
+exec --no-startup-id tilda
+
+
 #set $bg-color            #2f343f
 #set $inactive-bg-color   #2f343f
 #set $text-color          #f3f4f5
