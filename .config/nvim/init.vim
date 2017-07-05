@@ -68,7 +68,9 @@ let g:syntastic_aggregate_errors = 1
 
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
+
 let g:airline_theme='monokai'
+
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
 
