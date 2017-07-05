@@ -1,3 +1,3 @@
 #!/bin/sh
 
-find . -exec sed -r -i'' -e '/DVI/d' {} \; -exec sed -r -i'' -e '/VGA/d' {} \;
+find .config -exec sed -r -i'' -e '/DVI/d' {} \; -exec sed -r -i'' -e '/VGA/d' {} \;
