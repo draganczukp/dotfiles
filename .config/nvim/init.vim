@@ -39,12 +39,20 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'roman/golden-ratio'
 
+Plug 'tfnico/vim-gradle'
+
+Plug 'artur-shaik/vim-javacomplete2'
+
+Plug 'rcabralc/monokai-airline.vim'
+
 call plug#end()
 
 "Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -60,9 +68,16 @@ let g:syntastic_aggregate_errors = 1
 
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_chalk'
+let g:airline_theme='monokai'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
+
+let g:airline#extensions#tabline#enabled = 1
+
+colorscheme Monokai
+
+"Javacomplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 
 
@@ -129,4 +144,4 @@ cnoreabbrev Qall qall
 
 map <Leader>f :NERDTreeToggle<CR>
 map <Leader>g gg=G
-map <Leader>o :CtrlPMixed<CR>
+"map <Leader>o :CtrlPMixed<CR>
