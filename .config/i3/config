@@ -235,8 +235,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-<
-exec_always feh --bg-center /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
+exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
 #	Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 exec opera
