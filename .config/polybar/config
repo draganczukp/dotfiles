@@ -48,7 +48,7 @@ font-3 = FontAwesome:pixelsize=12;0
 
 modules-left = i3
 modules-center = date
-modules-right = volume memory cpu battery
+modules-right = musicprev musicplaypause musicnext music volume memory cpu battery
 
 
 ;wm-restack = bspwm
@@ -65,12 +65,9 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
-modules-right = musicprev musicplaypause musicnext music volume memory cpu battery
-monitor = DVI-0
 
 [bar/bar2]
 inherit = bar/base
-monitor = DVI-1
 
 
 [module/ewmh]
