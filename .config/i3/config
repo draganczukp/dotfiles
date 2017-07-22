@@ -130,14 +130,6 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
-workspace $w1 output DVI-0
-workspace $w2 output DVI-1
-workspace $w3 output DVI-0
-workspace $w4 output DVI-0
-workspace $w5 output DVI-0
-workspace $w6 output DVI-0
-workspace $w9 output DVI-1
-workspace $w10 output DVI-1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -174,30 +166,6 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id ~/.config/polybar/launch
 exec_always --no-startup-id ~/.screenlayout/layout.sh
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#
-#    font pango:FontAwesome 15
-#    position top
-#    i3bar_command ~/.config/polybar/launch
-#    status_command i3blocks -c ~/.config/i3/i3status.conf
-#    tray_output none
-#    strip_workspace_numbers yes
-
-#    colors {
-#        background #1c1c1c
-#        statusline #ffffff
-#        separator #666666
-#
-#        focused_workspace  #101010 #101010 #dddddd
-#        active_workspace   #2c2c2c #2c2c2c #cfcfcf
-#        inactive_workspace #2c2c2c #2c2c2c #cfcfcf
-#        urgent_workspace   #2f343a #900000 #cfcfcf
-#        binding_mode       #2f343a #900000 #cfcfcf
-#    }
-#
-#}
 
 
 
@@ -239,34 +207,12 @@ exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
 #	Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 exec opera
-exec_always --no-startup-id xfce4-panel -d
+# exec_always --no-startup-id xfce4-panel -d
 exec compton --xrender-sync-fence
-exec --no-startup-id tilda
-
 exec tilda
-exec xfce4-terminal --fullscreen -e vis --zoom=-7
 
-
-#set $bg-color            #2f343f
-#set $inactive-bg-color   #2f343f
-#set $text-color          #f3f4f5
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #E53935
-
-#set $bg-color            #000000
-#set $inactive-bg-color   #000000
-#set $text-color          #ffffff
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #E53935
-#set $transparent         #00000065
-
-
-#window colors
-#                       border              background         text                  indicator          child-border
-#client.focused          $bg-color           $bg-color          $text-color           $bg-color
-#client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color  $inactive-bg-color #222222
-#client.focused_inactive $urgent-bg-color    $inactive-bg-color $inactive-text-color  $inactive-bg-color
-#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color           $urgent-bg-color
+# The panel seems to startup no mather what I do, so I kill it immediatelly
+exec_always killall xfce4-panel
 
 hide_edge_borders both
 
@@ -313,3 +259,25 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base01 $base08 $base00 $base08 $base08
 client.placeholder      $base01 $base00 $base05 $base00 $base00
 client.background       $base01
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+# 	font pango:DroidSansMonoForPowerline Nerd Font,Icons 10
+# 	position top
+# 	#i3bar_command ~/.config/polybar/launch
+# 	status_command i3status-rs ~/.config/i3/config.toml
+# 	# status_command i3blocks -c ~/.config/i3/i3status.conf
+# 	#tray_output none
+# 	strip_workspace_numbers yes
+# 	colors {
+# 		background #1c1c1c
+# 		statusline #ffffff
+# 		separator #666666
+# 		focused_workspace  #101010 #101010 #dddddd
+# 		active_workspace   #2c2c2c #2c2c2c #cfcfcf
+# 		inactive_workspace #2c2c2c #2c2c2c #cfcfcf
+# 		urgent_workspace   #2f343a #900000 #cfcfcf
+# 		binding_mode       #2f343a #900000 #cfcfcf
+# 	}
+# }

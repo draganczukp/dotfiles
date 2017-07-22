@@ -45,6 +45,8 @@ Plug 'artur-shaik/vim-javacomplete2'
 
 Plug 'rcabralc/monokai-airline.vim'
 
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 "Syntastic
@@ -81,7 +83,7 @@ colorscheme Monokai
 "Javacomplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-
+let g:deoplete#enable_at_startup = 1
 
 set number
 
@@ -147,3 +149,4 @@ cnoreabbrev Qall qall
 map <Leader>f :NERDTreeToggle<CR>
 map <Leader>g gg=G
 "map <Leader>o :CtrlPMixed<CR>
+map <Leader>/ :Commentary<CR>
