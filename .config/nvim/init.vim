@@ -37,7 +37,7 @@ Plug 'farmergreg/vim-lastplace'
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'roman/golden-ratio'
+" Plug 'roman/golden-ratio'
 
 Plug 'tfnico/vim-gradle'
 
