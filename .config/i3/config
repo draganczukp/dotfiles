@@ -207,12 +207,15 @@ exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
 #	Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 exec opera
-# exec_always --no-startup-id xfce4-panel -d
+exec_always --no-startup-id xfce4-panel -d
 exec compton --xrender-sync-fence
 exec tilda
 
 # The panel seems to startup no mather what I do, so I kill it immediatelly
-exec_always killall xfce4-panel
+# exec_always killall xfce4-panel -9
+exec_always /etc/profile.d/touchpad.sh
+
+exec geary --hidden
 
 hide_edge_borders both
 
