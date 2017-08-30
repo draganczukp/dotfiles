@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/killermenpl/dev/jumpgame/core/src/pl/killermenpl'
-let g:netrw_dirhist_2='/home/killermenpl/dev/jumpgame/core/src/pl/killermenpl/jumpgame'
-let g:netrw_dirhist_3='/home/killermenpl/dev/shootergame/core'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/killermenpl/dev/fb/src/main/java'
+let g:netrw_dirhist_2='/home/killermenpl/dev/fb'
+let g:netrw_dirhist_3='/home/killermenpl/dev/fb/src'
+let g:netrw_dirhist_4='/home/killermenpl/dev/fb/src/main'
+let g:netrw_dirhist_5='/home/killermenpl/dev/fb/src/main/java'
+let g:netrw_dirhist_6='/home/killermenpl/dotfiles/.config/nvim'
