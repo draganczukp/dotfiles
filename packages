@@ -120,7 +120,6 @@ dnssec-anchors
 docbook-xml
 docbook-xsl
 docbook2x
-dockbarx-git
 dosfstools
 double-conversion
 doxygen
@@ -178,8 +177,6 @@ gamin
 garcon
 gawk
 gc
-gcc-libs-multilib
-gcc-multilib
 gconf
 gcr
 gd
@@ -286,7 +283,6 @@ hub
 hunspell
 hwids
 hyphen
-i3-gaps-git
 i3-vim-syntax-git
 i3ipc-glib-git
 i3lock
@@ -778,19 +774,10 @@ libxxf86vm
 libyaml
 libzip
 licenses
-light-locker
-light-locker-settings
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
-lightdm-settings
-lightdm-slick-greeter
-lightdm-webkit2-greeter
 lighttpd
 linux
 linux-api-headers
 linux-firmware
-linux-lts
 lirc
 llvm-libs
 lm_sensors
@@ -820,7 +807,6 @@ mariadb
 mariadb-clients
 mdadm
 media-player-info
-megasync
 mesa
 mesa-demos
 mesa-vdpau
@@ -846,10 +832,8 @@ mugshot
 nano
 nasm
 ncurses
-ncurses5-compat-libs
 neon
 neovim
-nerd-fonts-complete
 net-snmp
 net-tools
 netcdf
@@ -890,7 +874,6 @@ openresolv
 opensp
 openssh
 openssl
-openssl-1.0
 openvpn
 opera
 opera-ffmpeg-codecs
@@ -898,7 +881,6 @@ optipng
 opus
 orbit2
 orc
-otf-fontawesome
 p11-kit
 p7zip
 pa-applet-git
@@ -1149,7 +1131,6 @@ ruby-tins
 ruby-trollop
 run-parts
 rust
-s
 s-nail
 samba
 sassc
@@ -1264,15 +1245,12 @@ vivaldi-snapshot-ffmpeg-codecs
 vlc
 volume_key
 vte-common
-vte3-ng
 vulkan-icd-loader
 w3m
 wallpaper-archpaint2
 wavpack
 wayland
 wayland-protocols
-webkit2gtk
-webkitgtk
 webrtc-audio-processing
 wesnoth-data
 wget
@@ -1354,7 +1332,6 @@ xorg-mkfontdir
 xorg-mkfontscale
 xorg-server
 xorg-server-common
-xorg-server-utils
 xorg-sessreg
 xorg-setxkbmap
 xorg-smproxy
@@ -1411,7 +1388,6 @@ zsh-completions
 zsh-doc
 zsh-history-substring-search-git
 zsh-manydots-magic
-zsh-packer-color
 zsh-syntax-highlighting
 zsync
 zvbi
