@@ -30,7 +30,7 @@ font pango:FontAwesome 15
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+# bindsym $mod+Return exec xfce4-terminal --drop-down
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -203,7 +203,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.png
+# exec_always feh --bg-fill /home/killermenpl/Obrazy/Wallpapers/wallpaper.jpg
+# Animated wallpaper!
+exec_always xwinwrap -g 1366x768 -ov -ni -s -nf -- gifview -w WID /home/killermenpl/Obrazy/Wallpapers/wallpaper2.gif -a --geometry 1366x768
+
 #	Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 exec opera
