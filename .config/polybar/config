@@ -65,10 +65,11 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
+monitor = DVI-0
 
 [bar/bar2]
 inherit = bar/base
-
+monitor = VGA-0
 
 [module/ewmh]
 type = internal/xworkspaces
