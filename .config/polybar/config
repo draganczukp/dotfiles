@@ -20,7 +20,7 @@ alert = #bd2c40
 
 [bar/base]
 width = 100%
-height = 40
+height = 30
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -65,11 +65,13 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
-monitor = DVI-0
+monitor = eDP1
 
 [bar/bar2]
 inherit = bar/base
-monitor = VGA-0
+monitor = DP1
+modules-right = memory cpu battery
+
 
 [module/ewmh]
 type = internal/xworkspaces
@@ -238,7 +240,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 #format-underline = #4bffdc
 label = %percentage_used%%
