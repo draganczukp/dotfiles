@@ -61,24 +61,12 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git-extras mvn sbt sudo systemd  archlinux common-aliases bower zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(gitfast git-extras mvn sbt sudo systemd  archlinux common-aliases bower fast-syntax-highlighting zsh-autosuggestions dwim)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_STYLES[cursor]='bold'
-
-ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
-
+source /usr/share/zsh-dwim/init.zsh
 
 
 # User configuration
@@ -114,3 +102,4 @@ alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 
 
+source /usr/share/zsh-dwim/init.zsh
