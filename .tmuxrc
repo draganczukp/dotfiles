@@ -1,0 +1,64 @@
+#-References-------------------------------------------------------------------
+# http://blog.hawkhost.com/2010/07/02/tmux-%E2%80%93-the-terminal-multiple...
+# https://wiki.archlinux.org/index.php/Tmux
+
+
+#-Settings---------------------------------------------------------------------
+# Make it like screen (use C-a)
+unbind C-b
+set -g prefix C-a
+bind-key C-a send-prefix
+
+# Pane switching with Alt+arrow
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+bind -n M-l select-pane -L
+bind -n M-h select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
+
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# Activity Monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Reaload settings
+unbind R
+bind R source-file ~/.tmuxrc
+
+# Load custom sources
+# source ~/.bashrc
+
+# Set defaults
+set -g default-terminal screen-256color
+set -g history-limit 5000
+
+# Defult windows titles
+set -g set-titles on
+set -g set-titles-string '#(whoami)@#H - #I:#W'
+
+# Last window switch
+bind-key C-a last-window
+
+# Use ZSH as default shell
+set-option -g default-shell /bin/zsh
+
+# Show tmux messages for longer
+set -g display-time 3000
+
+# Status bar is redrawn every minute
+set -g status-interval 60
+
+# don't rename windows automatically
+set-option -g allow-rename off
+
+# powerline
+source "/usr/share/tmux/powerline.conf"
