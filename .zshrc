@@ -61,12 +61,11 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git-extras mvn sbt sudo systemd  archlinux common-aliases bower fast-syntax-highlighting zsh-autosuggestions dwim)
+plugins=(gitfast git-extras sudo common-aliases bower fast-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh-dwim/init.zsh
 
 
 # User configuration
@@ -97,9 +96,14 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll="ls -alh"
+alias ll="ls -hal"
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
+# alias launch="xdg-open"
 
+function launch() {
+	(xdg-open "$@" > /dev/null 2>&1 )&
+}
 
-source /usr/share/zsh-dwim/init.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+~/bin/motd
