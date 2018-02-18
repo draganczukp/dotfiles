@@ -2,10 +2,9 @@
 clear
 out="";
 
-out+="Witaj, Przemek\n";
+out+="Witaj, $USER\n";
 out+="Jest $(date '+%a, %d %b, %H:%M')\n";
 # out+="Cytat: $(fortune -a)"
 # out+="$(python ~/bin/weather.py)"
 
 echo $out | toilet -f future
-
