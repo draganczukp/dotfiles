@@ -133,6 +133,8 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
+# Redirect sound to headphones
+bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -200,6 +202,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%   
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%        #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
+
+# Screenshot
+bindsym Print exec --no-startup-id xfce4-screenshooter
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
