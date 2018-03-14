@@ -70,7 +70,7 @@ monitor = DVI-D-1
 [bar/bar2]
 inherit = bar/base
 monitor = DVI-I-1
-modules-right = memory cpu battery
+; modules-right = memory cpu battery
 
 
 [module/ewmh]
