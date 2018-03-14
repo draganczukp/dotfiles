@@ -1,31 +1,34 @@
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-sensible'
 
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+
+" Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
 
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 Plug 'flazz/vim-colorschemes'
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
+
+Plug 'itchyny/lightline.vim'
 
 " Plug 'valloric/youcompleteme'
 
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -37,9 +40,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tfnico/vim-gradle'
 
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 
-Plug 'rcabralc/monokai-airline.vim'
+" Plug 'rcabralc/monokai-airline.vim'
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -49,13 +52,12 @@ Plug 'rcabralc/monokai-airline.vim'
 
 " Plug 'wokalski/autocomplete-flow'
 
-Plug 'xuhdev/vim-latex-live-preview'
+" Plug 'xuhdev/vim-latex-live-preview'
 
 Plug 'roxma/nvim-completion-manager'
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
@@ -79,11 +81,17 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 Plug 'luochen1990/rainbow'
 
-Plug 'w0rp/ale'
-
+" Plugj 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 
+Plug 'draganczukp/factorus'
+
+" Plug 'vim-scripts/refactor'
+
+Plug 'bling/vim-bufferline'
+
 call plug#end()
+
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -118,6 +126,33 @@ let g:ale_sign_warning = '⚠⚠'
 let g:ale_open_list = 0
 let g:ale_loclist = 0
 
+let g:lightline = {
+			\   'colorscheme': 'one',
+			\   'active': {
+			\     'left':[ [ 'mode', 'paste' ],
+			\              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+			\     ]
+			\   },
+			\   'component': {
+			\     'lineinfo': ' %3l:%-2v',
+			\   },
+			\   'component_function': {
+			\     'gitbranch': 'fugitive#head',
+			\   }
+			\ }
+let g:lightline.separator = {
+			\   'left': '', 'right': ''
+			\}
+let g:lightline.subseparator = {
+			\   'left': '', 'right': ''
+			\}
+
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
 
 " Setup compilers for languages
 
@@ -151,38 +186,40 @@ augroup my_cm_setup
 augroup END
 
 set encoding=utf-8
-let g:airline_powerline_fonts = 1
 
-let g:airline_theme='badwolf'
 
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_skip_empty_sections = 1
+" let g:airline_powerline_fonts = 1
 
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme='badwolf'
+
+" let g:airline#extensions#syntastic#enabled = 1
+" let g:airline_skip_empty_sections = 1
+
+" let g:airline#extensions#tabline#enabled = 1
 
 colorscheme badwolf
 
 "Javacomplete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType java JCEnable
-set omnifunc=syntaxcomplete#Complete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#auto_completion_start_length = 2
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java JCEnable
+" set omnifunc=syntaxcomplete#Complete
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#auto_completion_start_length = 2
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = []
+" let g:deoplete#file#enable_buffer_path = 1
 
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer', 'ultisnips']
+" let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+" let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+" let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer', 'ultisnips']
 
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
-" Auto close preview pane in Deoplete
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" if !exists('g:deoplete#omni#input_patterns')
+" 	let g:deoplete#omni#input_patterns = {}
+" endif
+" " Auto close preview pane in Deoplete
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 " golden ratio
@@ -191,7 +228,7 @@ let g:golden_ratio_exclude_nonmodifiable = 1
 
 " latex
 autocmd Filetype tex setl updatetime=1
-au BufReadPost *.tex setlocal spell spelllang=pl " Spellczeck
+au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
 
 " let g:livepreview_previewer = 'zathura'
 
@@ -248,6 +285,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+"	Resize with arrows
+nnoremap <S-Left> :vertical resize -1<CR>
+nnoremap <S-Right> :vertical resize +1<CR>
+nnoremap <S-Up> :resize -1<CR>
+nnoremap <S-Down> :resize +1<CR>
+
 " More natural splits
 set splitbelow
 set splitright
@@ -267,5 +310,6 @@ map <Leader>f :NERDTreeToggle<CR>
 map <Leader>g mggg=G`g:StripWhitespace<CR>
 "map <Leader>o :CtrlPMixed<CR>
 map <Leader>/ :Commentary<CR>
-map <Leader>n :bn<CR>
-map <Leader>b :bp<CR>
+map <Leader>bn :bn<CR>
+map <Leader>bb :bp<CR>
+map <Leader>x :FMExtractMethod<SPACE>
