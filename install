@@ -1,19 +1,26 @@
 #!/bin/zsh
 
-files = ('.themes/oomox-ChalkTheme' 'Obrazy/Wallpapers' '.fonts' 'bin' '.zshrc')
+files=("bin" "Obrazy/Wallpapers" ".zshrc" ".tmux.conf.local" ".config/i3" ".config/nvim" ".config/polybar" ".config/rofi" ".icons" "./themes")
 
-if [ $1 -eq "laptop" ]
-then
-	patch < laptop.patch
-fi
+pacaur -Sy --needed git zsh neovim || exit 1
 
-for file in "${files[@]}" 
-do
-	ln -sf "$file" "~/$file"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+
+
+pushd ~
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+
+for file in $files; do
+	ln -s $PWD/$file $file
 done
 
-cd .config
-for file in `ls -1`
-do
-	ln -sf "$file" "~/.config/$file"
-done
+popd
+
+pacaur -Sy --noedit --needed --noconfirm $(cat packages)
