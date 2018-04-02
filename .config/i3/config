@@ -172,7 +172,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id ~/.config/polybar/launch
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 
-exec --no-startup-id "setxkbmap -option caps:escape"
+exec_always --no-startup-id "setxkbmap -option caps:escape"
 
 
 assign [class="Spotify"] $w10
