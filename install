@@ -1,11 +1,22 @@
 #!/bin/zsh
 
 files=("bin" "Obrazy/Wallpapers" ".zshrc" ".tmux.conf.local" ".config/i3" ".config/nvim" ".config/polybar" ".config/rofi" ".icons" "./themes")
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+
+pushd /tmp
+pacman -S git --needed
+for pac in cower pacaur; do
+	git clone https://aur.archlinux.org/$pac
+	pushd $pac
+	makepkg -si
+	popd
+done
+popd
 
 pacaur -Sy --needed git zsh neovim || exit 1
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
