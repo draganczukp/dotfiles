@@ -100,7 +100,6 @@ alias ll="ls -hal"
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 # alias launch="xdg-open"
-alias pacaur="trizen --noinfo"
 
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
