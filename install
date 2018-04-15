@@ -29,7 +29,7 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 
 for file in $files; do
-	ln -s $PWD/$file $file
+	ln -fs ~/dotfiles/$file $file
 done
 
 popd
