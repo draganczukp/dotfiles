@@ -84,7 +84,7 @@ Plug 'luochen1990/rainbow'
 " Plugj 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 
-Plug 'draganczukp/factorus'
+Plug 'draganczukp/factorus', {'branch': 'cpp' }
 
 " Plug 'vim-scripts/refactor'
 
@@ -234,6 +234,8 @@ au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
 
 " let g:livepreview_previewer = 'zathura'
 
+au FocusGained,BufEnter * :checktime
+
 set number
 
 "Indent with tabs
@@ -314,4 +316,8 @@ map <Leader>g mggg=G`g:StripWhitespace<CR>
 map <Leader>/ :Commentary<CR>
 map <Leader>bn :bn<CR>
 map <Leader>bb :bp<CR>
-map <Leader>x :FMExtractMethod<SPACE>
+map <Leader>fx :FMExtractMethod<SPACE>
+map <Leader>fm :FRenameMacro<Space>
+map <Leader>fc :FRenameClass<Space>
+map <Leader>fa :FRenameArg<Space>
+map <Leader>ff :FRenameField<Space>

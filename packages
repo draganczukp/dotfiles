@@ -65,7 +65,6 @@ samba
 sbt
 screenfetch
 speedtest-cli
-teamviewer
 texlive-bin
 texlive-core
 tilda
@@ -146,4 +145,3 @@ zsh
 zsh-completions
 zsh-doc
 zsh-syntax-highlighting
-zsnes
