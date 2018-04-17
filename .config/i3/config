@@ -169,6 +169,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Control+l exec i3lock-fancy
+
 exec_always --no-startup-id ~/.config/polybar/launch
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 

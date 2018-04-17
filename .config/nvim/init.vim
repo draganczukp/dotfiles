@@ -90,6 +90,8 @@ Plug 'draganczukp/factorus'
 
 Plug 'bling/vim-bufferline'
 
+Plug 'leafgarland/typescript-vim'
+
 call plug#end()
 
 

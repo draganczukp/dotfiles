@@ -61,7 +61,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git-extras sudo common-aliases bower fast-syntax-highlighting zsh-autosuggestions)
+plugins=(gitfast sudo common-aliases )
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -100,7 +100,6 @@ alias ll="ls -hal"
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 # alias launch="xdg-open"
-alias pacaur="trizen --noinfo"
 
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
