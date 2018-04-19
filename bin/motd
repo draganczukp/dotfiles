@@ -7,4 +7,4 @@ out+="Jest $(date '+%a, %d %b, %H:%M')\n";
 # out+="Cytat: $(fortune -a)"
 # out+="$(python ~/bin/weather.py)"
 
-echo $out | toilet -f future
+echo $out | toilet -f smmono12 -t
