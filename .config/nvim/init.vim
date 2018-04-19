@@ -6,29 +6,17 @@ Plug 'tpope/vim-sensible'
 
 Plug 'tpope/vim-fugitive'
 
-" Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
 
 Plug 'scrooloose/syntastic'
 
-" Plug 'mattn/emmet-vim'
 
 Plug 'flazz/vim-colorschemes'
 
-" Plug 'vim-airline/vim-airline'
-
-" Plug 'vim-airline/vim-airline-themes'
-
 Plug 'itchyny/lightline.vim'
 
-" Plug 'valloric/youcompleteme'
-
-" Plug 'plasticboy/vim-markdown'
-
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Plug 'flazz/vim-colorschemes'
 
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -36,23 +24,7 @@ Plug 'farmergreg/vim-lastplace'
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Plug 'roman/golden-ratio'
-
 Plug 'tfnico/vim-gradle'
-
-" Plug 'artur-shaik/vim-javacomplete2'
-
-" Plug 'rcabralc/monokai-airline.vim'
-
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Plug 'zchee/deoplete-clang'
-
-" Plug 'landaire/deoplete-d'
-
-" Plug 'wokalski/autocomplete-flow'
-
-" Plug 'xuhdev/vim-latex-live-preview'
 
 Plug 'roxma/nvim-completion-manager'
 
@@ -68,8 +40,6 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'lervag/vimtex'
-
-" Plug 'sassanh/nvim-cm-eclim'
 
 Plug 'vim-pandoc/vim-pandoc'
 
