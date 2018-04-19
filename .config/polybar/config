@@ -74,8 +74,8 @@ tray-offset-x = 0
 tray-offset-y = 0
 [bar/bar2]
 inherit = bar/base
-monitor = DVI-I-1
-; modules-right = memory cpu battery
+monitor = DP1
+modules-right = memory cpu battery
 
 
 [module/ewmh]
