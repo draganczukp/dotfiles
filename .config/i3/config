@@ -221,7 +221,7 @@ exec_always feh --bg-scale /home/killermenpl/Obrazy/Wallpapers/wallpaper.jpg
 exec opera
 #	Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
-exec_always --no-startup-id xfce4-panel -d
+# exec_always --no-startup-id xfce4-panel -d
 exec compton --xrender-sync-fence
 exec sh -c "sleep 30; tilda"
 
