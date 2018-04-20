@@ -29,7 +29,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 4
 line-color = #f00
 
 border-size = 1
@@ -65,9 +65,13 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
-; monitor = DVI-D-1
-; monitor = eDP1
-
+monitor = DVI-D-1
+tray-position = right
+; tray-detached = true
+tray-maxsize = 16
+; tray-transparent = true
+tray-offset-x = 0
+tray-offset-y = 0
 [bar/bar2]
 inherit = bar/base
 monitor = DP1
@@ -281,7 +285,7 @@ bar-volume-foreground-3 = #acc267
 bar-volume-foreground-4 = #acc267
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-gradient =true
 bar-volume-indicator = |
 bar-volume-indicator-font = 1
 bar-volume-fill = ─
@@ -297,7 +301,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = 
+format-charging-underline =
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
