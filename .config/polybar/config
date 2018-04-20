@@ -65,7 +65,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
-monitor = DVI-D-1
+; monitor = DVI-D-1
 tray-position = right
 ; tray-detached = true
 tray-maxsize = 16
