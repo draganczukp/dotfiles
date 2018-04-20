@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/killermenpl/dev/studia/2d/src'
-let g:netrw_dirhist_2='/home/killermenpl/dev/studia/2d/src/main'
-let g:netrw_dirhist_3='/home/killermenpl/.local/share/nvim/plugged/vim-javacomplete2/plugin'
-let g:netrw_dirhist_4='/home/killermenpl/Dokumenty/studia/analiza'
-let g:netrw_dirhist_5='/home/killermenpl/dev/studia/sortowanie'
-let g:netrw_dirhist_6='/home/killermenpl/dev/studia/sortowanie/src'
-let g:netrw_dirhist_7='/home/killermenpl/dev/studia/sortowanie/src/main'
-let g:netrw_dirhist_8='/home/killermenpl'
+let g:netrw_dirhist_cnt =0

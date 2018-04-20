@@ -316,8 +316,8 @@ map <Leader>g mggg=G`g:StripWhitespace<CR>
 map <Leader>/ :Commentary<CR>
 map <Leader>bn :bn<CR>
 map <Leader>bb :bp<CR>
-map <Leader>fx :FMExtractMethod<SPACE>
-map <Leader>fm :FRenameMacro<Space>
-map <Leader>fc :FRenameClass<Space>
-map <Leader>fa :FRenameArg<Space>
-map <Leader>ff :FRenameField<Space>
+map <Leader>x :FMExtractMethod<SPACE>
+map <Leader>rm :FRenameMacro<Space>
+map <Leader>rc :FRenameClass<Space>
+map <Leader>ra :FRenameArg<Space>
+map <Leader>rf :FRenameField<Space>
