@@ -6,17 +6,15 @@ Plug 'tpope/vim-sensible'
 
 Plug 'tpope/vim-fugitive'
 
-
 Plug 'tpope/vim-commentary'
 
 Plug 'scrooloose/syntastic'
-
 
 Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
 
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -282,12 +280,13 @@ cnoreabbrev Qall qall
 
 map <Leader>f :NERDTreeToggle<CR>
 map <Leader>g mggg=G`g:StripWhitespace<CR>
-"map <Leader>o :CtrlPMixed<CR>
 map <Leader>/ :Commentary<CR>
-map <Leader>bn :bn<CR>
-map <Leader>bb :bp<CR>
+map <Leader>b :ls<CR>:b<Space>
+" map <Leader>bn :bn<CR>
+" map <Leader>bb :bp<CR>
 map <Leader>x :FMExtractMethod<SPACE>
 map <Leader>rm :FRenameMacro<Space>
 map <Leader>rc :FRenameClass<Space>
 map <Leader>ra :FRenameArg<Space>
 map <Leader>rf :FRenameField<Space>
+map <C-p> :FZF<CR>
