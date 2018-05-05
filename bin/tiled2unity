@@ -1,8 +1,0 @@
-#!/bin/sh
- 
-THIS_DIR=`dirname $0`
-pushd $THIS_DIR > /dev/null 2>&1
- 
-cscs -nl ~/bin/cs-scripts/Tiled2UnityLite.cs "$@" &> /var/log/tiled2unitylite.log
-
-popd > /dev/null 2<&1
