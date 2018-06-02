@@ -49,16 +49,19 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 Plug 'luochen1990/rainbow'
 
-" Plugj 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 
 Plug 'draganczukp/factorus', {'branch': 'cpp' }
 
-" Plug 'vim-scripts/refactor'
-
 Plug 'bling/vim-bufferline'
 
 Plug 'leafgarland/typescript-vim'
+
+Plug 'mattn/emmet-vim'
+
+Plug 'skammer/vim-css-color'
+
+Plug 'jaxbot/browserlink.vim'
 
 call plug#end()
 
@@ -118,9 +121,9 @@ let g:lightline.subseparator = {
 			\}
 
 let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
+			\   'left': [ ['tabs'] ],
+			\   'right': [ ['close'] ]
+			\ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
@@ -250,6 +253,19 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" map c-x and c-v to work as they do in windows, only in insert mode
+vm <c-x> "+x
+vm <c-c> "+y
+cno <c-v> <c-r>+
+exe 'ino <script> <C-V>' paste#paste_cmd['i']
+" allow Tab and Shift+Tab to
+" tab  selection in visual mode
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+nnoremap <esc> :noh<return><esc>
+
 
 "Move between windows
 map <C-j> <C-W>j
@@ -290,3 +306,5 @@ map <Leader>rc :FRenameClass<Space>
 map <Leader>ra :FRenameArg<Space>
 map <Leader>rf :FRenameField<Space>
 map <C-p> :FZF<CR>
+noremap <leader>a ggVG
+
