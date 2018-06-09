@@ -229,7 +229,7 @@ exec sh -c "sleep 30; tilda"
 # exec_always killall xfce4-panel -9
 # exec_always /etc/profile.d/touchpad.sh
 
-# exec geary --hidden
+exec geary --hidden
 
 hide_edge_borders both
 

@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+out='';
+dog='🐕';
+pup='🐶';
+
+out+=$dog
+out+=$pup
+out+=' '
+out+=`uptime -p`
+out+=' ';
+out+=$pup
+out+=$dog
+
+echo $out

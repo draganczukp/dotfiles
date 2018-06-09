@@ -11,4 +11,4 @@ if [[ $1 != '' ]]; then
 	fi
 fi
 git commit -m "$message"
-git push
+git push $branch
