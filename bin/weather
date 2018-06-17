@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+city="Zielona Góra"
+city=$1 || $city
+url="pl.wttr.in/$city"
+
+while [[ true ]]; do
+	clear
+	curl $url
+	sleep 2m
+done
