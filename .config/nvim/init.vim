@@ -24,14 +24,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tfnico/vim-gradle'
 
-Plug 'roxma/nvim-completion-manager'
-
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
-Plug 'roxma/ncm-clang'
 
 Plug 'Shougo/neoinclude.vim'
 
@@ -44,8 +40,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
 Plug 'luochen1990/rainbow'
 
@@ -62,6 +56,21 @@ Plug 'mattn/emmet-vim'
 Plug 'skammer/vim-css-color'
 
 Plug 'jaxbot/browserlink.vim'
+
+Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'Shougo/neoinclude.vim'
+
+Plug 'autozimu/LanguageClient-neovim', {
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
+
+Plug 'zchee/deoplete-clang'
+
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -86,18 +95,6 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_aggregate_errors = 1
-
-" Shorten error/warning flags
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-" I have some custom icons for errors and warnings but feel free to change them.
-let g:ale_sign_error = '✘✘'
-let g:ale_sign_warning = '⚠⚠'
-
-" Disable or enable loclist at the bottom of vim
-" Comes down to personal preferance.
-let g:ale_open_list = 0
-let g:ale_loclist = 0
 
 let g:lightline = {
 			\   'colorscheme': 'one',
@@ -127,13 +124,17 @@ let g:lightline.tabline = {
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
-" Setup compilers for languages
 
-let g:ale_linters = {
-			\  'cs':['syntax', 'semantic', 'issues'],
-			\  'python': ['pylint'],
-			\  'java': ['javac']
-			\ }
+"DEOPLETE
+
+let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/lib/clang/6.0.0/include'
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -145,55 +146,23 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:rainbow_active = 1
 
-augroup my_cm_setup
-	autocmd!
-	autocmd User CmSetup call cm#register_source({
-				\ 'name' : 'vimtex',
-				\ 'priority': 8,
-				\ 'scoping': 1,
-				\ 'scopes': ['tex'],
-				\ 'abbreviation': 'tex',
-				\ 'cm_refresh_patterns': g:vimtex#re#ncm,
-				\ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
-				\ })
-augroup END
+" augroup my_cm_setup
+" 	autocmd!
+" 	autocmd User CmSetup call cm#register_source({
+" 				\ 'name' : 'vimtex',
+" 				\ 'priority': 8,
+" 				\ 'scoping': 1,
+" 				\ 'scopes': ['tex'],
+" 				\ 'abbreviation': 'tex',
+" 				\ 'cm_refresh_patterns': g:vimtex#re#ncm,
+" 				\ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
+" 				\ })
+" augroup END
 
 set encoding=utf-8
 
 
-" let g:airline_powerline_fonts = 1
-
-" let g:airline_theme='badwolf'
-
-" let g:airline#extensions#syntastic#enabled = 1
-" let g:airline_skip_empty_sections = 1
-
-" let g:airline#extensions#tabline#enabled = 1
-
 colorscheme badwolf
-
-"Javacomplete
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" autocmd FileType java JCEnable
-" set omnifunc=syntaxcomplete#Complete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-" let g:deoplete#auto_completion_start_length = 2
-" let g:deoplete#sources = {}
-" let g:deoplete#sources._ = []
-" let g:deoplete#file#enable_buffer_path = 1
-
-" let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-" let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-" let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer', 'ultisnips']
-
-" if !exists('g:deoplete#omni#input_patterns')
-" 	let g:deoplete#omni#input_patterns = {}
-" endif
-" " Auto close preview pane in Deoplete
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
 
 " golden ratio
 let g:golden_ratio_exclude_nonmodifiable = 1
