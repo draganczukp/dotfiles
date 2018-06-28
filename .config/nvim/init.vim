@@ -1,4 +1,4 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('/home/killermenpl/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -52,7 +52,7 @@ Plug 'luochen1990/rainbow'
 " Plugj 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 
-Plug 'draganczukp/factorus', {'branch': 'cpp' }
+Plug 'apalmer1377/factorus'
 
 " Plug 'vim-scripts/refactor'
 

@@ -5,7 +5,7 @@ export TERM="xterm-256color"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+  export ZSH=/home/killermenpl/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -14,7 +14,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-fontconfig'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 
@@ -100,10 +100,16 @@ alias ll="ls -hal"
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 # alias launch="xdg-open"
-
+alias poweroff="echo server | toilet -f future"
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ~/bin/motd
+
+PATH="/home/killermenpl/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/killermenpl/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/killermenpl/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/killermenpl/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/killermenpl/perl5"; export PERL_MM_OPT;
