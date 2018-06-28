@@ -1,17 +1,6 @@
 #!/bin/zsh
 
-files=("bin" "Obrazy/Wallpapers" ".zshrc" ".tmux.conf.local" ".config/i3" ".config/nvim" ".config/polybar" ".config/rofi" ".icons" "./themes")
-gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-
-pushd /tmp
-pacman -S git --needed
-for pac in cower pacaur; do
-	git clone https://aur.archlinux.org/$pac
-	pushd $pac
-	makepkg -si
-	popd
-done
-popd
+files=("bin" ".zshrc" ".tmux.conf.local" ".config/nvim")
 
 pacaur -Sy --needed git zsh neovim || exit 1
 
@@ -21,8 +10,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-
 
 pushd ~
 git clone https://github.com/gpakosz/.tmux.git
@@ -34,4 +21,3 @@ done
 
 popd
 
-pacaur -Sy --noedit --needed --noconfirm $(cat packages)
