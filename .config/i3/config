@@ -218,8 +218,8 @@ exec_always feh --bg-scale /home/killermenpl/Obrazy/Wallpapers/wallpaper.jpg
 # Animated wallpaper!
 # exec_always xwinwrap -g 1366x768 -ov -ni -s -nf -- gifview -w WID /home/killermenpl/Obrazy/Wallpapers/wallpaper2.gif -a --geometry 1366x768
 
-exec opera
-#	Wait a bit with starting spotify because of high disc usage
+exec vivaldi-stable
+#Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
 exec compton --xrender-sync-fence
@@ -229,7 +229,7 @@ exec sh -c "sleep 30; tilda"
 # exec_always killall xfce4-panel -9
 # exec_always /etc/profile.d/touchpad.sh
 
-# exec geary --hidden
+exec geary --hidden
 
 hide_edge_borders both
 
