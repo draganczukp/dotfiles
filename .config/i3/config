@@ -222,7 +222,7 @@ exec vivaldi-stable
 #Wait a bit with starting spotify because of high disc usage
 exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
-exec compton --xrender-sync-fence
+# exec compton --xrender-sync-fence
 exec sh -c "sleep 30; tilda"
 
 # The panel seems to startup no mather what I do, so I kill it immediatelly
