@@ -133,8 +133,26 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
-# Redirect sound to headphones
-bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
+# Make sure certain programs can only run on specific workspace
+assign [class="Spotify"] $w10
+# Spotify doesn't care about assign and opens where it wants. This moves it to $w10
+for_window [class="Spotify"] move window to workspace $w10
+assign [class="Pavucontrol"] $w10
+assign [class="Opera*"] $w1
+assign [class="Xfce4-terminal"] $w2
+assign [class="Eclipse"] $w3
+
+assign [class="Thunar"] $w4
+assign [class="Civ5XP"] $w5
+
+assign [class="Atom"] $w3
+assign [class="krita"] $w6
+
+# Float some programs, since they realy don't like being tiled
+for_window [class="(?i)feh*"] floating enable
+for_window [class="xfce4-panel"] floating enable
+for_window [class="(?i)Tilda"] floating enable
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -169,41 +187,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Lock the screen with some nice blur
 bindsym $mod+Control+l exec i3lock-fancy
 
-exec_always --no-startup-id ~/.config/polybar/launch
-exec_always --no-startup-id ~/.screenlayout/layout.sh
-
-exec_always --no-startup-id "setxkbmap -option caps:escape"
-
-
-assign [class="Spotify"] $w10
-for_window [class="Spotify"] move window to workspace $w10
-assign [class="Pavucontrol"] $w10
-assign [class="Opera*"] $w1
-assign [class="Xfce4-terminal"] $w2
-assign [class="Eclipse"] $w3
-
-assign [class="Thunar"] $w4
-assign [class="Civ5XP"] $w5
-
-assign [class="Atom"] $w3
-assign [class="krita"] $w6
-
-for_window [instance="Godot_Engine"] floating enable
-for_window [class="(?i)pamac-*"] floating enable
-for_window [class="(?i)feh*"] floating enable
-for_window [class="RotateGame"] floating enable
-for_window [class="xfce4-panel"] floating enable
-
-for_window [class="(?i)Tilda"] floating enable
-
+bindsym $mod+Control+c exec --no-startup-id ~/bin/start-compton
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%        #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%        #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
 
 # Screenshot
 bindsym Print exec --no-startup-id xfce4-screenshooter
@@ -214,16 +206,21 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-scale /home/killermenpl/Obrazy/Wallpapers/wallpaper.jpg
-# Animated wallpaper!
-# exec_always xwinwrap -g 1366x768 -ov -ni -s -nf -- gifview -w WID /home/killermenpl/Obrazy/Wallpapers/wallpaper2.gif -a --geometry 1366x768
+exec_always --no-startup-id ~/.config/polybar/launch
+exec_always --no-startup-id ~/.screenlayout/layout.sh
+
+exec_always --no-startup-id "setxkbmap -option caps:escape"
+
+exec_always --no-startup-id ~/bin/wallpaper
 
 exec vivaldi-stable
-#Wait a bit with starting spotify because of high disc usage
+# Wait a bit with starting spotify because of high disk usage
 exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
-exec compton --xrender-sync-fence
-exec sh -c "sleep 30; tilda"
+
+exec_always --no-startup-id ~/bin/start-compton
+#exec compton --xrender-sync-fence
+exec tilda
 
 # The panel seems to startup no mather what I do, so I kill it immediatelly
 # exec_always killall xfce4-panel -9
@@ -231,10 +228,12 @@ exec sh -c "sleep 30; tilda"
 
 exec geary --hidden
 
-hide_edge_borders both
+
+# Colors, borders and general looks
 
 for_window [class="^.*"] border pixel 2
 
+hide_edge_borders both
 gaps inner 5
 gaps outer 5
 smart_gaps on
