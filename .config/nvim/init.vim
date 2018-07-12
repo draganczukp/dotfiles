@@ -61,16 +61,12 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'Shougo/neoinclude.vim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
-
-Plug 'zchee/deoplete-clang'
-
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+
+Plug 'chemzqm/jsonc.vim'
+
+
+Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 call plug#end()
 
@@ -125,15 +121,23 @@ set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
 
-"DEOPLETE
+""DEOPLETE
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
-let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib/clang/6.0.0/include'
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#case_insensitive = 1
+"let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header='/usr/lib/clang/6.0.0/include'
+"let g:deoplete#sources#ternjs#docs = 1
+"let g:deoplete#sources#ternjs#types = 1
+"let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" CoC
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.

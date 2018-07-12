@@ -66,10 +66,10 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 [bar/bar1]
 inherit = bar/base
-; monitor = DVI-D-1
+monitor = DVI-D-1
 [bar/bar2]
 inherit = bar/base
-monitor = DP1
+; monitor = DP1
 modules-right = memory cpu battery
 
 
