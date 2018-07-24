@@ -102,6 +102,8 @@ alias vim="nvim"
 alias git="hub"
 # alias launch="xdg-open"
 alias poweroff="echo server | toilet -f future"
+alias cim="vim"
+
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
 }
