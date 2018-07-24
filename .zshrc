@@ -101,11 +101,18 @@ alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 alias git="hub"
 # alias launch="xdg-open"
-alias poweroff="echo server | toilet -f future"
 alias cim="vim"
 
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
+}
+
+function poweroff(){
+	if [ $HOST != Drop ]; then
+		systemctl poweroff
+	else
+		echo "Server" | toilet -f future
+	fi
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
