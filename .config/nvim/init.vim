@@ -2,6 +2,8 @@ call plug#begin('/home/killermenpl/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 Plug 'tpope/vim-sensible'
 
 Plug 'tpope/vim-fugitive'
@@ -14,13 +16,9 @@ Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
 
-" Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'farmergreg/vim-lastplace'
-
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tfnico/vim-gradle'
 
@@ -28,8 +26,6 @@ Plug 'tfnico/vim-gradle'
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
-Plug 'Shougo/neoinclude.vim'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -59,17 +55,96 @@ Plug 'jaxbot/browserlink.vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
 
-Plug 'Shougo/neoinclude.vim'
-
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
 Plug 'chemzqm/jsonc.vim'
 
+Plug 'rust-lang/rust.vim'
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'ncm2/ncm2'
+
+Plug 'roxma/nvim-yarp'
+
+Plug 'ncm2/ncm2-bufword'
+
+Plug 'ncm2/ncm2-tmux'
+
+Plug 'ncm2/ncm2-path'
+
+Plug 'ncm2/ncm2-jedi'
+
+Plug 'ncm2/ncm2-tagprefix'
+
+Plug 'jsfaint/gen_tags.vim'
+
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+
+Plug 'ncm2/ncm2-cssomni'
+
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+
+Plug 'ncm2/ncm2-racer'
+
+Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+
+Plug 'ncm2/ncm2-html-subscope'
+
+Plug 'ncm2/ncm2-markdown-subscope'
+
+" Plug 'ncm2/ncm2-match-highlight'
+
+Plug 'autozimu/LanguageClient-neovim', {
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
 
 call plug#end()
 
+" Completion
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+set shortmess+=c
+
+au TextChangedI * call ncm2#auto_trigger()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:LanguageClient_serverCommands = {
+			\ 'typescript': ['javascript-typescript-stdio']
+			\ }
+
+let g:ncm2#match_highlight = 'bold'
+let g:ncm2#match_highlight = 'sans-serif'
+let g:ncm2#match_highlight = 'sans-serif-bold'
+let g:ncm2#match_highlight = 'mono-space'
+
+" default
+let g:ncm2#match_highlight = 'double-struck'
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+au User Ncm2Plugin call ncm2#register_source({
+			\ 'name' : 'tex',
+			\ 'priority': 9,
+			\ 'subscope_enable': 1,
+			\ 'scope': ['tex','latex'],
+			\ 'mark': 'tex',
+			\ 'word_pattern': '\\[\w\-]+',
+			\ 'complete_pattern': ':\s*',
+			\ 'on_complete': ['ncm2#on_complete#omni', ],
+			\ })
+
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -117,56 +192,14 @@ let g:lightline.tabline = {
 			\   'left': [ ['tabs'] ],
 			\   'right': [ ['close'] ]
 			\ }
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
 
 
-""DEOPLETE
 
-"let g:deoplete#enable_at_startup = 1
-
-"let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-"let g:deoplete#sources#clang#clang_header='/usr/lib/clang/6.0.0/include'
-"let g:deoplete#sources#ternjs#docs = 1
-"let g:deoplete#sources#ternjs#types = 1
-"let g:deoplete#sources#ternjs#case_insensitive = 1
-
-" CoC
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 let g:rainbow_active = 1
-
-" augroup my_cm_setup
-" 	autocmd!
-" 	autocmd User CmSetup call cm#register_source({
-" 				\ 'name' : 'vimtex',
-" 				\ 'priority': 8,
-" 				\ 'scoping': 1,
-" 				\ 'scopes': ['tex'],
-" 				\ 'abbreviation': 'tex',
-" 				\ 'cm_refresh_patterns': g:vimtex#re#ncm,
-" 				\ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
-" 				\ })
-" augroup END
-
-set encoding=utf-8
-
-
 colorscheme badwolf
+
+
 
 " golden ratio
 let g:golden_ratio_exclude_nonmodifiable = 1
@@ -180,7 +213,13 @@ au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
 
 au FocusGained,BufEnter * :checktime
 
+" nvim 'set' options
+set encoding=utf-8
 set number
+set relativenumber
+
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
 
 "Indent with tabs
 set shiftwidth=2
