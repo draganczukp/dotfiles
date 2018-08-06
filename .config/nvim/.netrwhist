@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/killermenpl/.config'
 let g:netrw_dirhist_2='/home/killermenpl/.config/vis'
 let g:netrw_dirhist_3='/home/killermenpl/dev/rotate/build'
 let g:netrw_dirhist_4='/home/killermenpl/dev/rotate'
+let g:netrw_dirhist_5='/home/killermenpl/Dokumenty/studia/technika eksperymentu/Semestr2/cw7'
