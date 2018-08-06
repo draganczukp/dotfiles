@@ -215,7 +215,7 @@ exec_always --no-startup-id ~/bin/wallpaper
 
 exec vivaldi-stable
 # Wait a bit with starting spotify because of high disk usage
-exec sh -c "sleep 30; spotify"
+# exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
 
 exec_always --no-startup-id ~/bin/start-compton
