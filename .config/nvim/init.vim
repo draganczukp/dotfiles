@@ -1,210 +1,17 @@
+" vim: set foldmethod=marker:
 call plug#begin('/home/killermenpl/.local/share/nvim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" {{{ Generic
 
-Plug 'tpope/vim-sensible'
+" {{{ Not plugin
 
-Plug 'tpope/vim-fugitive'
+" {{{ Set
+set encoding=utf-8
+set number
+set relativenumber
 
-Plug 'tpope/vim-commentary'
-
-Plug 'scrooloose/syntastic'
-
-Plug 'flazz/vim-colorschemes'
-
-Plug 'itchyny/lightline.vim'
-
-" Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'ntpeters/vim-better-whitespace'
-
-Plug 'farmergreg/vim-lastplace'
-
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-Plug 'tfnico/vim-gradle'
-
-Plug 'roxma/nvim-completion-manager'
-
-" Track the engine.
-Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-
-Plug 'roxma/ncm-clang'
-
-Plug 'Shougo/neoinclude.vim'
-
-Plug 'airblade/vim-gitgutter'
-
-Plug 'lervag/vimtex'
-
-Plug 'vim-pandoc/vim-pandoc'
-
-Plug 'vim-pandoc/vim-pandoc-syntax'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-
-Plug 'luochen1990/rainbow'
-
-" Plugj 'w0rp/ale'
-Plug 'majutsushi/tagbar'
-
-Plug 'apalmer1377/factorus'
-
-" Plug 'vim-scripts/refactor'
-
-Plug 'bling/vim-bufferline'
-
-Plug 'leafgarland/typescript-vim'
-
-call plug#end()
-
-
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 1
-
-let g:syntastic_tex_checkers=['lacheck']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
-
-" Shorten error/warning flags
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-" I have some custom icons for errors and warnings but feel free to change them.
-let g:ale_sign_error = '✘✘'
-let g:ale_sign_warning = '⚠⚠'
-
-" Disable or enable loclist at the bottom of vim
-" Comes down to personal preferance.
-let g:ale_open_list = 0
-let g:ale_loclist = 0
-
-let g:lightline = {
-			\   'colorscheme': 'one',
-			\   'active': {
-			\     'left':[ [ 'mode', 'paste' ],
-			\              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-			\     ]
-			\   },
-			\   'component': {
-			\     'lineinfo': ' %3l:%-2v',
-			\   },
-			\   'component_function': {
-			\     'gitbranch': 'fugitive#head',
-			\   }
-			\ }
-let g:lightline.separator = {
-			\   'left': '', 'right': ''
-			\}
-let g:lightline.subseparator = {
-			\   'left': '', 'right': ''
-			\}
-
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
-
-" Setup compilers for languages
-
-let g:ale_linters = {
-			\  'cs':['syntax', 'semantic', 'issues'],
-			\  'python': ['pylint'],
-			\  'java': ['javac']
-			\ }
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-let g:rainbow_active = 1
-
-augroup my_cm_setup
-	autocmd!
-	autocmd User CmSetup call cm#register_source({
-				\ 'name' : 'vimtex',
-				\ 'priority': 8,
-				\ 'scoping': 1,
-				\ 'scopes': ['tex'],
-				\ 'abbreviation': 'tex',
-				\ 'cm_refresh_patterns': g:vimtex#re#ncm,
-				\ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
-				\ })
-augroup END
-
-set encoding=utf-8
-
-
-" let g:airline_powerline_fonts = 1
-
-" let g:airline_theme='badwolf'
-
-" let g:airline#extensions#syntastic#enabled = 1
-" let g:airline_skip_empty_sections = 1
-
-" let g:airline#extensions#tabline#enabled = 1
-
-colorscheme badwolf
-
-"Javacomplete
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" autocmd FileType java JCEnable
-" set omnifunc=syntaxcomplete#Complete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-" let g:deoplete#auto_completion_start_length = 2
-" let g:deoplete#sources = {}
-" let g:deoplete#sources._ = []
-" let g:deoplete#file#enable_buffer_path = 1
-
-" let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-" let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-" let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer', 'ultisnips']
-
-" if !exists('g:deoplete#omni#input_patterns')
-" 	let g:deoplete#omni#input_patterns = {}
-" endif
-" " Auto close preview pane in Deoplete
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
-" golden ratio
-let g:golden_ratio_exclude_nonmodifiable = 1
-
-
-" latex
-autocmd Filetype tex setl updatetime=1
-au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
-
-" let g:livepreview_previewer = 'zathura'
-
-au FocusGained,BufEnter * :checktime
-
-set number
 
 "Indent with tabs
 set shiftwidth=2
@@ -250,6 +57,32 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" More natural splits
+set splitbelow
+set splitright
+
+set formatoptions+=j
+" }}}
+
+" {{{ Clipboard
+
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" map c-x and c-v to work as they do in windows, only in insert mode
+vm <c-x> "+x
+vm <c-c> "+y
+cno <c-v> <c-r>+
+exe 'ino <script> <C-V>' paste#paste_cmd['i']
+
+" }}}
+
+" {{{ Key binds
+" allow Tab and Shift+Tab to
+" tab  selection in visual mode
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+nnoremap <esc> :noh<return><esc>
+
 
 "Move between windows
 map <C-j> <C-W>j
@@ -263,10 +96,6 @@ nnoremap <S-Right> :vertical resize +1<CR>
 nnoremap <S-Up> :resize -1<CR>
 nnoremap <S-Down> :resize +1<CR>
 
-" More natural splits
-set splitbelow
-set splitright
-
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -278,15 +107,309 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-map <Leader>f :NERDTreeToggle<CR>
-map <Leader>g mggg=G`g:StripWhitespace<CR>
-map <Leader>/ :Commentary<CR>
+noremap <leader>a ggVG
 map <Leader>b :ls<CR>:b<Space>
-" map <Leader>bn :bn<CR>
-" map <Leader>bb :bp<CR>
+map <Leader>g mggg=G`g:StripWhitespace<CR>
+" }}}
+
+" }}}
+
+" {{{ No config needed
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'farmergreg/vim-lastplace'
+
+Plug 'tfnico/vim-gradle'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'bling/vim-bufferline'
+
+Plug 'skammer/vim-css-color'
+
+Plug 'chemzqm/jsonc.vim'
+
+Plug 'roxma/nvim-yarp'
+" }}}
+
+" {{{ Factorus
+Plug 'apalmer1377/factorus'
+
 map <Leader>x :FMExtractMethod<SPACE>
 map <Leader>rm :FRenameMacro<Space>
 map <Leader>rc :FRenameClass<Space>
 map <Leader>ra :FRenameArg<Space>
 map <Leader>rf :FRenameField<Space>
+
+" }}}
+"
+" {{{ Commentary
+Plug 'tpope/vim-commentary'
+
+map <Leader>/ :Commentary<CR>
+" }}}
+
+" {{{ File management
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+map <Leader>f :NERDTreeToggle<CR>
 map <C-p> :FZF<CR>
+" }}}
+
+" {{{ Syntastic
+Plug 'scrooloose/syntastic'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
+
+let g:syntastic_tex_checkers=['lacheck']
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_aggregate_errors = 1
+
+" }}}
+
+" {{{ Colorscheme
+Plug 'flazz/vim-colorschemes'
+
+
+" }}}
+
+" {{{ Lightline
+Plug 'itchyny/lightline.vim'
+
+" }}}
+
+" {{{ Snippets
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
+" }}}
+
+" {{{ Rainbow
+Plug 'luochen1990/rainbow'
+
+let g:rainbow_active = 1
+
+" }}}
+
+" {{{ Tagbar
+Plug 'majutsushi/tagbar'
+
+nnoremap <F8> :Tagbar
+"}}}
+
+"}}}
+
+" {{{ Completion
+
+Plug 'ncm2/ncm2'
+
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-match-highlight'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-tern'
+
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+
+Plug 'autozimu/LanguageClient-neovim', {
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+set completeopt=noinsert,menuone,noselect
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not" found' messages
+set shortmess+=c
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or("", 'n') : "\<CR>" ))
+
+imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
+smap <c-u> <Plug>(ultisnips_expand)
+
+
+" for contents of settings.json for vue-language-server
+let g:LanguageClient_completionPreferTextEdit = 1
+
+" the suddennly popup of diagnostics sign is kind of annoying
+let g:LanguageClient_diagnosticsSignsMax = 0
+"}}}
+
+" {{{ Language specific
+
+" {{{ Web
+
+Plug 'ncm2/ncm2-html-subscope'
+
+Plug 'ncm2/ncm2-cssomni'
+
+" }}
+
+" {{{ Clang
+
+Plug 'ncm2/ncm2-pyclang'
+
+let g:ncm2_pyclang#database_path = [
+			\ 'compile_commands.json',
+			\ 'build/compile_commands.json'
+			\ ]
+let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
+
+autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
+
+" }}}
+
+" {{{ Latex
+Plug 'lervag/vimtex'
+
+Plug 'vim-pandoc/vim-pandoc'
+
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+autocmd Filetype tex setl updatetime=1
+au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
+
+" let g:livepreview_previewer = 'zathura'
+
+au FocusGained,BufEnter * :checktime
+
+au InsertEnter * call ncm2#enable_for_buffer()
+au Filetype tex call ncm2#register_source({
+			\ 'name' : 'vimtex-cmds',
+			\ 'priority': 8,
+			\ 'complete_length': -1,
+			\ 'scope': ['tex'],
+			\ 'matcher': {'name': 'prefix', 'key': 'word'},
+			\ 'word_pattern': '\w+',
+			\ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+			\ })
+au Filetype tex call ncm2#register_source({
+			\ 'name' : 'vimtex-labels',
+			\ 'priority': 8,
+			\ 'complete_length': -1,
+			\ 'scope': ['tex'],
+			\ 'matcher': {'name': 'combine',
+			\             'matchers': [
+			\               {'name': 'substr', 'key': 'word'},
+			\               {'name': 'substr', 'key': 'menu'},
+			\             ]},
+			\ 'word_pattern': '\w+',
+			\ 'complete_pattern': g:vimtex#re#ncm2#labels,
+			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+			\ })
+au Filetype tex call ncm2#register_source({
+			\ 'name' : 'vimtex-files',
+			\ 'priority': 8,
+			\ 'complete_length': -1,
+			\ 'scope': ['tex'],
+			\ 'matcher': {'name': 'combine',
+			\             'matchers': [
+			\               {'name': 'abbrfuzzy', 'key': 'word'},
+			\               {'name': 'abbrfuzzy', 'key': 'abbr'},
+			\             ]},
+			\ 'word_pattern': '\w+',
+			\ 'complete_pattern': g:vimtex#re#ncm2#files,
+			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+			\ })
+au Filetype tex call ncm2#register_source({
+			\ 'name' : 'bibtex',
+			\ 'priority': 8,
+			\ 'complete_length': -1,
+			\ 'scope': ['tex'],
+			\ 'matcher': {'name': 'combine',
+			\             'matchers': [
+			\               {'name': 'prefix', 'key': 'word'},
+			\               {'name': 'abbrfuzzy', 'key': 'abbr'},
+			\               {'name': 'abbrfuzzy', 'key': 'menu'},
+			\             ]},
+			\ 'word_pattern': '\w+',
+			\ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+			\ })
+
+" }}}
+
+" {{{ Rust
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'ncm2/ncm2-racer'
+
+" }}}
+
+" }}}
+
+" }}}
+call plug#end()
+
+" {{{ After plug#end
+" These will not work if placed before plug#end for some reason, so they're here
+
+colorscheme badwolf
+
+" {{{Lightline
+let g:lightline = {
+			\   'colorscheme': 'one',
+			\   'active': {
+			\     'left':[ [ 'mode', 'paste' ],
+			\              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+			\     ]
+			\   },
+			\   'component': {
+			\     'lineinfo': ' %3l:%-2v',
+			\   },
+			\   'component_function': {
+			\     'gitbranch': 'fugitive#head',
+			\   }
+			\ }
+let g:lightline.separator = {
+			\   'left': '', 'right': ''
+			\}
+let g:lightline.subseparator = {
+			\   'left': '', 'right': ''
+			\}
+let g:lightline.tabline = {
+			\   'left': [ ['tabs'] ],
+			\   'right': [ ['close'] ]
+			\ }
+" }}}
+
+"}}}
