@@ -213,7 +213,8 @@ exec_always --no-startup-id "setxkbmap -option caps:escape"
 
 exec_always --no-startup-id ~/bin/wallpaper
 
-exec vivaldi-stable
+# exec vivaldi-stable
+exec opera
 # Wait a bit with starting spotify because of high disk usage
 # exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d

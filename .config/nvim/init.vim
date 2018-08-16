@@ -242,10 +242,17 @@ Plug 'ncm2/ncm2-tern'
 
 Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ncm2/ncm2-vim-lsp'
+
+if executable('jdtls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'jdtls',
+        \ 'cmd': {server_info->['jdtls']},
+        \ 'whitelist': ['java'],
+        \ })
+endif
 
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
