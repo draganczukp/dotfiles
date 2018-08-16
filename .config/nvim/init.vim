@@ -242,21 +242,17 @@ Plug 'ncm2/ncm2-tern'
 
 Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'ncm2/ncm2-vim-lsp'
 
-if executable('jdtls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'jdtls',
-        \ 'cmd': {server_info->['jdtls']},
-        \ 'whitelist': ['java'],
-        \ })
-endif
+Plug 'autozimu/LanguageClient-neovim', {
+						\ 'branch': 'next',
+						\ 'do': 'bash install.sh',
+						\ }
 
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+let g:LanguageClient_serverCommands = {
+    \ 'java': ['/usr/bin/jdtls'],
+    \ }
 
+let g:LanguageClient_autoStart = 1
 set completeopt=noinsert,menuone,noselect
 
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not" found' messages
