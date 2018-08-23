@@ -21,3 +21,5 @@ done
 
 popd
 
+pacaur -S --needed --noedit --noconfirm $(cat packages)
+

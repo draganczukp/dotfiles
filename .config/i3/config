@@ -143,10 +143,16 @@ assign [class="Xfce4-terminal"] $w2
 assign [class="Eclipse"] $w3
 
 assign [class="Thunar"] $w4
+
 assign [class="Civ5XP"] $w5
+assign [class="RimWorldLinux.x86_64"] $w5
 
 assign [class="Atom"] $w3
 assign [class="krita"] $w6
+
+assign [class="Geary"] $w9
+
+assign [class="Steam"] $w6
 
 # Float some programs, since they realy don't like being tiled
 for_window [class="(?i)feh*"] floating enable
@@ -216,12 +222,12 @@ exec_always --no-startup-id ~/bin/wallpaper
 # exec vivaldi-stable
 exec opera
 # Wait a bit with starting spotify because of high disk usage
-# exec sh -c "sleep 30; spotify"
+exec sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
 
 exec_always --no-startup-id ~/bin/start-compton
 #exec compton --xrender-sync-fence
-exec tilda
+# exec tilda
 
 # The panel seems to startup no mather what I do, so I kill it immediatelly
 # exec_always killall xfce4-panel -9
