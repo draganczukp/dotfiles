@@ -205,7 +205,7 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsExpandTrigger		= '<cr>' " '<Plug>(ultisnips_expand)'
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
@@ -241,7 +241,6 @@ Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-tern'
 
 Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-
 
 Plug 'autozimu/LanguageClient-neovim', {
 						\ 'branch': 'next',
@@ -380,7 +379,9 @@ Plug 'ncm2/ncm2-racer'
 
 " }}}
 
+
 " }}}
+
 call plug#end()
 
 " {{{ After plug#end
