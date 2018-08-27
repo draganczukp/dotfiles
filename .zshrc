@@ -1,9 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
 
+export LANG="pl_PL.UTF-8"
+export LC_ALL="pl_PL.UTF-8"
+
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/killermenpl/.oh-my-zsh
+export ZSH=/home/killermenpl/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
