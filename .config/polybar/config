@@ -64,6 +64,10 @@ enable-ipc = true
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
+[bar/laptop]
+inherit = bar/base
+monitor = eDP1
 [bar/bar1]
 inherit = bar/base
 monitor = DVI-0
