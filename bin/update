@@ -1,3 +1,3 @@
 #!/bin/sh
-pacaur -Syyu --noconfirm --noedit
+yay
 gem update
