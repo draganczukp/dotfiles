@@ -205,10 +205,10 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-let g:UltiSnipsExpandTrigger		= '<cr>' " '<Plug>(ultisnips_expand)'
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
+" let g:UltiSnipsExpandTrigger		=  '<Plug>(ultisnips_expand)'
+" let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+" let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " }}}
 
@@ -261,7 +261,9 @@ set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or("", 'n') : "\<CR>" ))
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  '\<c-y>\<cr>' : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or('', 'n') : '\<CR>' ))
 
 imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
 smap <c-u> <Plug>(ultisnips_expand)
@@ -282,7 +284,15 @@ Plug 'ncm2/ncm2-html-subscope'
 
 Plug 'ncm2/ncm2-cssomni'
 
-" }}
+" }}}
+
+" {{{ Typescript
+
+  Plug 'HerringtonDarkholme/yats.vim'
+
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+" }}}
 
 " {{{ Clang
 
@@ -374,8 +384,6 @@ au Filetype tex call ncm2#register_source({
 Plug 'rust-lang/rust.vim'
 
 Plug 'ncm2/ncm2-racer'
-
-" }}}
 
 " }}}
 

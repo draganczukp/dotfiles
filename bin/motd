@@ -4,10 +4,10 @@ font="smmono12"
 # font="future"
 out="";
 
-neofetch
+# neofetch
 
-out+="Hello, $USER\n";
-out+="It's $(date '+%a, %d %b, %H:%M')\n";
+out+="Witaj, $USER\n";
+out+="Jest $(date '+%a, %d %b, %H:%M')\n";
 # out+="Cytat: $(fortune -a)"
 # out+="$(python ~/bin/weather.py)"
 
