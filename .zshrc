@@ -3,8 +3,11 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
 
 export TERM="xterm-256color"
+
+export LANGUAGE=pl_PL.UTF-8
 export LC_ALL=pl_PL.UTF-8
 export LANG=pl_PL.UTF-8
+
 export EDITOR='nvim'
 
 export ZSH=/home/killermenpl/.oh-my-zsh
@@ -68,16 +71,28 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # {{{ Aliases
 
-alias ll="ls -hal"
+alias ls="colorls --sd "
+
+alias ll="ls -Al"
+alias l="ls -l"
+alias lt="ls --tree"
+
+alias lg="ls --gs"
+alias lgt="ls --gs --tree"
+
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 alias git="hub"
 # alias launch="xdg-open"
 alias cim="vim"
 
+alias mkdir="mkdir -p"
+
+alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 # }}}
 
 # {{{ Functions
+
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
 }
@@ -121,6 +136,14 @@ function cd() {
 	else
 		builtin cd "${@}"
 	fi
+}
+
+function mkcd(){
+	mkdir -p $1; cd $1
+}
+
+function \$(){
+	$@
 }
 
 # }}}
