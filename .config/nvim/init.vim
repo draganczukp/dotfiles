@@ -132,7 +132,8 @@ Plug 'skammer/vim-css-color'
 
 Plug 'chemzqm/jsonc.vim'
 
-Plug 'roxma/nvim-yarp'
+" Plug 'roxma/nvim-yarp'
+
 " }}}
 
 " {{{ Factorus
@@ -200,14 +201,15 @@ Plug 'itchyny/lightline.vim'
 " }}}
 
 " {{{ Snippets
+" Remove snippets, since I don't use them
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
 let g:UltiSnipsExpandTrigger		= '<Plug>(ultisnips_expand)'
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsJumpForwardTrigger	= '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger	= '<c-k>'
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " }}}
@@ -229,60 +231,70 @@ nnoremap <F8> :Tagbar
 
 " {{{ Completion
 
-Plug 'ncm2/ncm2'
+" " {{{ ncm2
+" Plug 'ncm2/ncm2'
 
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-match-highlight'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-markdown-subscope'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-tern'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-match-highlight'
+" Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2-markdown-subscope'
+" Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-tern'
 
-Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+" Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-						\ 'branch': 'next',
-						\ 'do': 'bash install.sh',
-						\ }
+" Plug 'autozimu/LanguageClient-neovim', {
+" 						\ 'branch': 'next',
+" 						\ 'do': 'bash install.sh',
+" 						\ }
 
-let g:LanguageClient_serverCommands = {
-    \ 'java': ['/usr/bin/jdtls'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'java': ['/usr/bin/jdtls'],
+"     \ }
 
-let g:LanguageClient_autoStart = 1
-set completeopt=noinsert,menuone,noselect
+" let g:LanguageClient_autoStart = 1
+" set completeopt=noinsert,menuone,noselect
 
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not" found' messages
-set shortmess+=c
+"   " suppress the annoying 'match x of y', 'The only match' and 'Pattern not" found' messages
+" set shortmess+=c
 
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " Use <TAB> to select the popup menu:
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
-" inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  '\<c-y>\<cr>' : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or('', 'n') : '\<CR>' ))
+" " inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  '\<c-y>\<cr>' : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or('', 'n') : '\<CR>' ))
 
-imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
-smap <c-u> <Plug>(ultisnips_expand)
+" imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
+" smap <c-u> <Plug>(ultisnips_expand)
 
 
-" for contents of settings.json for vue-language-server
-let g:LanguageClient_completionPreferTextEdit = 1
+" " for contents of settings.json for vue-language-server
+" let g:LanguageClient_completionPreferTextEdit = 1
 
-" the suddennly popup of diagnostics sign is kind of annoying
-let g:LanguageClient_diagnosticsSignsMax = 0
+" " the suddennly popup of diagnostics sign is kind of annoying
+" let g:LanguageClient_diagnosticsSignsMax = 0
+
+" " }}}
+
+" {{{ YCM
+
+Plug 'Valloric/YouCompleteMe'
+
+" }}}
+
 "}}}
 
 " {{{ Language specific
 
 " {{{ Web
 
-Plug 'ncm2/ncm2-html-subscope'
+" Plug 'ncm2/ncm2-html-subscope'
 
-Plug 'ncm2/ncm2-cssomni'
+" Plug 'ncm2/ncm2-cssomni'
 
 " }}}
 
@@ -290,21 +302,21 @@ Plug 'ncm2/ncm2-cssomni'
 
   Plug 'HerringtonDarkholme/yats.vim'
 
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " }}}
 
 " {{{ Clang
 
-Plug 'ncm2/ncm2-pyclang'
+" Plug 'ncm2/ncm2-pyclang'
 
-let g:ncm2_pyclang#database_path = [
-			\ 'compile_commands.json',
-			\ 'build/compile_commands.json'
-			\ ]
-let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
+" let g:ncm2_pyclang#database_path = [
+" 			\ 'compile_commands.json',
+" 			\ 'build/compile_commands.json'
+" 			\ ]
+" let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
 
-autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
+" autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
 
 " }}}
 
@@ -322,71 +334,38 @@ au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
 
 au FocusGained,BufEnter * :checktime
 
-au InsertEnter * call ncm2#enable_for_buffer()
-au Filetype tex call ncm2#register_source({
-			\ 'name' : 'vimtex-cmds',
-			\ 'priority': 8,
-			\ 'complete_length': -1,
-			\ 'scope': ['tex'],
-			\ 'matcher': {'name': 'prefix', 'key': 'word'},
-			\ 'word_pattern': '\w+',
-			\ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-			\ })
-au Filetype tex call ncm2#register_source({
-			\ 'name' : 'vimtex-labels',
-			\ 'priority': 8,
-			\ 'complete_length': -1,
-			\ 'scope': ['tex'],
-			\ 'matcher': {'name': 'combine',
-			\             'matchers': [
-			\               {'name': 'substr', 'key': 'word'},
-			\               {'name': 'substr', 'key': 'menu'},
-			\             ]},
-			\ 'word_pattern': '\w+',
-			\ 'complete_pattern': g:vimtex#re#ncm2#labels,
-			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-			\ })
-au Filetype tex call ncm2#register_source({
-			\ 'name' : 'vimtex-files',
-			\ 'priority': 8,
-			\ 'complete_length': -1,
-			\ 'scope': ['tex'],
-			\ 'matcher': {'name': 'combine',
-			\             'matchers': [
-			\               {'name': 'abbrfuzzy', 'key': 'word'},
-			\               {'name': 'abbrfuzzy', 'key': 'abbr'},
-			\             ]},
-			\ 'word_pattern': '\w+',
-			\ 'complete_pattern': g:vimtex#re#ncm2#files,
-			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-			\ })
-au Filetype tex call ncm2#register_source({
-			\ 'name' : 'bibtex',
-			\ 'priority': 8,
-			\ 'complete_length': -1,
-			\ 'scope': ['tex'],
-			\ 'matcher': {'name': 'combine',
-			\             'matchers': [
-			\               {'name': 'prefix', 'key': 'word'},
-			\               {'name': 'abbrfuzzy', 'key': 'abbr'},
-			\               {'name': 'abbrfuzzy', 'key': 'menu'},
-			\             ]},
-			\ 'word_pattern': '\w+',
-			\ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-			\ })
+" au InsertEnter * call ncm2#enable_for_buffer()
+" au Filetype tex call ncm2#register_source({
+" 			\ 'name' : 'bibtex',
+" 			\ 'priority': 8,
+" 			\ 'complete_length': -1,
+" 			\ 'scope': ['tex'],
+" 			\ 'matcher': {'name': 'combine',
+" 			\             'matchers': [
+" 			\               {'name': 'prefix', 'key': 'word'},
+" 			\               {'name': 'abbrfuzzy', 'key': 'abbr'},
+" 			\               {'name': 'abbrfuzzy', 'key': 'menu'},
+" 			\             ]},
+" 			\ 'word_pattern': '\w+',
+" 			\ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+" 			\ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+" 			\ })
 
 " }}}
 
 " {{{ Rust
 
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
-Plug 'ncm2/ncm2-racer'
+" Plug 'ncm2/ncm2-racer'
 
 " }}}
 
+" {{{ Java
+
+let g:syntastic_java_checkers = []
+
+" }}}
 
 " }}}
 
