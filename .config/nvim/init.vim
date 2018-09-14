@@ -136,6 +136,9 @@ Plug 'chemzqm/jsonc.vim'
 
 " }}}
 
+" {{{ Supertab
+
+" }}}
 " {{{ Factorus
 Plug 'apalmer1377/factorus'
 
@@ -207,9 +210,9 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-let g:UltiSnipsExpandTrigger		= '<Plug>(ultisnips_expand)'
-let g:UltiSnipsJumpForwardTrigger	= '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger	= '<c-k>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " }}}
@@ -284,6 +287,10 @@ nnoremap <F8> :Tagbar
 
 Plug 'Valloric/YouCompleteMe'
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 " }}}
 
 "}}}
@@ -367,6 +374,11 @@ let g:syntastic_java_checkers = []
 
 " }}}
 
+" {{{ Twig
+
+Plug 'nelsyeung/twig.vim'
+
+" }}}
 " }}}
 
 call plug#end()
@@ -403,4 +415,42 @@ let g:lightline.tabline = {
 			\ }
 " }}}
 
+" {{{ Make ultisnips and YCM work together
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+
+" }}}
 "}}}
