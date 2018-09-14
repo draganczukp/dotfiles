@@ -80,6 +80,8 @@ alias lt="ls --tree"
 alias lg="ls --gs"
 alias lgt="ls --gs --tree"
 
+alias g="lazygit"
+
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 alias git="hub"
