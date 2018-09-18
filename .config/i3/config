@@ -194,7 +194,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Lock the screen with some nice blur
-bindsym $mod+Control+l exec i3lock-fancy
+bindsym $mod+Control+l exec i3lock-fancy-dualmonitor
 
 bindsym $mod+Control+c exec --no-startup-id ~/bin/start-compton
 
