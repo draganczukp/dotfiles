@@ -137,8 +137,28 @@ Plug 'chemzqm/jsonc.vim'
 " }}}
 
 " {{{ Supertab
+Plug 'ervandew/supertab'
+" }}}
+
+" {{{ Startify
+Plug 'mhinz/vim-startify'
+
+    let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
+    let g:startify_update_oldfiles = 1
+    let g:startify_fortune_use_unicode = 1
+
+		" For NERDTree compatibility
+    autocmd VimEnter *
+                \   if !argc()
+                \ |   Startify
+                \ |   NERDTree
+                \ |   wincmd w
+                \ | endif
+    let NERDTreeHijackNetrw = 0
+
 
 " }}}
+
 " {{{ Factorus
 Plug 'apalmer1377/factorus'
 
@@ -149,7 +169,7 @@ map <Leader>ra :FRenameArg<Space>
 map <Leader>rf :FRenameField<Space>
 
 " }}}
-"
+
 " {{{ Commentary
 Plug 'tpope/vim-commentary'
 
@@ -307,9 +327,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " {{{ Typescript
 
-  Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
-  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " }}}
 
@@ -417,36 +437,36 @@ let g:lightline.tabline = {
 
 " {{{ Make ultisnips and YCM work together
 function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res == 0
+		if pumvisible()
+			return "\<C-n>"
+		else
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				return "\<TAB>"
+			endif
+		endif
+	endif
+	return ""
 endfunction
 
 function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
+	call UltiSnips#JumpBackwards()
+	if g:ulti_jump_backwards_res == 0
+		return "\<C-P>"
+	endif
 
-  return ""
+	return ""
 endfunction
 
 
 if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+	let g:UltiSnipsJumpForwardTrigger = "<tab>"
 endif
 
 if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 endif
 
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
