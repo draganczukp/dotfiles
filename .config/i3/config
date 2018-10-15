@@ -233,7 +233,7 @@ exec_always --no-startup-id ~/bin/start-compton
 # exec_always killall xfce4-panel -9
 # exec_always /etc/profile.d/touchpad.sh
 
-exec geary --hidden
+# exec geary --hidden
 
 
 # Colors, borders and general looks

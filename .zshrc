@@ -28,7 +28,7 @@ ENABLE_CORRECTION="true"
 plugins=(
 	bower
 	common-aliases
-	fbterm
+	# fbterm
 	gitfast
 	gradle
 	npm
