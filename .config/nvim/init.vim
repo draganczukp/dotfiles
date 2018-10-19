@@ -141,20 +141,13 @@ Plug 'ervandew/supertab'
 " }}}
 
 " {{{ Startify
+
 Plug 'mhinz/vim-startify'
 
-    let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
-    let g:startify_update_oldfiles = 1
-    let g:startify_fortune_use_unicode = 1
+let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'z': '~/.zshrc'} ]
+let g:startify_update_oldfiles = 1
+let g:startify_fortune_use_unicode = 1
 
-		" For NERDTree compatibility
-    autocmd VimEnter *
-                \   if !argc()
-                \ |   Startify
-                \ |   NERDTree
-                \ |   wincmd w
-                \ | endif
-    let NERDTreeHijackNetrw = 0
 
 
 " }}}
@@ -250,6 +243,20 @@ Plug 'majutsushi/tagbar'
 nnoremap <F8> :Tagbar
 "}}}
 
+" {{{ vim-stay
+Plug 'zhimsel/vim-stay'
+
+set viewoptions-=options
+" }}}
+
+" {{{ Unimpaired
+Plug 'tpope/vim-unimpaired'
+" }}}
+
+" {{{ FastFold
+Plug 'Konfekt/FastFold'
+" }}}
+
 "}}}
 
 " {{{ Completion
@@ -316,6 +323,13 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 "}}}
 
 " {{{ Language specific
+
+" {{{ JSON
+augroup json_ft
+  au!
+  autocmd BufNewFile,BufRead *.json set syntax=jsonc
+augroup END
+" }}}
 
 " {{{ Web
 
