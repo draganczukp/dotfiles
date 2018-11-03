@@ -1,14 +1,15 @@
 #!/bin/zsh
 clear
-font="smmono12"
-# font="future"
+# font="smmono12"
+font="future"
 out="";
 
 # neofetch
 
-out+="Witaj, $USER\n";
-out+="Jest $(date '+%a, %d %b, %H:%M')\n";
-# out+="Cytat: $(fortune -a)"
+out+="Hello, $USER\n";
+out+="It's $(LANG=en_US.UTF-8 date '+%a, %d %b, %H:%M')\n";
+# out+="Quote: $(fortune -a)"
 # out+="$(python ~/bin/weather.py)"
 
 echo $out | toilet -f $font -t
+fortune | tewisay -f default -b rounded
