@@ -371,9 +371,10 @@ Plug 'Valloric/YouCompleteMe'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
 " }}}
 
-"}}}
+" }}}
 
 " {{{ Language specific
 
@@ -417,9 +418,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " {{{ Latex
 Plug 'lervag/vimtex'
 
-Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc'
 
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 
 autocmd Filetype tex setl updatetime=1
 au BufReadPost *.tex setlocal spell spelllang=pl " Spellcheck
@@ -466,6 +467,13 @@ let g:syntastic_java_checkers = []
 Plug 'nelsyeung/twig.vim'
 
 " }}}
+
+" {{{ MarkDown
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+
+" }}}
+
 " }}}
 
 call plug#end()
