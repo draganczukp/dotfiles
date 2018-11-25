@@ -227,7 +227,7 @@ exec sh -c "sleep 30; spotify"
 
 exec_always --no-startup-id ~/bin/start-compton
 #exec compton --xrender-sync-fence
-# exec tilda
+exec tilda
 
 # The panel seems to startup no mather what I do, so I kill it immediatelly
 # exec_always killall xfce4-panel -9
