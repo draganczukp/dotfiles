@@ -469,8 +469,27 @@ Plug 'nelsyeung/twig.vim'
 " }}}
 
 " {{{ MarkDown
+
 Plug 'iamcco/mathjax-support-for-mkdp'
+
 Plug 'iamcco/markdown-preview.vim'
+
+" }}}
+
+" {{{ Prose
+
+" Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-lexical'
+
+" let g:lexical#thesaurus = ['~/.config/nvim/thesaurus.pl.txt']
+" let g:lexical#thesaurus_key = '<leader>t'
+
+" augroup Prose
+" 	autocmd!
+" 	autocmd FileType latex,md,markdown,tex setlocal formatoptions=ant textwidth=80 wrapmargin=0
+" 	autocmd FileType latex,md,markdown,tex call pencil#init()
+" 				\ | call lexical#init()
+" augroup end
 
 " }}}
 
