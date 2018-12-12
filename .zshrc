@@ -1,6 +1,9 @@
 # vim: set foldmethod=marker:
+
 # {{{ Setup oh-my-zsh
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
+export PATH="$(du $HOME/bin/ | cut -f2 | tr '\n' ':')$PATH"
+
 
 export TERM="xterm-256color"
 
@@ -34,7 +37,7 @@ plugins=(
 	gradle
 	npm
 	sudo
-	tmux
+	# tmux
 )
 
 export ZSH_TMUX_AUTOSTART=true
@@ -66,6 +69,36 @@ source ~/dotfiles/.completions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# FZF colors
+_gen_fzf_default_opts() {
+
+local color00='#0c0d0e'
+local color01='#2e2f30'
+local color02='#515253'
+local color03='#737475'
+local color04='#959697'
+local color05='#b7b8b9'
+local color06='#dadbdc'
+local color07='#fcfdfe'
+local color08='#e31a1c'
+local color09='#e6550d'
+local color0A='#dca060'
+local color0B='#31a354'
+local color0C='#80b1d3'
+local color0D='#3182bd'
+local color0E='#756bb1'
+local color0F='#b15928'
+
+export FZF_DEFAULT_OPTS="
+  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+"
+
+}
+
+_gen_fzf_default_opts
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
@@ -155,6 +188,8 @@ function \$(){
 
 motd
 
+# Run i3 if in tty and not already running
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 # }}}
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
