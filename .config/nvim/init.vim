@@ -480,7 +480,6 @@ Plug 'iamcco/markdown-preview.vim'
 
 " {{{ Prose
 
-<<<<<<< HEAD
 " Plug 'reedes/vim-lexical'
 
 " augroup lexical
@@ -489,7 +488,6 @@ Plug 'iamcco/markdown-preview.vim'
 "   autocmd FileType tex,latex call lexical#init()
 "   " autocmd FileType text call lexical#init({ 'spell': 0 })
 " augroup END
-=======
 " Plug 'reedes/vim-pencil'
 " Plug 'reedes/vim-lexical'
 
@@ -502,7 +500,6 @@ Plug 'iamcco/markdown-preview.vim'
 " 	autocmd FileType latex,md,markdown,tex call pencil#init()
 " 				\ | call lexical#init()
 " augroup end
->>>>>>> 821c21ea7b47cf0553c5e68465f42214b75951fb
 
 " }}}
 
