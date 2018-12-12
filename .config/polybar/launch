@@ -2,6 +2,6 @@
 killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-polybar laptop &
+# polybar laptop &
 polybar bar1 &
-polybar bar2 &
+# polybar bar2 &
