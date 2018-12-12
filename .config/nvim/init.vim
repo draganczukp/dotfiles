@@ -62,6 +62,8 @@ set splitbelow
 set splitright
 
 set formatoptions+=j
+set spelllang=pl
+
 " }}}
 
 " {{{ Clipboard
@@ -207,8 +209,8 @@ let g:syntastic_aggregate_errors = 1
 " }}}
 
 " {{{ Colorscheme
-Plug 'flazz/vim-colorschemes'
 
+Plug 'flazz/vim-colorschemes'
 
 " }}}
 
@@ -471,6 +473,19 @@ Plug 'nelsyeung/twig.vim'
 " {{{ MarkDown
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
+
+" }}}
+
+" {{{ Prose
+
+" Plug 'reedes/vim-lexical'
+
+" augroup lexical
+"   autocmd!
+"   autocmd FileType markdown,mkd,md call lexical#init()
+"   autocmd FileType tex,latex call lexical#init()
+"   " autocmd FileType text call lexical#init({ 'spell': 0 })
+" augroup END
 
 " }}}
 
