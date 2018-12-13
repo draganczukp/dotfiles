@@ -8,12 +8,12 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #333333
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
+; background = ${xrdb:color0:#8000}
+background = #801b1918
+background-alt = #8292
+; foreground = ${xrdb:color7:#8222}
 foreground = #dfdfdf
-foreground-alt = #555
+; foreground-alt = #555
 primary = #2dda0a
 secondary = #e7df1b
 alert = #bd2c40
@@ -21,22 +21,23 @@ alert = #bd2c40
 [bar/base]
 width = 100%
 height = 30
-offset-x = 0
+offset-x = 60
 offset-y = 0
 radius = 0
 fixed-center = true
+; override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
-line-color = #f00
+line-size = 2
+; line-color = #f00
 
 border-size = 1
 border-color = ${colors.background}
 
-padding-left = 0
-padding-right = 2
+padding-left = 0%
+padding-right = 0%
 
 module-margin-left = 1
 module-margin-right = 2
@@ -55,7 +56,6 @@ modules-right = musicprev musicplaypause musicnext music volume memory cpu batte
 ;wm-restack = bspwm
 wm-restack = i3
 
-;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -70,10 +70,20 @@ inherit = bar/base
 monitor = eDP1
 [bar/bar1]
 inherit = bar/base
-monitor = DVI-0
+; tray-position = right
+; tray-detached = false
+; tray-maxsize = 16
+; tray-transparent = false
+; tray-background = ${root.background}
+; tray-offset-x = 0
+; tray-offset-y = 0
+; tray-padding = 0
+; tray-scale = 1.0
+
+; monitor = DVI-0
 [bar/bar2]
 inherit = bar/base
-monitor = DVI-1
+; monitor = DVI-1
 modules-right = memory cpu battery
 
 
@@ -81,7 +91,7 @@ modules-right = memory cpu battery
 type = custom/script
 interval = 1
 
-label = %output:0:30:...%
+label = %output:0:50:...%
 exec = ~/.config/polybar/mpris.sh
 
 [module/filesystem]
@@ -128,7 +138,8 @@ label-mode-background = ${colors.primary}
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.background-alt}
+label-focused-underline= #2b2
+; label-focused-underline= ; ${colors.background-alt}
 label-focused-padding = 2
 
 label-unfocused = %icon%
@@ -154,7 +165,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-#format-underline = #f90000
+format-underline = #f90000
 label = %percentage%%
 
 [module/memory]
@@ -162,7 +173,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-#format-underline = #4bffdc
+format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/date]
@@ -177,7 +188,7 @@ time-alt = %H:%M:%S
 
 #format-prefix = " "
 #format-prefix-foreground = ${colors.foreground}
-#format-underline = #0a6cf5
+format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -284,7 +295,7 @@ click-left = playerctl play-pause
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
+compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
