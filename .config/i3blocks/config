@@ -1,0 +1,47 @@
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+
+[mail]
+full_text=📬
+command=i3mail
+interval=180
+signal=12
+
+#[memory]
+#command=i3mem
+#interval=30
+#full_text=🧠
+
+#[cpu]
+#command=i3cpu
+#interval=15
+#full_text=💻
+
+[volume]
+interval=1
+command=i3volume
+signal=10
+
+#[diskspace]
+#interval=60
+#command=i3disk /
+
+#[diskspace]
+#interval=60
+#command=i3disk /home 🏠
+
+[battery]
+command=i3battery BAT1
+interval=5
+
+[battery]
+command=i3battery BAT0
+interval=5
+
+[time]
+full_text=📅
+command=i3date
+interval=30
+
