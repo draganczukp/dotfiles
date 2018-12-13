@@ -62,13 +62,11 @@ set splitbelow
 set splitright
 
 set formatoptions+=j
-<<<<<<< HEAD
 
 " Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-=======
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 set spelllang=pl
->>>>>>> 17743620b72f490d76c2f3c47d7c55d079cc21d7
 
 " }}}
 
@@ -487,7 +485,6 @@ Plug 'iamcco/markdown-preview.vim'
 
 " {{{ Prose
 
-<<<<<<< HEAD
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-lexical'
 Plug 'junegunn/goyo.vim'
@@ -504,7 +501,7 @@ function! ProseSetup() " {{{ ProseSetup
 	setl textwidth=100
 	setl wrapmargin=0
 
-" Navigating with guides
+	" Navigating with guides
 	inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 	vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 	map <Space><Tab> <Esc>/<++><Enter>"_c4l
@@ -551,7 +548,6 @@ endfunction " }}}
 
 autocmd BufRead,BufNewFile *.tex setl filetype=tex
 autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
-=======
 " Plug 'reedes/vim-lexical'
 
 " augroup lexical
