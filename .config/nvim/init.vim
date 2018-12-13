@@ -568,7 +568,6 @@ autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
 " 	autocmd FileType latex,md,markdown,tex call pencil#init()
 " 				\ | call lexical#init()
 " augroup end
->>>>>>> 17743620b72f490d76c2f3c47d7c55d079cc21d7
 
 " }}}
 
