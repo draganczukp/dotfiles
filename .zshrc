@@ -40,7 +40,7 @@ ENABLE_CORRECTION="true"
 	# gradle
 	npm
 	sudo
-	# tmux
+	tmux
 )
 
 export ZSH_TMUX_AUTOSTART=true
@@ -165,6 +165,8 @@ function mkcd(){
 
 motd
 
+# load wall
+(cat ~/.cache/wal/sequences &)
 # Run i3 if in tty and not already running
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 # }}}
