@@ -188,23 +188,27 @@ for_window [class="(?i)Tilda"] floating enable
 #                  #
 ####################
 
+# Screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%        #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%        #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Screenshot
-bindsym Print exec --no-startup-id xfce4-screenshooter
-
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 #bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-bindsym $mod+F1 exec opera
-bindsym $mod+F2 exec st -e ranger
-bindsym $mod+F3 exec st -e htop
+# Screenshot
+bindsym Print exec --no-startup-id scrot
+
+bindsym $mod+F1 exec --no-startup-id opera
+bindsym $mod+F2 exec --no-startup-id st -e ranger
+bindsym $mod+F3 exec --no-startup-id st -e htop
 
 ##################################
 #                                #
@@ -229,9 +233,9 @@ exec_always --no-startup-id ~/bin/start-compton
 
 # Starts dunst for notifications:
 exec --no-startup-id dunst
-# Composite manager:
-# exec --no-startup-id xcompmgr
 
+# Run a browser
+exec --no-startup-id opera
 # Wait a bit with starting spotify because of high disk usage
 exec --no-startup-id sh -c "sleep 30; spotify"
 # exec_always --no-startup-id xfce4-panel -d
