@@ -4,6 +4,8 @@
 *background:        #0E0E1F
 *.foreground:       #c5ece6
 *.background:       #0E0E1F
+polybar.background: #800E0E1F
+polybar.background-alt: #8048b3b6
 emacs*foreground:   #c5ece6
 emacs*background:   #0E0E1F
 URxvt*foreground:   #c5ece6
