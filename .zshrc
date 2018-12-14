@@ -1,9 +1,8 @@
 # vim: set foldmethod=marker:
 
 # {{{ Setup oh-my-zsh
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
+export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
 export PATH="$(du $HOME/bin/ | cut -f2 | tr '\n' ':')$PATH"
-
 
 export TERM="xterm-256color"
 
@@ -17,6 +16,7 @@ export BROWSER='opera'
 export ZSH=/home/killermenpl/.oh-my-zsh
 
 # {{{ Theme
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-fontconfig'
@@ -25,6 +25,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
 # }}}
 
 HYPHEN_INSENSITIVE="true"
@@ -36,7 +37,7 @@ ENABLE_CORRECTION="true"
 	common-aliases
 	# fbterm
 	gitfast
-	gradle
+	# gradle
 	npm
 	sudo
 	# tmux
@@ -50,24 +51,24 @@ source $ZSH/oh-my-zsh.sh
 
 # {{{ ZSH config
 
-setopt extendedGlob
+# setopt extendedGlob
 
-autoload -U zmv
+# autoload -U zmv
 
-autoload -U zargs
+# autoload -U zargs
 
-setopt promptsubst
+# setopt promptsubst
 
-setopt noflowcontrol
+# setopt noflowcontrol
 
-setopt AUTO_PARAM_SLASH
-unsetopt AUTO_REMOVE_SLASH
+# setopt AUTO_PARAM_SLASH
+# unsetopt AUTO_REMOVE_SLASH
 
 # }}}
 
 # {{{ 3rd party plugins
 
-source ~/dotfiles/.completions
+# source ~/dotfiles/.completions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -84,20 +85,23 @@ alias ll="ls -Al"
 alias l="ls -l"
 alias lt="ls --tree"
 
-alias lg="ls --gs"
-alias lgt="ls --gs --tree"
+# alias lg="ls --gs"
+# alias lgt="ls --gs --tree"
 
-alias g="lazygit"
+alias lg="lazygit"
 
 alias dev="php -S 127.0.0.1:8000"
 alias vim="nvim"
 alias git="hub"
 # alias launch="xdg-open"
 alias cim="vim"
+alias v="vim"
 
 alias mkdir="mkdir -p"
 
 alias zshrc="vim ~/.zshrc && source ~/.zshrc"
+alias vrc="vim ~/.config/nvim/init.vim"
+
 # }}}
 
 # {{{ Functions
@@ -108,7 +112,7 @@ function launch() {
 
 function poweroff(){
 	if [[ -n $SSH_CONNECTION ]]; then
-		echo "Server" | toilet -f future
+		echo "Connected to server." | toilet -f future
 	else
 		systemctl poweroff
 	fi
@@ -151,9 +155,9 @@ function mkcd(){
 	mkdir -p $1; cd $1
 }
 
-function \$(){
-	$@
-}
+# function \$(){
+# 	$@
+# }
 
 # }}}
 
@@ -165,4 +169,3 @@ motd
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 # }}}
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
