@@ -21,3 +21,4 @@ xset r rate 200 50
 
 wal -r
 
+synclient HorizTwoFingerScroll=1
