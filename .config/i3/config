@@ -22,7 +22,7 @@ bindsym $mod+Return exec --no-startup-id st
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "Run: " -l 15'
 
 # Lock the screen with some nice blur
 bindsym $mod+Control+l exec i3lock-fancy-dualmonitor
