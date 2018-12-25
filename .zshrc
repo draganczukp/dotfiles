@@ -1,6 +1,7 @@
 # vim: set foldmethod=marker:
 
 # {{{ Setup oh-my-zsh
+
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
 export PATH="$(du $HOME/bin/ | cut -f2 | tr '\n' ':')$PATH"
 
@@ -32,18 +33,18 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 
-[ $(tty) != '/dev/tty1' ] && pgrep -x i3 >/dev/null && plugins=(
-	bower
-	common-aliases
-	# fbterm
-	gitfast
-	# gradle
-	npm
-	sudo
-	tmux
+plugins=(
+bower
+common-aliases
+# fbterm
+gitfast
+# gradle
+npm
+sudo
+tmux
 )
 
-export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,7 +101,7 @@ alias v="vim"
 alias mkdir="mkdir -p"
 
 alias zshrc="vim ~/.zshrc && source ~/.zshrc"
-alias vrc="vim ~/.config/nvim/init.vim"
+alias vimrc="vim ~/.config/nvim/init.vim"
 
 # }}}
 
@@ -167,7 +168,8 @@ motd
 
 # load wall
 (cat ~/.cache/wal/sequences &)
-# Run i3 if in tty and not already running
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+
 # }}}
 
+# Run i3 if in tty and not already running
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx

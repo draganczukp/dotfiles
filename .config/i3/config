@@ -236,12 +236,13 @@ exec --no-startup-id dunst
 
 # Run a browser
 exec --no-startup-id opera
+
 # Wait a bit with starting spotify because of high disk usage
 exec --no-startup-id sh -c "sleep 30; spotify"
-# exec_always --no-startup-id xfce4-panel -d
 
-#exec compton --xrender-sync-fence
 exec --no-startup-id tilda
+
+exec --no-startup-id ~/pia.sh
 
 
 ########################################

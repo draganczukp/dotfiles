@@ -1,7 +1,12 @@
 #!/bin/zsh
 
 # if [[ $HOST = laptop ]]; then
-	feh --bg-scale ~/Obrazy/Wallpapers/wallpaper.jpg
+	# feh --bg-scale ~/Obrazy/Wallpapers/wallpaper.jpg
 # else
 	# gif-soup ~/Obrazy/Wallpapers/wallpaper.gif
 # fi
+
+wp=$(/bin/ls ~/Obrazy/Wallpapers/|shuf|head -n1)
+# feh --bg-scale ~/Obrazy/Wallpapers/$wp
+wal -i ~/Obrazy/Wallpapers/$wp -g -q
+

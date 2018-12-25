@@ -1,0 +1,12 @@
+,em \emph
+,bf \textbf
+,it \textit
+,ol \begin{enumerate}
+,ul \begin{itemize}
+,li \item
+,tab \begin{tabular}
+,a \href
+,sec \section{}
+,ssec \subsection{}
+,sssec \subsubsection
+,rn (\ref{})
