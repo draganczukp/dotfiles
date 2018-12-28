@@ -22,3 +22,4 @@ xset r rate 200 50
 wal -r
 
 synclient HorizTwoFingerScroll=1
+xinput set-prop 13 288 1

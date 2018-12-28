@@ -9,7 +9,7 @@
 
 [colors]
 background = ${xrdb:polybar.background:#222}
-background-alt = ${xrdb:polybar.background-alt:#222}
+background-alt = ${xrdb:polybar.background-alt:#8222}
 foreground = ${xrdb:color7:#222}
 foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
@@ -65,7 +65,8 @@ scroll-down = i3wm-wsprev
 
 [bar/laptop]
 inherit = bar/base
-monitor = eDP1
+monitor = eDP-1
+
 [bar/bar1]
 inherit = bar/base
 tray-position = right

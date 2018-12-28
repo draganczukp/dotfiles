@@ -27,11 +27,7 @@ python2-pip
 python-neovim
 python-pip
 ranger
-raylib
 rsync
-samba
-sbt
-screenfetch
 speedtest-cli
 texlive-bin
 texlive-core
@@ -45,3 +41,10 @@ zsh
 zsh-completions
 zsh-doc
 zsh-syntax-highlighting
+i3-gaps
+dmenu
+polybar-git
+spotify
+arandr
+xorg
+
