@@ -17,15 +17,16 @@ font pango:FontAwesome 15
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "Run: " -l 15'
+bindsym $mod+d exec --no-startup-id rofi -show drun
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "Run: " -l 15'
 
 # Lock the screen with some nice blur
-bindsym $mod+Control+l exec i3lock-fancy-dualmonitor
+bindsym $mod+Control+l exec i3lock-fancy
 
 # change focus.
 # Modified to use vim keys, instead of retarded defaults
@@ -232,7 +233,7 @@ exec_always --no-startup-id ~/bin/wallpaper
 exec_always --no-startup-id ~/bin/start-compton
 
 # Starts dunst for notifications:
-exec --no-startup-id dunst
+# exec --no-startup-id dunst
 
 # Run a browser
 exec --no-startup-id opera
@@ -243,7 +244,6 @@ exec --no-startup-id sh -c "sleep 30; spotify"
 exec --no-startup-id tilda
 
 exec --no-startup-id ~/pia.sh
-
 
 ########################################
 #                                      #
