@@ -1,0 +1,9 @@
+#/bin/bash
+
+/usr/bin/playerctl pause
+
+/usr/bin/xbacklight -get > /tmp/backlight
+/usr/bin/xbacklight -set 0
+
+/usr/bin/xbacklight -ctrl tpacpi::kbd_backlight -set 0
+
