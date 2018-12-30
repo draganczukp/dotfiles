@@ -74,7 +74,7 @@ tray-background = ${colors.background}
 ; tray-transparent = true
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 0
+tray-padding = 1
 tray-scale = 1.0
 
 
@@ -214,7 +214,7 @@ format-muted-prefix = ""
 format-muted-foreground = ${colors.foreground}
 label-muted = sound muted
 
-bar-volume-width = 10
+bar-volume-width = 7
 bar-volume-foreground-0 = #acc267
 bar-volume-foreground-1 = #acc267
 bar-volume-foreground-2 = #acc267
