@@ -1,25 +1,57 @@
 #!/bin/bash
 
-files=("bin" ".zshrc" ".tmux.conf" ".config/i3" ".config/polybar" ".tmuxrc" ".config/nvim")
+alias pushd="pushd >> /dev/null"
+alias popd="popd >> /dev/null"
 
-yay -Sy --needed git zsh neovim || exit 1
+echo "Instalowanie podstawowych programów"
+pacman -Sy --needed git zsh neovim || exit 1
 
+echo "Dodawanie użytkownika"
+useradd -m -G wheel killermenpl
+echo "Włącz *RĘCZNIE* dostęp do sudo"
+EDITOR=nvim visudo
+
+su killermenpl
+cd ~
+
+echo "Instalowanie 'yay'"
+git clone https://aur.archlinux.org/yay
+pushd yay
+makepkg -si --noconfirm
+popd
+
+echo "Instalowanie vim-plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo "Instalowanie 'oh-my-zsh'"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+echo "Instalowanie powerlevel9k"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 pushd ~
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
 
-for file in $files; do
-	ln -fs ~/dotfiles/$file $file
+echo "Linkowanie wszystkich plików"
+
+for file in bin .fonts .icons .themes .tmux.conf .xinitrc .Xresources .zshrc; do
+	ln -sf ~/dotfiles/$file
+done
+
+pushd ~/.config
+
+for file in compton.conf dunst feh i3 nvim polybar ranger rofi zathura; do
+	ln -sf ~/dotfiles/.config/$file
 done
 
 popd
 
+pushd ~/Obrazy
+ln -sf ~/dotfiles/Wallpapers
+popd
+
+popd
+
+echo "Instalowanie wszystkich pakietów"
 yay -S --needed --noedit --noconfirm $(cat packages)
 
