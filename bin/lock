@@ -1,2 +1,17 @@
 #!/bin/bash
-/usr/bin/i3lock-fancy -n -p
+
+pgrep -x i3lock && exit
+img="/tmp/lock.png"
+scrot $img
+magick $img -paint 5 -blur 10x4 $img
+kbd=$(xbacklight -ctrl tpacpi::kbd_backlight -get)
+i3lock -i $img -e -f
+
+while [[ $(pgrep -x i3lock) ]]; do
+	[[ 4000 -lt $(xssstate -i) ]] && \
+		xset dpms force off && \
+		xbacklight -ctrl tpacpi::kbd_backlight -set 0
+	sleep 1
+done
+
+xbacklight -ctrl tpacpi::kbd_backlight -set $kbd
