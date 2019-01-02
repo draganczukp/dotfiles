@@ -26,7 +26,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -p "Run: " -l 15'
 
 # Lock the screen with some nice blur
-bindsym $mod+Control+l exec i3lock-fancy
+bindsym $mod+Control+l exec ~/bin/lock
 
 # change focus.
 # Modified to use vim keys, instead of retarded defaults
@@ -124,7 +124,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "xfce4-session-logout"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -190,8 +190,9 @@ for_window [class="(?i)Tilda"] floating enable
 ####################
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+# Managed by XFCE
+# bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+# bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%        #increase sound volume
