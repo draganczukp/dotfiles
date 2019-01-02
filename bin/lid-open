@@ -1,0 +1,4 @@
+#!/bin/bash
+DISPLAY=:0.0
+xset dpms force on
+xbacklight -ctrl tpacpi::kbd_backlight -set 50
