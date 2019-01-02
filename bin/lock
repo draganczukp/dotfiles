@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pgrep -x i3lock && exit
+[[ $(pgrep -x i3lock > /dev/null) ]] && exit
 img="/tmp/lock.png"
 scrot $img
 magick $img -paint 5 -blur 10x4 $img
