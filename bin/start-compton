@@ -4,6 +4,4 @@
 killall -q compton
 while pgrep -x compton >/dev/null; do sleep 1; done
 
-if [ $HOST != laptop ] || [ $1 = -f ]; then
-	compton --xrender-sync-fence
-fi
+compton --xrender-sync-fence
