@@ -2,16 +2,6 @@
 
 alias pushd="pushd >> /dev/null"
 alias popd="popd >> /dev/null"
-
-echo "Instalowanie podstawowych programów"
-pacman -Sy --needed git zsh neovim || exit 1
-
-echo "Dodawanie użytkownika"
-useradd -m -G wheel killermenpl
-echo "Włącz *RĘCZNIE* dostęp do sudo"
-EDITOR=nvim visudo
-
-su killermenpl
 cd ~
 
 echo "Instalowanie 'yay'"
@@ -34,6 +24,7 @@ pushd ~
 
 echo "Linkowanie wszystkich plików"
 
+mkdir ~/.config ~/Obrazy
 for file in bin .fonts .icons .themes .tmux.conf .xinitrc .Xresources .zshrc; do
 	ln -sf ~/dotfiles/$file
 done
@@ -53,5 +44,5 @@ popd
 popd
 
 echo "Instalowanie wszystkich pakietów"
-yay -S --needed --noedit --noconfirm $(cat packages)
+yay -S --needed --noconfirm $(cat packages)
 
