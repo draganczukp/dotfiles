@@ -252,6 +252,7 @@ exec --no-startup-id tilda
 
 exec --no-startup-id ~/pia.sh
 
+exec --no-start-id /usr/lib/kdeconnectd
 ########################################
 #                                      #
 # ░█▀█░█▀▀░█▀▀░▀█▀░█░█░█▀▀░▀█▀░▀█▀░█▀▀ #
