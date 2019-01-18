@@ -246,7 +246,8 @@ exec --no-startup-id opera
 # Wait a bit with starting spotify because of high disk usage
 exec --no-startup-id sh -c "sleep 30; spotify"
 
-exec --no-startup-id tilda
+# Tilda doesn't like being started before compton
+exec --no-startup-id sh -c "sleep 5; tilda"
 
 exec --no-startup-id ~/pia.sh
 
