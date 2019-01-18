@@ -18,16 +18,16 @@ export ZSH=/home/killermenpl/.oh-my-zsh
 
 # {{{ Theme
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MODE='nerdfont-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+ZSH_THEME="draganczukp/draganczukp"
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_MODE='nerdfont-fontconfig'
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-# }}}
+# # }}}
 
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
