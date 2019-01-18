@@ -143,6 +143,18 @@ Plug 'chemzqm/jsonc.vim'
 
 " }}}
 
+" {{{ Iris
+
+Plug 'soywod/iris.vim'
+
+let g:iris_name = 'Przemysław Dragńczuk'
+let g:iris_email = '97449@stud.uz.zgora.pl'
+let g:iris_imap_host = 'poczta.stud.uz.zgora.pl'
+let g:iris_imap_login = '97449'
+
+
+" }}}
+
 " {{{ Supertab
 
 Plug 'ervandew/supertab'
@@ -225,6 +237,7 @@ Plug 'flazz/vim-colorschemes'
 
 Plug 'Nequo/vim-allomancer'
 
+
 " }}}
 
 " {{{ Lightline
@@ -289,18 +302,55 @@ Plug 'Konfekt/FastFold'
 
 " {{{ YCM
 
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" " make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" }}}
+
+" {{{ NCM2
+
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'yuki-ycino/ncm2-dictionary'
+Plug 'fgrsnau/ncm2-otherbuf', { 'branch': 'ncm2' }
+Plug 'ncm2/ncm2-ultisnips'
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+set completeopt=noinsert,menuone,noselect
+
+let g:ncm2_look_enabled = 1
 
 " }}}
 
 " }}}
 
 " {{{ Language specific
+
+" {{{ Java
+
+Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
+
+" }}}
+
+" {{{ C/C++
+Plug 'ncm2/ncm2-pyclang'
+let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
+
+autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
+let g:ncm2_pyclang#database_path = [
+            \ 'compile_commands.json',
+            \ 'build/compile_commands.json'
+            \ ]
+" }}}
 
 " {{{ JSON
 
@@ -364,9 +414,9 @@ function! ProseSetup() " {{{ ProseSetup
 	inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
 	inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
 	inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-	inoremap ,rn (\ref{})<++><Esc>F}i
+	inoremap ,ref (\ref{})<++><Esc>F}i
 
-		execute "40vsplit ~/.config/nvim/snippets.tex.txt"
+	nmap <F12> :40vsplit ~/.config/nvim/snippets.tex.txt
 endfunction " }}}
 
 autocmd BufRead,BufNewFile *.tex setl filetype=tex
@@ -401,8 +451,8 @@ call plug#end()
 " {{{ After plug#end
 " These will not work if placed before plug#end for some reason, so they're here
 
-" colorscheme badwolf
-colorscheme allomancer
+colorscheme badwolf
+" colorscheme allomancer
 
 " {{{Lightline
 let g:lightline = {
@@ -431,42 +481,42 @@ let g:lightline.tabline = {
 			\ }
 " }}}
 
-" {{{ Make ultisnips and YCM work together
-function! g:UltiSnips_Complete()
-	call UltiSnips#ExpandSnippet()
-	if g:ulti_expand_res == 0
-		if pumvisible()
-			return "\<C-n>"
-		else
-			call UltiSnips#JumpForwards()
-			if g:ulti_jump_forwards_res == 0
-				return "\<TAB>"
-			endif
-		endif
-	endif
-	return ""
-endfunction
+" " {{{ Make ultisnips and YCM work together
+" function! g:UltiSnips_Complete()
+" 	call UltiSnips#ExpandSnippet()
+" 	if g:ulti_expand_res == 0
+" 		if pumvisible()
+" 			return "\<C-n>"
+" 		else
+" 			call UltiSnips#JumpForwards()
+" 			if g:ulti_jump_forwards_res == 0
+" 				return "\<TAB>"
+" 			endif
+" 		endif
+" 	endif
+" 	return ""
+" endfunction
 
-function! g:UltiSnips_Reverse()
-	call UltiSnips#JumpBackwards()
-	if g:ulti_jump_backwards_res == 0
-		return "\<C-P>"
-	endif
+" function! g:UltiSnips_Reverse()
+" 	call UltiSnips#JumpBackwards()
+" 	if g:ulti_jump_backwards_res == 0
+" 		return "\<C-P>"
+" 	endif
 
-	return ""
-endfunction
+" 	return ""
+" endfunction
 
 
-if !exists("g:UltiSnipsJumpForwardTrigger")
-	let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
+" if !exists("g:UltiSnipsJumpForwardTrigger")
+" 	let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" endif
 
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
+" if !exists("g:UltiSnipsJumpBackwardTrigger")
+" 	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" endif
 
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 " }}}
 "}}}
