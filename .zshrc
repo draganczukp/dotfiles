@@ -167,9 +167,8 @@ function mkcd(){
 motd
 
 # load wall
-(cat ~/.cache/wal/sequences &)
+[ -e ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
+# wal -r -t
 
 # }}}
 
-# Run i3 if in tty and not already running
-# [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx

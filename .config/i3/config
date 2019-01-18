@@ -211,11 +211,9 @@ bindsym Mod1+Right exec --no-startup-id playerctl next
 bindsym Mod1+Left exec --no-startup-id playerctl previous
 
 # Screenshot
-bindsym Print exec --no-startup-id scrot
+bindsym Print exec --no-startup-id ~/bin/screenshot
 
 bindsym $mod+F1 exec --no-startup-id opera
-bindsym $mod+F2 exec --no-startup-id st -e ranger
-bindsym $mod+F3 exec --no-startup-id st -e htop
 
 bindsym $mod+Shift+w exec --no-startup-id ~/bin/wallpaper
 ##################################

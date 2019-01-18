@@ -1,0 +1,22 @@
+#/bin/zsh
+
+padlock="$HOME/Obrazy/rice/lock.png"
+inputFolder="$HOME/Obrazy/Wallpapers"
+outputFolder="$HOME/.cache/rice/lockscreens"
+
+mkdir $outputFolder -p 2>&1 >/dev/null
+
+function genImg(){
+	img=$(basename $1)
+
+	magick $inputFolder/$img -size 1920x1080 $outputFolder/$img && \
+	magick $outputFolder/$img -fill "rgba(50,50,50)" -draw 'circle 960,540 960,600' "${outputFolder}/${img}" && \
+	magick composite -gravity center $padlock "${outputFolder}/${img}" "${outputFolder}/${img}" && \
+	echo "Generated $img"
+}
+
+for file in $inputFolder/*; do
+	genImg $file
+done
+
+

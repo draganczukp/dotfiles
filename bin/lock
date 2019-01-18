@@ -1,11 +1,10 @@
 #!/bin/bash
 
 [[ $(pgrep -x i3lock > /dev/null) ]] && exit
-img="/tmp/lock.png"
-scrot $img
-magick $img -paint 5 -blur 10x4 $img
+img=$(cat /tmp/current-wallpaper)
+
 kbd=$(xbacklight -ctrl tpacpi::kbd_backlight -get)
-i3lock -i $img -e -f
+i3lock -i $HOME/.cache/rice/lockscreens/$img -e -f
 
 while [[ $(pgrep -x i3lock) ]]; do
 	[[ 4000 -lt $(xssstate -i) ]] && \

@@ -1,2 +1,2 @@
 #include "/usr/share/rofi/themes//Monokai.theme"
-rofi.theme: /usr/share/rofi/themes/Monokai.rasi
+rofi.theme: /home/killermenpl/.cache/wal/colors-rofi-dark.rasi

@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+opts="focused\nselection\nfullscreen"
+
+choice=$(echo -e $opts | rofi -dmenu -p "Scrot mode")
+
+name=$( (echo "$HOME/Obrazy/%Y-%m-%d-scrot.png" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
+
+case $choice in
+	(focused)
+		scrot -d 1 "$name" -u
+		;;
+	(selection)
+		scrot -d 1 "$name" -s
+		;;
+	(*)
+		scrot -d 1 "$name"
+		;;
+esac
