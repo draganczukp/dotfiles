@@ -1,4 +1,0 @@
-#!/bin/sh
-
-find .config -exec sed -r -i'' -e '/DVI/d' {} \; -exec sed -r -i'' -e '/VGA/d' {} \;
-sed -r -i'' -e '/bar2/d' '.config/polybar/launch'
