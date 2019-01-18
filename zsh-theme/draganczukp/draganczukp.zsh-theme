@@ -1,8 +1,9 @@
+# vim:ft=zsh
 # Yes, it's ugly. But it's mine
 
 local RESET="%{$reset_color%}"
-local L_BRACKET="⟦"
-local R_BRACKET="⟧"
+local L_BRACKET="《"
+local R_BRACKET=" 》"
 
 local function p-print(){
 	echo "%{$FG[$1]%}$L_BRACKET$2$R_BRACKET"
@@ -31,13 +32,8 @@ local function getGIT(){
 }
 
 local function getUptime(){
-	p-print 214 "⏱ $(uptime -p | awk '{ print $2":"$4 }')"
-}
-
-# For some reason printing just $? didn't work
-local function status(){
-	error=$?
-	[ "$error" != "0" ] && p-print 001 "$error" || p-print 002 "OK"
+	local uptime=$(uptime -p | cut -c 4-)
+	p-print 214 "⏱ $uptime"
 }
 
 local function isSSH(){
@@ -45,7 +41,7 @@ local function isSSH(){
 }
 
 PROMPT='$RESET
-╭─$(getHost)$(getUser)$(getPWD)
-$RESET╰─'
+╭─$(getHost)$(getUser)$(getPWD)
+$RESET╰─'
 
-RPROMPT='$RESET $(getGIT)$(isSSH)$(status)$(getUptime)$RESET'
+RPROMPT='$RESET $(getGIT)$(isSSH)$(getUptime)$RESET'
