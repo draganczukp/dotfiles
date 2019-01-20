@@ -15,8 +15,8 @@ set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
 "Indent with tabs
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 set autoread
 
@@ -140,18 +140,6 @@ Plug 'skammer/vim-css-color'
 Plug 'chemzqm/jsonc.vim'
 
 " Plug 'roxma/nvim-yarp'
-
-" }}}
-
-" {{{ Iris
-
-Plug 'soywod/iris.vim'
-
-let g:iris_name = 'Przemysław Dragńczuk'
-let g:iris_email = '97449@stud.uz.zgora.pl'
-let g:iris_imap_host = 'poczta.stud.uz.zgora.pl'
-let g:iris_imap_login = '97449'
-
 
 " }}}
 
@@ -342,7 +330,11 @@ Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
 " }}}
 
 " {{{ C/C++
+
 Plug 'ncm2/ncm2-pyclang'
+Plug 'ericcurtin/CurtineIncSw.vim'
+
+autocmd FileType c,cpp nnoremap <buffer> <Leader><Leader> :call CurtineIncSw()<cr>
 let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
 
 autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
@@ -482,41 +474,41 @@ let g:lightline.tabline = {
 " }}}
 
 " " {{{ Make ultisnips and YCM work together
-" function! g:UltiSnips_Complete()
-" 	call UltiSnips#ExpandSnippet()
-" 	if g:ulti_expand_res == 0
-" 		if pumvisible()
-" 			return "\<C-n>"
-" 		else
-" 			call UltiSnips#JumpForwards()
-" 			if g:ulti_jump_forwards_res == 0
-" 				return "\<TAB>"
-" 			endif
-" 		endif
-" 	endif
-" 	return ""
-" endfunction
+function! g:UltiSnips_Complete()
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res == 0
+		if pumvisible()
+			return "\<C-n>"
+		else
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				return "\<TAB>"
+			endif
+		endif
+	endif
+	return ""
+endfunction
 
-" function! g:UltiSnips_Reverse()
-" 	call UltiSnips#JumpBackwards()
-" 	if g:ulti_jump_backwards_res == 0
-" 		return "\<C-P>"
-" 	endif
+function! g:UltiSnips_Reverse()
+	call UltiSnips#JumpBackwards()
+	if g:ulti_jump_backwards_res == 0
+		return "\<C-P>"
+	endif
 
-" 	return ""
-" endfunction
+	return ""
+endfunction
 
 
-" if !exists("g:UltiSnipsJumpForwardTrigger")
-" 	let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" endif
+if !exists("g:UltiSnipsJumpForwardTrigger")
+	let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
 
-" if !exists("g:UltiSnipsJumpBackwardTrigger")
-" 	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" endif
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
 
-" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 " }}}
 "}}}
