@@ -32,7 +32,7 @@ local function getGIT(){
 }
 
 local function getUptime(){
-	local uptime=$(uptime -p | cut -c 4-)
+	local uptime=$(uptime -p | cut -c 4- | sed -r 's! minutes?!m!g;s! hours?!h!g')
 	p-print 214 "⏱ $uptime"
 }
 
