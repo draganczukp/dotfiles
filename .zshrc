@@ -2,7 +2,7 @@
 
 # {{{ Setup oh-my-zsh
 
-export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.5.0/bin
+export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH="$(du $HOME/bin/ | cut -f2 | tr '\n' ':')$PATH"
 
 export TERM="xterm-256color"
