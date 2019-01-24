@@ -357,6 +357,8 @@ augroup END
 
 Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
+
 " }}}
 
 " {{{ Latex
