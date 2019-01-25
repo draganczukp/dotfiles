@@ -7,9 +7,8 @@ out="";
 # neofetch
 
 out+="Hello, $USER\n";
-out+="It's $(LANG=en_US.UTF-8 date '+%a, %d %b, %H:%M')\n";
+out+="It's $(LC_ALL='en_US.UTF-8' date '+%a, %d %b, %H:%M')\n";
 # out+="Quote: $(fortune -a)"
-# out+="$(python ~/bin/weather.py)"
 
 echo $out | toilet -f $font -t
-fortune | cowsay -f default
+# fortune | cowsay -f default
