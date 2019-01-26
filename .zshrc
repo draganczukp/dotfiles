@@ -97,6 +97,7 @@ alias git="hub"
 # alias launch="xdg-open"
 alias cim="vim"
 alias v="vim"
+alias c="conf"
 
 alias mkdir="mkdir -p"
 

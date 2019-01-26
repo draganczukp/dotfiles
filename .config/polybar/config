@@ -41,8 +41,9 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Lato:size=12
-font-2 = FontAwesome:size=12;0
 font-1 = DejaVu Sans Mono for Powerline:size=12
+font-2 = FontAwesome:size=12;0
+font-3 = DejaVuSansMono Nerd Font:size=12
 ; font-0 = siji:pixelsize=12
 ; font-1 = Lato:fontformat=truetype:size=8:heavy;-2
 ; font-2 = siji:pixelsize=12
@@ -310,6 +311,12 @@ click-left = playerctl next
 type = custom/text
 content = ""
 click-left = playerctl play-pause
+
+[module/kdeconnect]
+type = custom/script
+exec = ~/dotfiles/submodules/polybar-kdeconnect/polybar-kdeconnect.sh
+click-left = ~/dotfiles/submodules/polybar-kdeconnect/polybar-kdeconnect-menu.sh
+tail = true
 
 [settings]
 screenchange-reload = true

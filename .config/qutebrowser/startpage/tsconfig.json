@@ -1,0 +1,19 @@
+// vim:ft=jsonc
+{
+	"compilerOptions": {
+		"target": "es6",
+		/* "module": "commonjs", */
+		"strict": true,
+		"outDir": "./dist/js",
+		"sourceMap": true,
+	},
+	"include": [
+		"src/**/*",
+		"node_modules/@types/**/*"
+	],
+
+	"exclude": [
+		".git",
+		"node_modules"
+	]
+}

@@ -213,7 +213,7 @@ bindsym Mod1+Left exec --no-startup-id playerctl previous
 # Screenshot
 bindsym Print exec --no-startup-id ~/bin/screenshot
 
-bindsym $mod+F1 exec --no-startup-id opera
+bindsym $mod+F1 exec --no-startup-id qutebrowser # opera
 
 bindsym $mod+Shift+w exec --no-startup-id ~/bin/wallpaper
 ##################################
@@ -225,7 +225,7 @@ bindsym $mod+Shift+w exec --no-startup-id ~/bin/wallpaper
 ##################################
 
 # Run polkit stuffs
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Launch/restart polybar
 exec_always --no-startup-id ~/.config/polybar/launch
 # Load the correct screen layout from arandr
@@ -241,17 +241,20 @@ exec_always --no-startup-id ~/bin/start-compton
 # exec --no-startup-id dunst
 
 # Run a browser
-exec --no-startup-id opera
+exec --no-startup-id qutebrowser
 
 # Wait a bit with starting spotify because of high disk usage
-exec --no-startup-id sh -c "sleep 30; spotify"
+# exec --no-startup-id sh -c "sleep 30; spotify"
+# No longer need to wait. <3 SSD
+exec --no-startup-id spotify
 
 # Tilda doesn't like being started before compton
 exec --no-startup-id sh -c "sleep 5; tilda"
 
-exec --no-startup-id ~/pia.sh
+# exec --no-startup-id ~/pia.sh
 
-exec --no-start-id /usr/lib/kdeconnectd
+# exec --no-start-id /usr/lib/kdeconnectd
+
 ########################################
 #                                      #
 # ░█▀█░█▀▀░█▀▀░▀█▀░█░█░█▀▀░▀█▀░▀█▀░█▀▀ #
