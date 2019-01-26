@@ -24,6 +24,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/qute-lastpass');
 
 c.url.default_page = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
+c.url.start_pages = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
+
 c.editor.command = ["i3-sensible-terminal", "-e", "nvim", "-f", "{}"]
 c.new_instance_open_target = "tab-bg"
 # c.prompt.filebrowser = False

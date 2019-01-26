@@ -1,0 +1,72 @@
+$color-list: #45f442, #42f4e8, #f4f442, #f44242, #e542f4;
+
+body{
+	background-color: #333;
+	color: #fafafa;
+}
+
+#links{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-row-gap: 20px;
+	.link-list{
+		width: 90%;
+		border: 1px solid black;
+		margin: auto;
+		margin-top: 0;
+		text-align: center;
+
+		@for $i from 1 to 6 {
+			&:nth-child(#{$i}){
+				$bg: nth($color-list, $i);
+				$color: #fafafa;
+
+				@if(lightness($bg) > 50){
+					$color: #040404;
+				}
+
+				background-color: $bg;
+
+				h3{
+					background-color: darken($bg, 5%);
+				}
+
+				color: $color;
+
+				ul{ li{ a{
+							color: $color;
+				}}}
+
+			}
+		}
+
+		h3{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			margin: 0;
+			padding: 0;
+		}
+
+		ul{
+			border-top: solid 2px #111;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			width: 100%;
+			li{
+				width: 100%;
+				a{
+					display: block;
+					width: 100%;
+					height: 40px;
+					line-height: 40px;
+					color: #fafafa;
+					text-decoration: none;
+				}
+
+			}
+		}
+	}
+}
