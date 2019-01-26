@@ -1,0 +1,3 @@
+[submodule "submodules/polybar-kdeconnect"]
+	path = submodules/polybar-kdeconnect
+	url = git://github.com/HackeSta/polybar-kdeconnect.git
