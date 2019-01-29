@@ -2,6 +2,9 @@
 killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
- # polybar laptop &
-polybar bar1 &
-# polybar bar2 &
+if [[ "$HOST" = "laptop" ]]; then
+	polybar laptop &
+else
+	polybar bar1 &
+	polybar bar2 &
+fi

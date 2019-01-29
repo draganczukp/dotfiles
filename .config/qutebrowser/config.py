@@ -1,18 +1,5 @@
 import yaml
 
-with (config.configdir / 'colors.yml').open() as f:
-    yaml_data = yaml.load(f)
-
-def dict_attrs(obj, path=''):
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            yield from dict_attrs(v, '{}.{}'.format(path, k) if path else k)
-    else:
-        yield path, obj
-
-for k, v in dict_attrs(yaml_data):
-    config.set(k, v)
-
 
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'x': 'quit --save'}
 c.auto_save.session = True
@@ -62,3 +49,4 @@ c.fonts.messages.error = c.fonts.messages.info
 c.fonts.completion.entry = c.fonts.statusbar
 c.fonts.completion.category = c.fonts.statusbar
 
+config.source('qutewal.py')
