@@ -94,10 +94,10 @@ tray-offset-y = 0
 tray-padding = 0
 tray-scale = 1.0
 
-; monitor = DVI-0
+monitor = DVI-0
 [bar/bar2]
 inherit = bar/base
-; monitor = DVI-1
+monitor = DVI-1
 modules-right = memory cpu battery
 
 
