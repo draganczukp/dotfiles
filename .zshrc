@@ -12,7 +12,7 @@ export LC_ALL=pl_PL.UTF-8
 export LANG=pl_PL.UTF-8
 
 export EDITOR='nvim'
-export BROWSER='opera'
+export BROWSER='qutebrowser'
 
 export ZSH=/home/killermenpl/.oh-my-zsh
 
