@@ -5,7 +5,7 @@ interface Config {
 	links: StringMapMap;
 }
 
-let config: Config = {
+let config = {
 	"links": {
 		"Fun": {
 			"YouTube": "https://youtube.com/feed/subscriptions",
@@ -15,6 +15,7 @@ let config: Config = {
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
+			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=20018",
 			"Egzaminy": "http://25infsp.tk/egzaminy.php",
 			"Studnet": "https://webapps.uz.zgora.pl/studnet/"
 		},
@@ -34,7 +35,7 @@ let config: Config = {
 let listDiv: HTMLDivElement;
 
 (async ()=>{
-	listDiv = document.getElementById("links")!;
+	listDiv = document.getElementById("links")! as HTMLDivElement;
 
 	let keys: string[] = [];
 
