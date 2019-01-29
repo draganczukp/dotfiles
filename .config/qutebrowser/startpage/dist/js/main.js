@@ -17,6 +17,7 @@ let config = {
         },
         "Studia": {
             "Materiały": "https://url.draganczuk.tk/materialy",
+            "Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=20018",
             "Egzaminy": "http://25infsp.tk/egzaminy.php",
             "Studnet": "https://webapps.uz.zgora.pl/studnet/"
         },
