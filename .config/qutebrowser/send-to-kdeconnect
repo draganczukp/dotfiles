@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Get the first device listed by kdeconnect-cli
+DEVICE=$(kdeconnect-cli --id-only -a | sed '1q')
+
+# Which qdbus service
+SERVICE="org.kde.kdeconnect"
+
+# Path depends on device
+QPATH="/modules/kdeconnect/devices/$DEVICE/share"
+
+# What method will be called
+METHOD="org.kde.kdeconnect.device.share.shareUrl"
+
+URL=$1
+
+# Sending the url
+qdbus $SERVICE $QPATH $METHOD $URL
+
