@@ -51,7 +51,7 @@ font-3 = DejaVuSansMono Nerd Font:size=12
 
 modules-left = i3
 modules-center = date
-modules-right = kdeconnect musicprev musicplaypause musicnext music volume memory cpu battery1 battery2
+modules-right = musicprev musicplaypause musicnext music volume memory cpu battery1 battery2 kdeconnect
 
 
 ;wm-restack = bspwm
@@ -314,8 +314,9 @@ click-left = playerctl play-pause
 
 [module/kdeconnect]
 type = custom/script
-exec = ~/dotfiles/submodules/polybar-kdeconnect/polybar-kdeconnect.sh
-click-left = ~/dotfiles/submodules/polybar-kdeconnect/polybar-kdeconnect-menu.sh
+exec = ~/.config/polybar/modules/kde-connect-exec
+click-left = ~/.config/polybar/modules/kde-connect-left
+click-right = ~/.config/polybar/modules/kde-connect-right
 tail = true
 
 [settings]

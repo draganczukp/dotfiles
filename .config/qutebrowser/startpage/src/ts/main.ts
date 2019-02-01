@@ -5,13 +5,21 @@ interface Config {
 	links: StringMapMap;
 }
 
-let config = {
+const config = {
 	"links": {
 		"Fun": {
 			"YouTube": "https://youtube.com/feed/subscriptions",
 			"Netflix": "https://netflix.com",
 			"Reddit": "https://reddit.com",
-			"Imgur": "https://imgur.com"
+			"Imgur": "https://imgur.com",
+			"Twitter": "https://twitter.com",
+			"Anime": "https://anime-odcinki.pl",
+			"A man has his needs": "https://www.youtube.com/watch?v=DLzxrzFCyOs"
+		},
+		"Misc": {
+			"GMail": "https://mail.google.com",
+			"Cloud": "https://cloud.draganczuk.tk",
+			"Messenger": "https://messenger.com"
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
@@ -23,11 +31,12 @@ let config = {
 			"localhost:8000": "http://localhost:8000",
 			"Github": "https://github.com/",
 			"D&G GitLab": "https://gitlab.com/devandgamesuz/",
-			"MDN": "https://developer.mozilla.org/en-US/"
+			"MDN": "https://developer.mozilla.org/en-US/",
+			"DigitalOcean": "https://cloud.digitalocean.com"
 		},
 		"Linux": {
-			"/r/Linux": "https://reddit.com/r/unixporn",
-			"sed": "http://www.grymoire.com/Unix/Sed.html",
+			"/r/Linux": "https://reddit.com/r/linux",
+			"sed tutorial": "http://www.grymoire.com/Unix/Sed.html",
 			"Distrowatch": "https:distrowatch.com"
 		}
 	}
