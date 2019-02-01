@@ -1,4 +1,5 @@
 body {
+  font-family: "Lato";
   background-color: #333;
   color: #fafafa;
 }
@@ -11,6 +12,7 @@ body {
 #links .link-list {
   width: 90%;
   border: 1px solid black;
+  border-radius: 10px;
   margin: auto;
   margin-top: 0;
   text-align: center;
@@ -71,6 +73,7 @@ body {
   line-height: 50px;
   margin: 0;
   padding: 0;
+  border-radius: 10px;
 }
 #links .link-list ul {
   border-top: solid 2px #111;

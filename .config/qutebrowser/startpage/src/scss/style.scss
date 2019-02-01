@@ -1,6 +1,7 @@
 $color-list: #45f442, #42f4e8, #f4f442, #f44242, #e542f4;
 
 body{
+	font-family: 'Lato';
 	background-color: #333;
 	color: #fafafa;
 }
@@ -12,6 +13,7 @@ body{
 	.link-list{
 		width: 90%;
 		border: 1px solid black;
+		border-radius: 10px;
 		margin: auto;
 		margin-top: 0;
 		text-align: center;
@@ -46,6 +48,7 @@ body{
 			line-height: 50px;
 			margin: 0;
 			padding: 0;
+			border-radius: 10px;
 		}
 
 		ul{
