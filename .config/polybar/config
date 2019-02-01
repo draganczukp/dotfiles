@@ -51,7 +51,7 @@ font-3 = DejaVuSansMono Nerd Font:size=12
 
 modules-left = i3
 modules-center = date
-modules-right = musicprev musicplaypause musicnext music volume memory cpu battery1 battery2
+modules-right = kdeconnect musicprev musicplaypause musicnext music volume memory cpu battery1 battery2
 
 
 ;wm-restack = bspwm
