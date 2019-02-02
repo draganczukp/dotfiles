@@ -32,17 +32,14 @@ c.hints.border = "1px solid #CCCCCC"
 # searches
 c.url.searchengines['DEFAULT'] = 'https://duckduckgo.com/?q={}'
 c.url.searchengines['a'] = 'https://wiki.archlinux.org/?search={}'
-c.url.searchengines['d'] = 'https://duckduckgo.com/?q={}'
+c.url.searchengines['w'] = 'https://pl.wikipedia.org/w/index.php?search={}'
 c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q={}'
-c.url.searchengines['y'] = 'https://www.youtube.com/results?search_query={}'
-c.url.searchengines['w'] = 'https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search={}'
-c.url.searchengines['gh'] = 'https://github.com/search?q={}&type=Code'
 
 # fonts
 #c.fonts.monospace = "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono", monospace
 c.fonts.tabs = "10pt DejaVu Sans Mono"
 c.fonts.statusbar = "8pt DejaVu Sans Mono"
-c.fonts.downloads = c.fonts.statusbar 
+c.fonts.downloads = c.fonts.statusbar
 c.fonts.prompts = c.fonts.statusbar
 c.fonts.hints = "13px DejaVu Sans Mono"
 c.fonts.messages.info = "7pt DejaVu Sans Mono"
