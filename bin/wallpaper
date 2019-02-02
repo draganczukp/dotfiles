@@ -9,5 +9,5 @@
 wp=$(/bin/ls ~/Obrazy/Wallpapers/|shuf|head -n1)
 echo $wp > /tmp/current-wallpaper
 feh --bg-scale ~/Obrazy/Wallpapers/$wp
-wal -i ~/Obrazy/Wallpapers/$wp -g -q
+wal -i ~/Obrazy/Wallpapers/$wp -g -o ~/.config/qutebrowser/startpage/build
 wal -R

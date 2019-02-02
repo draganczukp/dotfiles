@@ -5,6 +5,7 @@ body {
 }
 
 #links {
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 20px;
@@ -18,51 +19,51 @@ body {
   text-align: center;
 }
 #links .link-list:nth-child(1) {
-  background-color: #45f442;
+  background-color: #84A77D;
   color: #040404;
 }
 #links .link-list:nth-child(1) h3 {
-  background-color: #2df32a;
+  background-color: #769d6e;
 }
 #links .link-list:nth-child(1) ul li a {
   color: #040404;
 }
 #links .link-list:nth-child(2) {
-  background-color: #42f4e8;
-  color: #040404;
+  background-color: #3F7180;
+  color: #fafafa;
 }
 #links .link-list:nth-child(2) h3 {
-  background-color: #2af3e5;
+  background-color: #37626f;
 }
 #links .link-list:nth-child(2) ul li a {
-  color: #040404;
+  color: #fafafa;
 }
 #links .link-list:nth-child(3) {
-  background-color: #f4f442;
-  color: #040404;
+  background-color: #597786;
+  color: #fafafa;
 }
 #links .link-list:nth-child(3) h3 {
-  background-color: #f3f32a;
+  background-color: #4f6977;
 }
 #links .link-list:nth-child(3) ul li a {
-  color: #040404;
+  color: #fafafa;
 }
 #links .link-list:nth-child(4) {
-  background-color: #f44242;
-  color: #040404;
+  background-color: #627D89;
+  color: #fafafa;
 }
 #links .link-list:nth-child(4) h3 {
-  background-color: #f32a2a;
+  background-color: #576f7a;
 }
 #links .link-list:nth-child(4) ul li a {
-  color: #040404;
+  color: #fafafa;
 }
 #links .link-list:nth-child(5) {
-  background-color: #e542f4;
+  background-color: #6C9399;
   color: #040404;
 }
 #links .link-list:nth-child(5) h3 {
-  background-color: #e22af3;
+  background-color: #60858b;
 }
 #links .link-list:nth-child(5) ul li a {
   color: #040404;
