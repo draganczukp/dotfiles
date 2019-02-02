@@ -69,6 +69,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set spelllang=pl
 
+set mouse=nv
+
 " }}}
 
 " {{{ Clipboard
