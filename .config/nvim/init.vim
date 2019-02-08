@@ -85,6 +85,13 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 " }}}
 
 " {{{ Key binds
+
+
+" Navigating with guides
+inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+map <Space><Space> <Esc>/<++><Enter>"_c4l
+
 " allow Tab and Shift+Tab to
 " tab  selection in visual mode
 vmap <Tab> >gv
@@ -119,6 +126,7 @@ cnoreabbrev Qall qall
 noremap <leader>a ggVG
 map <Leader>b :ls<CR>:b<Space>
 map <Leader>g mggg=G`g:StripWhitespace<CR>
+
 " }}}
 
 " }}}
@@ -341,9 +349,9 @@ let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
 
 autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
 let g:ncm2_pyclang#database_path = [
-            \ 'compile_commands.json',
-            \ 'build/compile_commands.json'
-            \ ]
+			\ 'compile_commands.json',
+			\ 'build/compile_commands.json'
+			\ ]
 " }}}
 
 " {{{ JSON
@@ -360,6 +368,23 @@ augroup END
 Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
+
+" }}}
+
+" {{{ SCSS
+
+Plug 'shmargum/vim-sass-colors'
+
+autocmd BufEnter *.scss call ncm2#register_source({'name' : 'css',
+			\ 'priority': 9,
+			\ 'subscope_enable': 1,
+			\ 'scope': ['css', 'scss', 'less'],
+			\ 'mark': 'css',
+			\ 'word_pattern': '[\w\-]+',
+			\ 'complete_pattern': ':\s*',
+			\ 'on_complete': ['ncm2#on_complete#omni',
+			\               'csscomplete#CompleteCSS'],
+			\ })
 
 " }}}
 
@@ -392,11 +417,6 @@ function! ProseSetup() " {{{ ProseSetup
 	setl formatoptions=t
 	setl textwidth=100
 	setl wrapmargin=0
-
-	" Navigating with guides
-	inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-	vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-	map <Space><Space> <Esc>/<++><Enter>"_c4l
 
 	" Code snippets
 	inoremap ,em \emph{}<++><Esc>T{i
