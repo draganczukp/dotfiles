@@ -2,7 +2,7 @@
 
 opts="focused\nselection\nfullscreen"
 
-choice=$(echo -e $opts | rofi -dmenu -p "Scrot mode")
+choice=$(echo -e $opts | dmenu -p "Scrot mode")
 [[ "$choice" == "" ]] && exit
 name=$( (echo "$HOME/Obrazy/%Y-%m-%d-scrot.png" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
 
