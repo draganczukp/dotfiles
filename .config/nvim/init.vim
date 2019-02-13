@@ -121,6 +121,12 @@ map <Leader>b :ls<CR>:b<Space>
 map <Leader>g mggg=G`g:StripWhitespace<CR>
 " }}}
 
+" {{{ suckless stuffs
+
+autocmd BufWritePost config.h !~/bin/compile %
+
+" }}}
+
 " }}}
 
 " {{{ No config needed
