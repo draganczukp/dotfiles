@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-opts="focused\nselection\nfullscreen"
+opts="focused\nselection\nfullscreen\ncancel"
 
 choice=$(echo -e $opts | dmenu -p "Scrot mode")
 [[ "$choice" == "" ]] && exit
-name=$( (echo "$HOME/Obrazy/%Y-%m-%d-scrot.png" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
+name=$( (echo "$HOME/Obrazy/Screenshots/%Y-%m-%d-scrot.png" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
 
 case $choice in
 	(focused)
