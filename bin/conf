@@ -1,3 +1,4 @@
 #!/bin/zsh
 
-$EDITOR $(cat ~/dotfiles/configfiles | fzf)
+files=$(find ~/bin/ -type f; cat ~/dotfiles/configfiles)
+$EDITOR $(echo $files | fzf)
