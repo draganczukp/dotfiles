@@ -1,2 +1,5 @@
 
+.config/qutebrowser/quickmarks
+.config/qutebrowser/startpage/dist
+.config/qutebrowser/startpage/node_modules
 .config/nvim/.netrwhist
