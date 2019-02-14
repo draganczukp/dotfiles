@@ -2,6 +2,6 @@
 
 dir=$(dirname $1)
 pushd $dir
-sudo make install
+sudo make install 2>&1 > /dev/null && echo "Compile OK" || echo "Compile fail"
 popd
 
