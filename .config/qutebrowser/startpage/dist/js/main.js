@@ -15,8 +15,7 @@ const config = {
             "Reddit": "https://reddit.com",
             "Imgur": "https://imgur.com",
             "Twitter": "https://twitter.com",
-            "Anime": "https://anime-odcinki.pl",
-            "A man has his needs": "https://www.youtube.com/watch?v=DLzxrzFCyOs"
+            "Anime": "https://anime-odcinki.pl"
         },
         "Misc": {
             "GMail": "https://mail.google.com",
