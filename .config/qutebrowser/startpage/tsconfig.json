@@ -6,7 +6,7 @@
 		"strict": true,
 		"outDir": "./dist/js",
 		"sourceMap": true,
-		"noImplicitAny": true
+		"noImplicitAny": false
 	},
 	"include": [
 		"src/**/*",
