@@ -13,8 +13,7 @@ const config = {
 			"Reddit": "https://reddit.com",
 			"Imgur": "https://imgur.com",
 			"Twitter": "https://twitter.com",
-			"Anime": "https://anime-odcinki.pl",
-			"A man has his needs": "https://www.youtube.com/watch?v=DLzxrzFCyOs"
+			"Anime": "https://anime-odcinki.pl"
 		},
 		"Misc": {
 			"GMail": "https://mail.google.com",
@@ -23,7 +22,7 @@ const config = {
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
-			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=20018",
+			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=20885",
 			"Egzaminy": "http://25infsp.tk/egzaminy.php",
 			"Studnet": "https://webapps.uz.zgora.pl/studnet/"
 		},
