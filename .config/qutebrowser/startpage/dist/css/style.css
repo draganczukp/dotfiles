@@ -19,51 +19,51 @@ body {
   text-align: center;
 }
 #links .link-list:nth-child(1) {
-  background-color: #84A77D;
-  color: #040404;
+  background-color: #5C5C4A;
+  color: #fafafa;
 }
 #links .link-list:nth-child(1) h3 {
-  background-color: #769d6e;
+  background-color: #4e4e3f;
 }
 #links .link-list:nth-child(1) ul li a {
-  color: #040404;
+  color: #fafafa;
 }
 #links .link-list:nth-child(2) {
-  background-color: #3F7180;
+  background-color: #9E733F;
   color: #fafafa;
 }
 #links .link-list:nth-child(2) h3 {
-  background-color: #37626f;
+  background-color: #8c6638;
 }
 #links .link-list:nth-child(2) ul li a {
   color: #fafafa;
 }
 #links .link-list:nth-child(3) {
-  background-color: #597786;
-  color: #fafafa;
+  background-color: #FAB62F;
+  color: #040404;
 }
 #links .link-list:nth-child(3) h3 {
-  background-color: #4f6977;
+  background-color: #f9ad16;
 }
 #links .link-list:nth-child(3) ul li a {
-  color: #fafafa;
+  color: #040404;
 }
 #links .link-list:nth-child(4) {
-  background-color: #627D89;
+  background-color: #AE8D51;
   color: #fafafa;
 }
 #links .link-list:nth-child(4) h3 {
-  background-color: #576f7a;
+  background-color: #9d7f49;
 }
 #links .link-list:nth-child(4) ul li a {
   color: #fafafa;
 }
 #links .link-list:nth-child(5) {
-  background-color: #6C9399;
+  background-color: #DAA95F;
   color: #040404;
 }
 #links .link-list:nth-child(5) h3 {
-  background-color: #60858b;
+  background-color: #d59e4a;
 }
 #links .link-list:nth-child(5) ul li a {
   color: #040404;
