@@ -8,6 +8,7 @@ dunst &
 qutebrowser &
 spotify &
 /usr/lib/kdeconnectd &
+tilda &
 
 xset s 0
 xset r rate 200 50
