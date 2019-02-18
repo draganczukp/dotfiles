@@ -1,6 +1,13 @@
 #!/bin/zsh
 
+function batteries(){
+	local STATUS=""
+	for bat in $(find /sys/class/power_supply -name "BAT*"); do
+		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
+	done
+	echo $STATUS
+}
 while true; do
-	xsetroot -name "$(date +'%H:%M:%S')"
+	xsetroot -name "$(batteries) | $(date +'%H:%M:%S')"
 	sleep 1s
 done
