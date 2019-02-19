@@ -1,13 +1,38 @@
 #!/bin/zsh
 
 function batteries(){
-	local STATUS=""
+	local STATUS=" "
 	for bat in $(find /sys/class/power_supply -name "BAT*"); do
 		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
 	done
 	echo $STATUS
 }
-while true; do
-	xsetroot -name "$(batteries) | $(date +'%H:%M:%S')"
-	sleep 1s
-done
+
+function volume(){
+	local STATUS="| Vol:"
+
+	vol=$(pamixer --get-volume)
+	[[ "$vol" = "0" ]] && STATUS="| (muted)" ||	STATUS="$STATUS $(pamixer --get-volume)%"
+	echo $STATUS
+}
+
+function music(){
+	local STATUS="|"
+
+	pStatus=$(playerctl status)
+
+	[[ "$pStatus" = "Paused" ]] \
+		&& STATUS="$STATUS ()" \
+		|| STATUS="$STATUS ()"
+
+	STATUS="$STATUS $(playerctl metadata artist): $(playerctl metadata title)"
+
+	$(playerctl status 2>&1 > /dev/null)
+	[[ $? -eq 0 ]] && echo $STATUS
+}
+
+function status(){
+	echo "$(music)$(volume)$(batteries)|$(date +'%H:%M:%S')"
+}
+[[ -v DEBUG ]] && echo $(status)
+xsetroot -name "$(status)"
