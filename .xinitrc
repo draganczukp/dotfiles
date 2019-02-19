@@ -12,4 +12,4 @@ spotify &
 xset s 0
 
 ~/bin/dwmstatus &
-dwm
+dwm > ~/.dwm.log 2> ~/.dwm.err.log
