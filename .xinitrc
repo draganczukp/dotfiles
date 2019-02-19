@@ -1,16 +1,8 @@
 #!/bin/zsh
 
-[ -e ~/.screenlayout/layout.sh ] && ~/.screenlayout/layout.sh &
-setxkbmap -option caps:escape &
-~/bin/wallpaper &
-~/bin/start-compton &
-dunst &
-qutebrowser &
-spotify &
-/usr/lib/kdeconnectd &
-tilda &
+~/bin/startup
 
-xset s 0
-
-~/bin/dwmstatus &
+while [[ true ]]; do
+	~/bin/dwmstatus
+done &
 dwm
