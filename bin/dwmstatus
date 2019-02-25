@@ -34,5 +34,7 @@ function music(){
 function status(){
 	echo "$(music)$(volume)$(batteries)|$(date +'%H:%M:%S')"
 }
+
 [[ -v DEBUG ]] && echo $(status)
+
 xsetroot -name "$(status)"
