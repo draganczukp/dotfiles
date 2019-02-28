@@ -31,8 +31,18 @@ function music(){
 	[[ $? -eq 0 ]] && echo $STATUS
 }
 
+function cal(){
+	local STATUS="|"
+	apts=$(cat ~/.calcurse/apts)
+	now=$(date +"%m/%d/%Y" | sed -r "s/.\$//")
+	count=$(echo $apts | grep -i $now | wc -l)
+	# echo $now $count
+	STATUS="$STATUS Today: $count"
+	[[ "$count" = "0" ]] ||	echo $STATUS
+}
+
 function status(){
-	echo "$(music)$(volume)$(batteries)|$(date +'%H:%M:%S')"
+	echo "$(music)$(volume)$(cal)$(batteries)| $(date +'%H:%M:%S')"
 }
 [[ -v DEBUG ]] && echo $(status)
 xsetroot -name "$(status)"

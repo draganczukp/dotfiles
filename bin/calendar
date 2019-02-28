@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+calcurse-caldav
+
+apts=$(cat ~/.calcurse/apts)
+# now=$(date +"%m/%d/%Y" | sed -r "s/.\$//")
+now=$(date +"%m/%d/%Y @ %H:%M" | sed -r "s/.\$//")
+
+aptstoday=$(echo $apts | grep -i $now )
+# echo $today | wc -m
+[ "$(echo $aptstoday | wc -l)" -gt 0 ] && \
+	for apt in $aptstoday; do
+		msg=$(echo $apt | sed -r "s/.*\|(.*)\$/\1/")
+		# echo $apt $msg
+		notify-send -i /usr/share/icons/gnome/48x48/mimetypes/stock_calendar.png -c "Calendar" -u normal "Reminder" $msg
+	done

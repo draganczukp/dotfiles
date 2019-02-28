@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 [ -e ~/.screenlayout/layout.sh ] && ~/.screenlayout/layout.sh &
-setxkbmap -option caps:escape &
+setxkbmap -option caps:escape -layout pl &
 ~/bin/wallpaper &
 ~/bin/start-compton &
 dunst &

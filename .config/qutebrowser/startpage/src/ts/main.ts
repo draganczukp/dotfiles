@@ -29,7 +29,6 @@ const config = {
 		"Dev": {
 			"localhost:8000": "http://localhost:8000",
 			"Github": "https://github.com/",
-			"D&G GitLab": "https://gitlab.com/devandgamesuz/",
 			"MDN": "https://developer.mozilla.org/en-US/",
 			"DigitalOcean": "https://cloud.digitalocean.com"
 		},
