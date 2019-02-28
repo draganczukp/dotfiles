@@ -2,9 +2,11 @@
 
 ~/bin/startup
 
+xset s 0
+
 while [[ true ]]; do
 	~/bin/dwmstatus
 	~/bin/calendar
 	sleep 1
 done &
-dwm
+dwm > ~/.dwm.log 2> ~/.dwm.err.log
