@@ -1,0 +1,2 @@
+#!/bin/zsh
+lpass show --password $1

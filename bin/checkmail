@@ -1,0 +1,18 @@
+#!/bin/zsh
+export DISPLAY=:0.0
+
+ping -q -c1 1.1 > /dev/null || exit
+
+function notify(){
+	notify-send "New Mail" "$1 new mail in mailbox $2"
+}
+
+for account in $(ls ~/.mail); do
+	newxount=$(find ~/.mail/$account/INBOX/new/ -type f - newer ~/.config/mutt/.mailsynclast 2> /dev/null | wc -l)
+	if [ "$newcount" -gt "0" ]; then
+		notify $newcount $account &
+	fi
+done
+notmuch new
+
+touch ~/.config/mutt/.mailsynclast

@@ -1,0 +1,5 @@
+text/plain; vim %s ;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+image/*; ~/.config/mutt/muttimage.sh %s ; copiousoutput
+video/*; setsid mpv --quiet %s &; copiousoutput
+application/pdf; ~/.config/mutt/openfile.sh %s ;
