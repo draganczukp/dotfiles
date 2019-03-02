@@ -1,13 +1,16 @@
-/home/killermenpl/.config/i3/config
-/home/killermenpl/.config/nvim/init.vim
-/home/killermenpl/.config/polybar/config
-/home/killermenpl/.config/polybar/launch
-/home/killermenpl/.config/qutebrowser/config.py
-/home/killermenpl/.zshrc
-/home/killermenpl/dotfiles/configfiles
-/home/killermenpl/dotfiles/zsh-theme/draganczukp/draganczukp.zsh-theme
-/home/killermenpl/.config/qutebrowser/startpage/src/ts/main.ts
-/home/killermenpl/dev/st/config.h
-/home/killermenpl/dev/dwm/config.h
-/home/killermenpl/.xinitrc
-.config/dunst/dunstrc
+# vim:commentstring=#%s
+# [sorting number] [short form] [path]
+0 config $HOME/dotfiles/configfiles
+0 vimrc $HOME/.config/nvim/init.vim
+1 zshrc $HOME/.zshrc
+2 xinit $HOME/.xinitrc
+3 zshtheme $HOME/dotfiles/zsh-theme/draganczukp/draganczukp.zsh-theme
+4 dwmconf $HOME/dev/dwm/config.h
+5 stconf $HOME/dev/st/config.h
+6 dunstrc $HOME/.config/dunst/dunstrc
+7 muttfolder $HOME/.config/mutt
+15 muttrc $HOME/.config/mutt/muttrc
+# 20 polconf $HOME/.config/polybar/config
+# 90 i3conf $HOME/.config/i3/config
+90 quteconf $HOME/.config/qutebrowser/config.py
+90 qutestart $HOME/.config/qutebrowser/startpage/src/ts/main.ts

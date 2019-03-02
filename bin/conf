@@ -1,4 +1,16 @@
 #!/bin/zsh
 
-files=$(cat ~/dotfiles/configfiles; find ~/bin/ -type f)
-$EDITOR $(echo $files | fzf)
+# List config files added manually
+files=$(cat ~/dotfiles/configfiles;\
+		# Also list all scripts in ~/bin
+		find ~/bin/ -type f -exec echo 99 bin {} \; \
+		)
+# Print all the files for processing
+echo $files \
+	| sed -e 's/#.*//' -e '/^$/ d'\
+		-e "s!\$HOME!$HOME!" \
+	| sort \
+	| awk '{print $2" "$3}' \
+	| fzf +s \
+	| awk '{print $2}' \
+	| xargs -r $EDITOR
