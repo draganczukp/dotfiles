@@ -16,7 +16,7 @@ config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qute
 c.url.default_page = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
 c.url.start_pages = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
 
-c.editor.command = ["i3-sensible-terminal", "-e", "nvim", "-f", "{}"]
+c.editor.command = ["st", "-e", "nvim", "-f", "{}"]
 c.new_instance_open_target = "tab-bg"
 # c.prompt.filebrowser = False
 c.completion.height = "30%"
