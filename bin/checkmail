@@ -7,8 +7,10 @@ function notify(){
 	notify-send "New Mail" "$1 new mail in mailbox $2"
 }
 
+offlineimap
+
 for account in $(ls ~/.mail); do
-	newxount=$(find ~/.mail/$account/INBOX/new/ -type f - newer ~/.config/mutt/.mailsynclast 2> /dev/null | wc -l)
+	newcount=$(find ~/.mail/$account/INBOX/new/ -type f -newer ~/.config/mutt/.mailsynclast 2> /dev/null | wc -l)
 	if [ "$newcount" -gt "0" ]; then
 		notify $newcount $account &
 	fi
