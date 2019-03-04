@@ -88,9 +88,9 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 
 
 " Navigating with guides
-inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-map <Space><Space> <Esc>/<++><Enter>"_c4l
+inoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
+vnoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
+map <Leader><Leader> <Esc>/<++><Enter>"_c4l
 
 " allow Tab and Shift+Tab to
 " tab  selection in visual mode
@@ -417,13 +417,16 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'junegunn/goyo.vim'
 
 function! ProseSetup() " {{{ ProseSetup
-	echo "Setting prose"
+	" echo "Setting prose"
 	" Goyo 100
 	setl spell spelllang=pl
 	setl formatoptions=t
 	setl textwidth=100
 	setl wrapmargin=0
 
+endfunction " }}}
+
+function! TexSnippets()
 	" Code snippets
 	inoremap ,em \emph{}<++><Esc>T{i
 	inoremap ,bf \textbf{}<++><Esc>T{i
@@ -439,10 +442,12 @@ function! ProseSetup() " {{{ ProseSetup
 	inoremap ,ref (\ref{})<++><Esc>F}i
 
 	nmap <F12> :40vsplit ~/.config/nvim/snippets.tex.txt
-endfunction " }}}
+endfunction
 
-autocmd BufRead,BufNewFile *.tex setl filetype=tex
 autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
+autocmd BufRead,BufNewFile *.tex setl filetype=tex
+autocmd BufRead,BufNewFile *.tex call TexSnippets()
+
 " Plug 'reedes/vim-lexical'
 
 " augroup lexical
@@ -541,4 +546,5 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 " }}}
+
 "}}}

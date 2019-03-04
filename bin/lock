@@ -3,14 +3,13 @@
 [[ $(pgrep -x i3lock > /dev/null) ]] && exit
 img=$(cat /tmp/current-wallpaper)
 
-kbd=$(xbacklight -ctrl tpacpi::kbd_backlight -get)
 i3lock -i $HOME/.cache/rice/lockscreens/$img -e -f
 
-while [[ $(pgrep -x i3lock) ]]; do
-	[[ 4000 -lt $(xssstate -i) ]] && \
-		xset dpms force off && \
-		xbacklight -ctrl tpacpi::kbd_backlight -set 0
-	sleep 1
-done
-
-xbacklight -ctrl tpacpi::kbd_backlight -set $kbd
+# kbd=$(xbacklight -ctrl tpacpi::kbd_backlight -get)
+# while [[ $(pgrep -x i3lock) ]]; do
+# 	[[ 5000 -lt $(xssstate -i) ]] && \
+# 		xset dpms force off && \
+# 		xbacklight -ctrl tpacpi::kbd_backlight -set 0
+# 	sleep 1
+# done
+# xbacklight -ctrl tpacpi::kbd_backlight -set $kbd
