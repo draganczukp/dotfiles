@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+server=$(echo "draganczuk.tk\nosmc@tv\nd198777@willow.imei.uz.zgora.pl" | fzf)
+[ -z $server ] || ssh $server

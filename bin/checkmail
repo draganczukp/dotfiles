@@ -1,7 +1,7 @@
 #!/bin/zsh
 export DISPLAY=:0.0
 
-ping -q -c1 1.1 > /dev/null || exit
+# ping -q -c1 1.1 > /dev/null || exit
 
 function notify(){
 	notify-send "New Mail" "$1 new mail in mailbox $2"
@@ -15,6 +15,8 @@ for account in $(ls ~/.mail); do
 		notify $newcount $account &
 	fi
 done
+
 notmuch new
 
+# echo $(date) >> /tmp/test
 touch ~/.config/mutt/.mailsynclast

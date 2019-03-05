@@ -1,0 +1,4 @@
+#!/bin/zsh
+export DISPLAY=:0
+notify-send "test"
+echo "$(date)" >> /tmp/test
