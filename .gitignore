@@ -3,3 +3,5 @@
 .config/qutebrowser/startpage/dist
 .config/qutebrowser/startpage/node_modules
 .config/nvim/.netrwhist
+
+.config/mutt/*/cache
