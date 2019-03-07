@@ -1,0 +1,67 @@
+[general]
+accounts = gmail, studnet, grupowy
+starttls = yes
+ssl = yes
+pythonfile = ~/.offlineimap.py
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-remote]
+auth_mechanisms = LOGIN
+type = Gmail
+remoteuser = draganczukp@gmail.com
+remotepasseval = mailpass("google.com")
+remotehost = imap.gmail.com
+remoteport = 993
+nametrans = lambda foldername: 	re.sub('\[Gmail\]/Wys&AUI-ane', 'sent',
+								re.sub('\[Gmail\]/Wersje_robocze', 'drafts',
+								re.sub(' ', '_', foldername)))
+folderfilter = lambda foldername: foldername not in ['[Gmail]\Wszystkie']
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_version=tls1_2
+createfolders = False
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/.mail/gmail
+
+[Account studnet]
+localrepository = studnet-local
+remoterepository = studnet-remote
+
+[Repository studnet-remote]
+auth_mechanisms = LOGIN
+type = IMAP
+remoteuser = 97449@stud.uz.zgora.pl
+remotepasseval = mailpass("studnet")
+remotehost = poczta.stud.uz.zgora.pl
+remoteport = 993
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_version=tls1_2
+createfolders = False
+
+[Repository studnet-local]
+type = Maildir
+localfolders = ~/.mail/studnet
+
+[Account grupowy]
+localrepository = grupowy-local
+remoterepository = grupowy-remote
+
+[Repository grupowy-remote]
+auth_mechanisms = LOGIN
+type = IMAP
+remoteuser = mail@25infsp.tk
+remotepasseval = mailpass("grupowy")
+remotehost = mail.cba.pl
+remoteport = 993
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_version=tls1_2
+createfolders = False
+
+[Repository grupowy-local]
+type = Maildir
+localfolders = ~/.mail/grupowy
+
