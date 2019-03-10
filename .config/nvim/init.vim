@@ -90,7 +90,7 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 " Navigating with guides
 inoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
 vnoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
-map <Leader><Leader> <Esc>/<++><Enter>"_c4l
+map <Leader><Leader> <Esc>/<++><Enter>:noh<CR>"_c4l
 
 " allow Tab and Shift+Tab to
 " tab  selection in visual mode
@@ -468,6 +468,26 @@ autocmd BufRead,BufNewFile *.tex call TexSnippets()
 " 	autocmd FileType latex,md,markdown,tex call pencil#init()
 " 				\ | call lexical#init()
 " augroup end
+
+" }}}
+
+" {{{ html
+
+function! HTMLSnippets()
+	inoremap ,p <p><CR></p><CR><++><Esc>kO
+	inoremap ,a <a href="\|"><++></a> <++><Esc>F\|xi
+	inoremap ,span <span>\|</span> <++><Esc>F\|xi
+	inoremap ,h1 <h1>\|</h1><CR><++><Esc>kf\|xi
+	inoremap ,h2 <h2>\|</h2><CR><++><Esc>kf\|xi
+	inoremap ,h3 <h3>\|</h3><CR><++><Esc>kf\|xi
+	inoremap ,h4 <h4>\|</h4><CR><++><Esc>kf\|xi
+	inoremap ,h5 <h5>\|</h5><CR><++><Esc>kf\|xi
+	inoremap ,h6 <h6>\|</h6><CR><++><Esc>kf\|xi
+	inoremap ,code <pre><code><CR>\|<CR></code></pre><CR><++><ESC>2ks
+	inoremap ,img <img src="\|" alt="<++>/><CR><++><ESC>F\|xi
+endfunction
+
+autocmd BufRead,BufNewFile *.html call HTMLSnippets()
 
 " }}}
 

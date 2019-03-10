@@ -10,4 +10,5 @@ spotify &
 /usr/lib/kdeconnectd &
 
 xset s 0
+xset r rate 500 50
 wmname LD3D
