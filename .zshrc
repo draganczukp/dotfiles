@@ -104,6 +104,9 @@ alias mkdir="mkdir -p"
 alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 alias vimrc="vim ~/.config/nvim/init.vim"
 
+# That's the simplest way to run it from anywhere without problems with symlinks
+alias blog="~/dev/blog/blog"
+
 # }}}
 
 # {{{ Functions
