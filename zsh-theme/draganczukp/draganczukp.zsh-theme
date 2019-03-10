@@ -2,8 +2,8 @@
 # Yes, it's ugly. But it's mine
 
 local RESET="%{$reset_color%}"
-local L_BRACKET="《"
-local R_BRACKET=" 》"
+local L_BRACKET="𛰧"
+local R_BRACKET="𛰨 "
 
 local function p-print(){
 	echo "%{$FG[$1]%}$L_BRACKET$2$R_BRACKET"
