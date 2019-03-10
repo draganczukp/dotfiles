@@ -3,20 +3,17 @@ export DISPLAY=:0.0
 
 # ping -q -c1 1.1 > /dev/null || exit
 
-function notify(){
-	notify-send "New Mail" "$1 new mail in mailbox $2"
-}
-
 offlineimap
 
 for account in $(ls ~/.mail); do
 	newcount=$(find ~/.mail/$account/INBOX/new/ -type f -newer ~/.config/mutt/.mailsynclast 2> /dev/null | wc -l)
 	if [ "$newcount" -gt "0" ]; then
-		notify $newcount $account &
+		echo "New Mail" "$newcount new mail in mailbox $account" &
+		notify-send "New Mail" "$newcount new mail in mailbox $account" &
+		echo $(date) >> /tmp/test
 	fi
 done
 
 notmuch new
 
-# echo $(date) >> /tmp/test
 touch ~/.config/mutt/.mailsynclast
