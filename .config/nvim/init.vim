@@ -149,9 +149,7 @@ Plug 'farmergreg/vim-lastplace'
 
 " Plug 'airblade/vim-gitgutter'
 
-Plug 'bling/vim-bufferline'
-
-Plug 'skammer/vim-css-color'
+" Plug 'skammer/vim-css-color'
 
 Plug 'chemzqm/jsonc.vim'
 
@@ -167,17 +165,18 @@ Plug 'ervandew/supertab'
 
 " {{{ Startify
 
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
-let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'z': '~/.zshrc'} ]
-let g:startify_update_oldfiles = 1
-let g:startify_fortune_use_unicode = 1
-let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
+" let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'z': '~/.zshrc'} ]
+" let g:startify_update_oldfiles = 1
+" let g:startify_fortune_use_unicode = 1
+" let g:startify_change_to_dir = 0
+" let g:startify_change_to_vcs_root = 1
 
 " }}}
 
 " {{{ Factorus
+
 Plug 'apalmer1377/factorus'
 
 map <Leader>x :FMExtractMethod<SPACE>
@@ -196,6 +195,12 @@ map <Leader>/ :Commentary<CR>
 
 " }}}
 
+" {{{ Surrond
+
+Plug 'tpope/vim-surround'
+
+" }}}
+
 " {{{ File management
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -211,27 +216,27 @@ map <C-p> :FZF<CR>
 
 " {{{ Syntastic
 
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 1
+" let g:syntastic_java_checkers=['javac']
+" let g:syntastic_java_javac_config_file_enabled = 1
 
-let g:syntastic_tex_checkers=['lacheck']
+" let g:syntastic_tex_checkers=['lacheck']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_error_symbol = '✗'
+" let g:syntastic_style_warning_symbol = '⚠'
+" let g:syntastic_aggregate_errors = 1
 
 " }}}
 
@@ -406,9 +411,19 @@ au FocusGained,BufEnter * :checktime
 
 " {{{ MarkDown
 
-Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
-Plug 'iamcco/markdown-preview.vim'
+let g:mkdp_page_title = '${name}'
+let g:mkdp_preview_options = {
+	\ 'mkit': {},
+	\ 'katex': {},
+	\ 'uml': {
+		\ 'server': 'http://0.0.0.0:8080'
+	\ },
+	\ 'maid': {},
+	\ 'disable_sync_scroll': 0,
+	\ 'sync_scroll_type': 'middle'
+	\ }
 
 " }}}
 
@@ -500,6 +515,7 @@ call plug#end()
 
 colorscheme badwolf
 " colorscheme allomancer
+" colorscheme Monokai
 
 " {{{Lightline
 let g:lightline = {

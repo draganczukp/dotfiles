@@ -9,6 +9,9 @@ qutebrowser &
 spotify &
 /usr/lib/kdeconnectd &
 
+~/bin/run-on-clock 1m ~/bin/checkmail &
+~/bin/run-on-clock 1m ~/bin/calendar &
+
 xset s 0
 xset r rate 500 50
 wmname LD3D

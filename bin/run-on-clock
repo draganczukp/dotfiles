@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+t=$1
+cmd=$2
+shift 2
+
+while true; do
+	$cmd $*
+	sleep $t
+done
