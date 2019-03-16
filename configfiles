@@ -14,3 +14,4 @@
 # 90 i3conf $HOME/.config/i3/config
 90 quteconf $HOME/.config/qutebrowser/config.py
 90 qutestart $HOME/.config/qutebrowser/startpage/src/ts/main.ts
+10 compton .config/compton.conf
