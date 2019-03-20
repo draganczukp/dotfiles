@@ -8,24 +8,29 @@ function batteries(){
 	echo $STATUS
 }
 
+function ischarging(){
+	local s=$(cat /sys/class/power_supply/AC/online)
+	[[ "$s" -eq "1" ]] && echo "| charging"
+}
+
 function volume(){
-	local STATUS="| Vol:"
+	local STATUS="|Vol:"
 
 	vol=$(pamixer --get-volume)
-	[[ "$vol" = "0" ]] && STATUS="| (muted)" ||	STATUS="$STATUS $(pamixer --get-volume)%"
+	[[ "$vol" = "0" ]] && STATUS="|(muted)" ||	STATUS="$STATUS $(pamixer --get-volume)%"
 	echo $STATUS
 }
 
 function music(){
-	local STATUS="|"
-
-	pStatus=$(playerctl status)
+	local pStatus=$(playerctl status)
 
 	[[ "$pStatus" = "Paused" ]] \
 		&& STATUS="$STATUS ()" \
 		|| STATUS="$STATUS ()"
 
-	STATUS="$STATUS $(playerctl metadata artist): $(playerctl metadata title)"
+	local artist=$(playerctl metadata artist)
+	local title=$(playerctl metadata title)
+	local STATUS="|${artist:0:10}: ${title:0:10}"
 
 	$(playerctl status 2>&1 > /dev/null)
 	[[ $? -eq 0 ]] && echo $STATUS
@@ -42,7 +47,7 @@ function cal(){
 }
 
 function status(){
-	echo "$(music)$(volume)$(cal)$(batteries)| $(date +'%H:%M:%S')"
+	echo "$(music)$(volume)$(cal)$(ischarging)$(batteries)|$(date +'%H:%M:%S')"
 }
 
 [[ -v DEBUG ]] && echo $(status)

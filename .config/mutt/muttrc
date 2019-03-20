@@ -5,12 +5,12 @@ bind index \Cf noop
 source personal.muttrc
 set sleep_time = 0
 set sort = 'reverse-date'
-set editor = $EDITOR
+set editor = nvim
 #set copy = no
 set timeout = "5"
 set mail_check = "10"
-# set mailcap_path = ~/.config/mutt/mailcap
-set mailcap_path = ~/.mailcap
+set mailcap_path = ~/.config/mutt/mailcap
+# set mailcap_path = ~/.mailcap
 set date_format="%d/%m/%y %I:%M"
 set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set markers = no
@@ -18,7 +18,7 @@ set mark_old = no
 set mime_forward = yes
 set smtp_authenticators = 'gssapi:login'
 set wait_key = no
-auto_view text/html
+# auto_view text/html
 auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
 set rfc2047_parameters = yes
