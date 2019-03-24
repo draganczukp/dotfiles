@@ -3,18 +3,17 @@
 function batteries(){
 	local STATUS=" "
 	for bat in $(find /sys/class/power_supply -name "BAT*"); do
-		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
+		STATUS="$STATUS|$(basename $bat) $(ischarging)$(cat $bat/capacity)%"
 	done
 	echo $STATUS
 }
 
 function ischarging(){
-	local s=$(cat /sys/class/power_supply/AC/online)
-	[[ "$s" -eq "1" ]] && echo "| charging"
+	cat /sys/class/power_supply/AC/online && echo ""
 }
 
 function volume(){
-	local STATUS="|Vol:"
+	local STATUS="|:"
 
 	vol=$(pamixer --get-volume)
 	[[ "$vol" = "0" ]] && STATUS="|(muted)" ||	STATUS="$STATUS $(pamixer --get-volume)%"
@@ -25,12 +24,12 @@ function music(){
 	local pStatus=$(playerctl status)
 
 	[[ "$pStatus" = "Paused" ]] \
-		&& STATUS="$STATUS ()" \
-		|| STATUS="$STATUS ()"
+		&& STATUS="$STATUS()" \
+		|| STATUS="$STATUS()"
 
 	local artist=$(playerctl metadata artist)
 	local title=$(playerctl metadata title)
-	local STATUS="|${artist:0:10}: ${title:0:10}"
+	local STATUS="|$STATUS ${artist:0:15}: ${title:0:15}"
 
 	$(playerctl status 2>&1 > /dev/null)
 	[[ $? -eq 0 ]] && echo $STATUS
@@ -42,7 +41,7 @@ function cal(){
 	now=$(date +"%m/%d/%Y" | sed -r "s/.\$//")
 	count=$(echo $apts | grep -i $now | wc -l)
 	# echo $now $count
-	STATUS="$STATUS Today: $count"
+	STATUS="$STATUS : $count"
 	[[ "$count" = "0" ]] ||	echo $STATUS
 }
 
