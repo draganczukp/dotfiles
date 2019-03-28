@@ -1,16 +1,64 @@
 #!/bin/zsh
 
-calcurse-caldav
 
-apts=$(cat ~/.calcurse/apts)
-# now=$(date +"%m/%d/%Y" | sed -r "s/.\$//")
-now=$(date +"%m/%d/%Y @ %H:%M" | sed -r "s/.\$//")
+function notify(){
+	dunstify --appname="Calendar" --icon="/usr/share/icons/gnome/32x32/mimetypes/stock_calendar.png" --urgency="normal" "Calendar" "$1"
+}
 
-aptstoday=$(echo $apts | grep -i $now )
-# echo $today | wc -m
-[ "$(echo $aptstoday | wc -l)" -gt 0 ] && \
-	for apt in $aptstoday; do
-		msg=$(echo $apt | sed -r "s/.*\|(.*)\$/\1/")
-		# echo $apt $msg
-		notify-send -i /usr/share/icons/gnome/48x48/mimetypes/stock_calendar.png -c "Calendar" -u normal "Reminder" $msg
+function new-event(){
+	read "?Date [dd mm yyyy]: " day month year
+
+	read "?Description: " desc
+
+	read "?Notify time [HH MM]: " hour minute
+
+	echo "Creating new event\n$desc\nat $day/$month/$year, notification at $hour:$minute"
+
+	echo "$day $month $year $hour $minute $desc" >> ~/.persistent/calendar-events.txt
+}
+
+function query-today(){
+	grep "^$(date +"%d %m %Y")" ~/.persistent/calendar-events.txt
+}
+
+function alert(){
+	today=$(query-today | cut -c 12-)
+	# now=$(grep "17 20" <<<$today | cut -c 6-)
+	now=$(grep "^$(date +'%H %M')" | cut -c 6-) <<<$today
+	for event in $now; do
+		notify $event
 	done
+}
+
+function list(){
+	sed -r 's/([0-9]{2}) ([0-9]{2}) ([0-9]{4}) ([0-9]{2}) ([0-9]{2})/\1\/\2\/\3 \4:\5/' < ~/.persistent/calendar-events.txt
+}
+
+function usage(){
+	echo """
+Usage:
+$0 [action]
+Where [action] is one of
+	n	New event
+	q	List todays events
+	a	notify about events that should be notified right now
+	l	List all events
+	"""
+}
+
+
+case $1 in
+	(q)
+		query-today;;
+	(n)
+		new-event;;
+	(a)
+		alert;;
+	(l)
+		list;;
+	(*)
+		usage;;
+esac
+
+
+# vim:ft=zsh
