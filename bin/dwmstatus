@@ -1,27 +1,27 @@
 #!/bin/zsh
 
 function batteries(){
-	local STATUS=" "
+	local STATUS=""
 	for bat in $(find /sys/class/power_supply -name "BAT*"); do
-		STATUS="$STATUS|$(basename $bat) $(ischarging)$(cat $bat/capacity)%"
+		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
 	done
 	echo $STATUS
 }
 
 function ischarging(){
-	cat /sys/class/power_supply/AC/online && echo ""
+	[ $(cat /sys/class/power_supply/AC/online) -eq "1" ] && echo "|" || echo ""
 }
 
 function volume(){
 	local STATUS="|:"
 
 	vol=$(pamixer --get-volume)
-	[[ "$vol" = "0" ]] && STATUS="|(muted)" ||	STATUS="$STATUS $(pamixer --get-volume)%"
-	echo $STATUS
+	[[ "$vol" = "0" ]] && echo "(muted)" || echo "$STATUS $(pamixer --get-volume)%"
 }
 
 function music(){
 	local pStatus=$(playerctl status)
+	local STATUS="";
 
 	[[ "$pStatus" = "Paused" ]] \
 		&& STATUS="$STATUS()" \
@@ -46,7 +46,7 @@ function cal(){
 }
 
 function status(){
-	echo "$(music)$(volume)$(cal)$(ischarging)$(batteries)|$(date +'%H:%M:%S')"
+	echo "$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
 }
 
 [[ -v DEBUG ]] && echo $(status)
