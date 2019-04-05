@@ -4,10 +4,6 @@ set realname = "Przemek Dragańczuk"
 set from = "mail@25infsp.tk"
 set sendmail = "/usr/bin/msmtp -a grupowy"
 set folder = "~/.mail/grupowy"
-set header_cache = ~/.config/mutt/grupowy/cache/headers
-set message_cachedir = ~/.config/mutt/grupowy/cache/bodies
-set certificate_file = ~/.config/mutt/grupowy/certificates
-source "~/bin/getpass grupowy |"
 set spoolfile = "+INBOX"
 
 alias me "Przemek Dragańczuk" "mail@25infsp.tk"
@@ -16,7 +12,4 @@ set mbox_type = Maildir
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-bind index,pager gg noop
-bind index,pager g noop
-bind index gg first-entry
 unmailboxes *
