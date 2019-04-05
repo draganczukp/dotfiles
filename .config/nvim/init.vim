@@ -407,6 +407,10 @@ autocmd Filetype tex setl updatetime=1
 
 au FocusGained,BufEnter * :checktime
 
+autocmd BufRead,BufNewFile *.tex setl filetype=tex
+autocmd BufRead,BufNewFile *.tex source ~/.config/nvim/snippets/tex.vim
+autocmd BufRead,BufNewFile *.tex nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/tex.vim<CR>
+
 " }}}
 
 " {{{ MarkDown
@@ -441,27 +445,8 @@ function! ProseSetup() " {{{ ProseSetup
 
 endfunction " }}}
 
-function! TexSnippets()
-	" Code snippets
-	inoremap ,em \emph{}<++><Esc>T{i
-	inoremap ,bf \textbf{}<++><Esc>T{i
-	inoremap ,it \textit{}<++><Esc>T{i
-	inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
-	inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-	inoremap ,li <Enter>\item<Space>
-	inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
-	inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
-	inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-	inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-	inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-	inoremap ,ref (\ref{})<++><Esc>F}i
-
-	nmap <F12> :40vsplit ~/.config/nvim/snippets.tex.txt
-endfunction
 
 autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
-autocmd BufRead,BufNewFile *.tex setl filetype=tex
-autocmd BufRead,BufNewFile *.tex call TexSnippets()
 
 " Plug 'reedes/vim-lexical'
 
@@ -498,7 +483,7 @@ function! HTMLSnippets()
 	inoremap ,h4 <h4>\|</h4><CR><++><Esc>kf\|xi
 	inoremap ,h5 <h5>\|</h5><CR><++><Esc>kf\|xi
 	inoremap ,h6 <h6>\|</h6><CR><++><Esc>kf\|xi
-	inoremap ,code <pre><code><CR>\|<CR></code></pre><CR><++><ESC>2ks
+	inoremap ,pre <pre><code><CR>\|<CR></code></pre><CR><++><ESC>2ks
 	inoremap ,img <img src="\|" alt="<++>/><CR><++><ESC>F\|xi
 endfunction
 
