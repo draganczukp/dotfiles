@@ -41,7 +41,7 @@ gitfast
 # gradle
 npm
 sudo
-tmux
+# tmux
 )
 
 # export ZSH_TMUX_AUTOSTART=true
@@ -173,6 +173,10 @@ motd
 # load wall
 [ -e ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 # wal -r -t
+
+# Start a tmux session for IRC and stuff
+
+# tmux new-session -s "IRC" irssi
 
 # }}}
 
