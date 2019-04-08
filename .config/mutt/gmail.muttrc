@@ -4,10 +4,6 @@ set realname = "Przemek Dragańczuk"
 set from = "draganczukp@gmail.com"
 set sendmail = "/usr/bin/msmtp -a gmail"
 set folder = "~/.mail/gmail/"
-set header_cache = ~/.config/mutt/gmail/cache/headers
-set message_cachedir = ~/.config/mutt/gmail/cache/bodies
-set certificate_file = ~/.config/mutt/gmail/certificates
-source "~/bin/getpass gmail |"
 set spoolfile = "+INBOX"
 
 alias me "Przemek Dragańczuk" "draganczukp@gmail.com"
@@ -16,7 +12,4 @@ set mbox_type = Maildir
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-bind index,pager gg noop
-bind index,pager g noop
-bind index gg first-entry
 unmailboxes *

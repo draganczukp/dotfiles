@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-~/bin/startup
+~/bin/startup &
 
 xset s 0
 
