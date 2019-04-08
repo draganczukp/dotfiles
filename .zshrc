@@ -41,7 +41,7 @@ gitfast
 # gradle
 npm
 sudo
-tmux
+# tmux
 )
 
 # export ZSH_TMUX_AUTOSTART=true
@@ -84,6 +84,8 @@ alias ls="colorls --sd "
 
 alias ll="ls -Al"
 alias l="ls -l"
+alias lp="l | less"
+alias llp="ll | less"
 alias lt="ls --tree"
 
 # alias lg="ls --gs"
@@ -182,6 +184,10 @@ motd
 # load wall
 [ -e ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 # wal -r -t
+
+# Start a tmux session for IRC and stuff
+
+# tmux new-session -s "IRC" irssi
 
 # }}}
 

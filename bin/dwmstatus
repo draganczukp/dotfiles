@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+function unread-mail(){
+	local count=0
+
+	for account in $HOME/.mail/*; do
+		new=$(find $account/INBOX/new -type f 2>/dev/null | wc -l)
+		(( count = $count + $new ))
+	done
+
+	(( $count > 0 )) &&	echo " $count"
+}
+
 function batteries(){
 	local STATUS=""
 	for bat in $(find /sys/class/power_supply -name "BAT*"); do
@@ -13,10 +24,10 @@ function ischarging(){
 }
 
 function volume(){
-	local STATUS="|:"
+	local STATUS="|"
 
 	vol=$(pamixer --get-volume)
-	[[ "$vol" = "0" ]] && echo "(muted)" || echo "$STATUS $(pamixer --get-volume)%"
+	echo "$STATUS $vol%"
 }
 
 function music(){
@@ -46,7 +57,7 @@ function cal(){
 }
 
 function status(){
-	echo "$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
+	echo "$(unread-mail)$(music)$(volume)$(cal)$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
 }
 
 [[ -v DEBUG ]] && echo $(status)
