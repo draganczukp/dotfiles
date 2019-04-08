@@ -111,10 +111,19 @@ alias blog="~/dev/blog/blog"
 
 # {{{ Functions
 
+function update(){
+	yay -Syu --needed --noconfirm
+	gem update
+}
+
 function launch() {
 	(xdg-open "$@" > /dev/null 2>&1 )&
 }
 
+function s(){
+	local server=$(echo "draganczuk.tk\nosmc@tv\nd198777@willow.imei.uz.zgora.pl" | fzf)
+	[ -z $server ] || ssh $server
+}
 function poweroff(){
 	if [[ -n $SSH_CONNECTION ]]; then
 		echo "Connected to server." | toilet -f future
