@@ -1,5 +1,5 @@
 [general]
-accounts = gmail, studnet, grupowy
+accounts = gmail, studnet, grupowy, draganczuktk
 starttls = yes
 ssl = yes
 pythonfile = ~/.offlineimap.py
@@ -74,8 +74,7 @@ auth_mechanisms = LOGIN
 type = IMAP
 remoteuser = admin@draganczuk.tk
 remotepasseval = mailpass("mail-prywatny")
-remotehost = mail.draganczuk.tk
-remoteport = 143
+remotehost = draganczuk.tk
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 createfolders = False
 
