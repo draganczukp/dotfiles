@@ -1,2 +1,3 @@
 #!/bin/zsh
-lpass show --password $1
+
+lpass show --password $@
