@@ -20,7 +20,7 @@ function batteries(){
 }
 
 function ischarging(){
-	[ $(cat /sys/class/power_supply/AC/online) -eq "1" ] && echo "|" || echo ""
+	[ $(cat /sys/class/power_supply/AC/online 2>/dev/null) -eq "1" ] && echo "|" || echo ""
 }
 
 function volume(){
