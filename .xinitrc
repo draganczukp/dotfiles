@@ -7,7 +7,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-wm="dwm"
+wm="i3"
 
 case $wm in
 	"dwm" )
@@ -20,7 +20,16 @@ while [[ true ]]; do
 	sleep 1
 done &
 
-dwm > ~/.dwm.log 2> ~/.dwm.err.log;;
+while true; do
+	dwm > ~/.dwm.log 2> ~/.dwm.err.log
+done
+
+;;
 	"i3" )
+		i3;;
+
+	"awesome" )
+	/usr/bin/awesome 2>&1 > ~/.awesome.log;;
+	* )
 		i3;;
 esac
