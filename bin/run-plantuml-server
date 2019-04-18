@@ -1,6 +1,0 @@
-#!/bin/zsh
-
-
-pushd /home/killermenpl/dev/plantuml-server/target > /dev/null 2>&1
-java -jar dependency/jetty-runner.jar plantuml.war >> plantuml.log
-popd > /dev/null 2>&1

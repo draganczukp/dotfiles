@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-xcape -e 'Tab=Escape;Caps_Lock=Control_L'
