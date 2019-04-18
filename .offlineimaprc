@@ -72,7 +72,7 @@ remoterepository = draganczuktk-remote
 [Repository draganczuktk-remote]
 auth_mechanisms = LOGIN
 type = IMAP
-remoteuser = admin@draganczuk.tk
+remoteuser = mail
 remotepasseval = mailpass("mail-prywatny")
 remotehost = draganczuk.tk
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
