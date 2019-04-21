@@ -183,7 +183,7 @@ function mkcd(){
 motd
 
 # load wall
-[ -e ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
+# [ -e ~/.cache/wal/sequences ] && cat ~/.cache/wal/sequences 
 # wal -r -t
 
 # Start a tmux session for IRC and stuff

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ $(pgrep -x i3lock > /dev/null) ]] && exit
+pgrep -x i3lock > /dev/null && exit
 img=$(cat /tmp/current-wallpaper)
 
 i3lock -i $HOME/.cache/rice/lockscreens/$img -e -f
