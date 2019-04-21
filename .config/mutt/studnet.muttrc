@@ -5,6 +5,7 @@ set from = "97449@stud.uz.zgora.pl"
 set sendmail = "/usr/bin/msmtp -a studnet"
 set folder = "~/.mail/studnet"
 set spoolfile = "+INBOX"
+set record = "~/.mail/studnet/Sent"
 
 alias me "Przemek Dragańczuk" "97449@stud.uz.zgora.pl"
 
