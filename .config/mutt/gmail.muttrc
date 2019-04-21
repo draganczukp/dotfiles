@@ -5,6 +5,7 @@ set from = "draganczukp@gmail.com"
 set sendmail = "/usr/bin/msmtp -a gmail"
 set folder = "~/.mail/gmail/"
 set spoolfile = "+INBOX"
+set record = "~/.mail/gmail/sent"
 
 alias me "Przemek Dragańczuk" "draganczukp@gmail.com"
 

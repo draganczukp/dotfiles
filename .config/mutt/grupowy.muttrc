@@ -5,6 +5,7 @@ set from = "mail@25infsp.tk"
 set sendmail = "/usr/bin/msmtp -a grupowy"
 set folder = "~/.mail/grupowy"
 set spoolfile = "+INBOX"
+set record = "~/.mail/grupowy/Sent"
 
 alias me "Przemek Dragańczuk" "mail@25infsp.tk"
 
