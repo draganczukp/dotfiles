@@ -155,6 +155,8 @@ Plug 'chemzqm/jsonc.vim'
 
 " Plug 'roxma/nvim-yarp'
 
+Plug 'chriskempson/base16-vim'
+
 " }}}
 
 " {{{ Supertab
@@ -419,15 +421,15 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 let g:mkdp_page_title = '${name}'
 let g:mkdp_preview_options = {
-	\ 'mkit': {},
-	\ 'katex': {},
-	\ 'uml': {
-		\ 'server': 'http://0.0.0.0:8080'
-	\ },
-	\ 'maid': {},
-	\ 'disable_sync_scroll': 0,
-	\ 'sync_scroll_type': 'middle'
-	\ }
+			\ 'mkit': {},
+			\ 'katex': {},
+			\ 'uml': {
+			\ 'server': 'http://0.0.0.0:8080'
+			\ },
+			\ 'maid': {},
+			\ 'disable_sync_scroll': 0,
+			\ 'sync_scroll_type': 'middle'
+			\ }
 
 " }}}
 
@@ -473,22 +475,8 @@ autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
 
 " {{{ html
 
-function! HTMLSnippets()
-	inoremap ,p <p><CR></p><CR><++><Esc>kO
-	inoremap ,a <a href="\|"><++></a> <++><Esc>F\|"_xi
-	inoremap ,span <span>\|</span> <++><Esc>F\|"_xi
-	inoremap ,h1 <h1>\|</h1><CR><++><Esc>kf\|"_xi
-	inoremap ,h2 <h2>\|</h2><CR><++><Esc>kf\|"_xi
-	inoremap ,h3 <h3>\|</h3><CR><++><Esc>kf\|"_xi
-	inoremap ,h4 <h4>\|</h4><CR><++><Esc>kf\|"_xi
-	inoremap ,h5 <h5>\|</h5><CR><++><Esc>kf\|"_xi
-	inoremap ,h6 <h6>\|</h6><CR><++><Esc>kf\|"_xi
-	inoremap ,pre <pre><code><CR>\|<CR></code></pre><CR><++><ESC>2ks
-	inoremap ,img <img src="\|" alt="<++>/><CR><++><ESC>F\|"_xi
-	inoremap ,code <code>\|</code><++><Esc>F\|"_xi
-endfunction
-
-autocmd BufRead,BufNewFile *.html call HTMLSnippets()
+autocmd BufRead,BufNewFile *.html source ~/.config/nvim/snippets/html.vim
+autocmd BufRead,BufNewFile *.html nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/html.vim<CR>
 
 " }}}
 
@@ -499,9 +487,12 @@ call plug#end()
 " {{{ After plug#end
 " These will not work if placed before plug#end for some reason, so they're here
 
-colorscheme badwolf
-" colorscheme allomancer
-" colorscheme Monokai
+
+if filereadable(expand("~/.vimrc_background"))
+	set termguicolors
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
 
 " {{{Lightline
 let g:lightline = {
