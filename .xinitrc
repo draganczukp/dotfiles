@@ -20,16 +20,9 @@ case $wm in
 			sleep 1
 		done &
 
-while true; do
 	dwm > ~/.dwm.log 2> ~/.dwm.err.log
-done
 
 ;;
-	"i3" )
-		i3;;
-
-	"awesome" )
-	/usr/bin/awesome 2>&1 > ~/.awesome.log;;
 	* )
-		i3;;
+		$wm > /tmp/$wm.log;;
 esac

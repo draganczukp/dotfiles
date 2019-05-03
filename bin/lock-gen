@@ -22,6 +22,7 @@ function genImg(){
 }
 
 for file in $inputFolder/*; do
+	echo $file
 	genImg $file
 done
 
