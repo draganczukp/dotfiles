@@ -1,7 +1,7 @@
 import yaml
 
 
-c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'x': 'quit --save'}
+# c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'x': 'quit --save'}
 c.auto_save.session = True
 config.set('content.javascript.enabled', True, 'file://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
@@ -17,7 +17,7 @@ c.url.default_page = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/star
 c.url.start_pages = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
 
 c.editor.command = ["st", "-e", "nvim", "{}"]
-c.new_instance_open_target = "tab-bg"
+c.new_instance_open_target = "tab"
 # c.prompt.filebrowser = False
 c.completion.height = "30%"
 c.completion.web_history.max_items = 1000

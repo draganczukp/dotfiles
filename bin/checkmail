@@ -3,7 +3,7 @@ export DISPLAY=:0.0
 
 # ping -q -c1 1.1 > /dev/null || exit
 
-offlineimap
+offlineimap &>/dev/null
 
 for account in $(ls ~/.mail); do
 	newcount=$(find ~/.mail/$account/INBOX/new/ -type f -newer ~/.config/mutt/.mailsynclast 2> /dev/null | wc -l)
@@ -14,6 +14,6 @@ for account in $(ls ~/.mail); do
 	fi
 done
 
-notmuch new
+notmuch new &>/dev/null
 
 touch ~/.config/mutt/.mailsynclast

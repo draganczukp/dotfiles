@@ -3,5 +3,5 @@
 
 config_version: 2
 settings:
-  content.autoplay:
-    global: false
+  colors.webpage.bg:
+    global: white

@@ -4,7 +4,7 @@
 setxkbmap -option caps:escape -layout pl &
 ~/bin/wallpaper &
 ~/bin/start-compton &
-dunst &
+# dunst &
 qutebrowser &
 spotify &
 /usr/lib/kdeconnectd &
