@@ -125,7 +125,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "xfce4-session-logout"
+bindsym $mod+Shift+e exec i3 exit #"xfce4-session-logout"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -192,8 +192,8 @@ for_window [class="(?i)Tilda"] floating enable
 
 # Screen brightness
 # Managed by XFCE
-# bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
-# bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%        #increase sound volume
@@ -201,12 +201,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%   
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
-# Ugly hack because my laptop doesn't have media keys.
-# I also think that's stupid
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
+# Ugly hack because my laptop doesn't have media keys.
+# I also think that's stupid
 bindsym Mod1+Down exec --no-startup-id playerctl play-pause
 bindsym Mod1+Right exec --no-startup-id playerctl next
 bindsym Mod1+Left exec --no-startup-id playerctl previous
@@ -217,6 +217,7 @@ bindsym Print exec --no-startup-id ~/bin/screenshot
 bindsym $mod+F1 exec --no-startup-id qutebrowser # opera
 
 bindsym $mod+Shift+w exec --no-startup-id ~/bin/wallpaper
+
 ##################################
 #                                #
 # ░█▀▀░▀█▀░█▀█░█▀▄░▀█▀░░░█░█░█▀█ #
@@ -255,6 +256,8 @@ exec --no-startup-id sh -c "sleep 5; tilda"
 # exec --no-startup-id ~/pia.sh
 
 # exec --no-start-id /usr/lib/kdeconnectd
+
+exec --no-startup-id "run-on-clock 1m checkmail"
 
 ########################################
 #                                      #
