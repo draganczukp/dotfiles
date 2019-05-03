@@ -5,6 +5,7 @@ macro index,pager <F1> '<sync-mailbox><enter-command>source ~/.config/mutt/gmail
 macro index,pager <F2> '<sync-mailbox><enter-command>source ~/.config/mutt/prywatny.muttrc<enter><change-folder>!<enter>;<check-stats>'
 macro index,pager <F3> '<sync-mailbox><enter-command>source ~/.config/mutt/studnet.muttrc<enter><change-folder>!<enter>;<check-stats>'
 macro index,pager <F4> '<sync-mailbox><enter-command>source ~/.config/mutt/grupowy.muttrc<enter><change-folder>!<enter>;<check-stats>'
+macro index,pager <F5> '<sync-mailbox><enter-command>source ~/.config/mutt/mailinglist.muttrc<enter><change-folder>!<enter>;<check-stats>'
 
 # Set GMAIL to default
 source ~/.config/mutt/gmail.muttrc
