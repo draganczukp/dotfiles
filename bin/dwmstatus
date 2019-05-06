@@ -42,8 +42,7 @@ function music(){
 	local title=$(playerctl metadata title)
 	local STATUS="|$STATUS ${artist:0:15}: ${title:0:15}"
 
-	$(playerctl status 2>&1 > /dev/null)
-	[[ $? -eq 0 ]] && echo $STATUS
+	[[ $artist = "" || $title = "" ]] || echo $STATUS
 }
 
 function cal(){
@@ -56,8 +55,33 @@ function cal(){
 	[[ "$count" = "0" ]] ||	echo $STATUS
 }
 
+function phone(){
+	local STATUS="|"
+	local dev=$(kdeconnect-cli -a --id-only)
+
+	local bat=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.charge)
+
+	local icon=""
+	[[ $bat < 90 ]] && icon=""
+	[[ $bat < 80 ]] && icon=""
+	[[ $bat < 70 ]] && icon=""
+	[[ $bat < 60 ]] && icon=""
+	[[ $bat < 50 ]] && icon=""
+	[[ $bat < 40 ]] && icon=""
+	[[ $bat < 30 ]] && icon=""
+	[[ $bat < 20 ]] && icon=""
+	[[ $bat < 10 ]] && icon=""
+
+	local charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.isCharging)
+	[[ "$charging" = "true" ]] && icon=""
+
+	STATUS="$STATUS $bat%$icon"
+
+	grep "Znaleziono 0" <<<$dev > /dev/null || echo $STATUS
+}
+
 function status(){
-	echo "$(unread-mail)$(music)$(volume)$(cal)$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
+	echo "$(phone)$(unread-mail)$(music)$(volume)$(cal)$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
 }
 
 [[ -v DEBUG ]] && echo $(status)
