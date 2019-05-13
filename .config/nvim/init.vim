@@ -248,7 +248,6 @@ Plug 'flazz/vim-colorschemes'
 
 Plug 'Nequo/vim-allomancer'
 
-
 " }}}
 
 " {{{ Lightline
@@ -477,6 +476,14 @@ autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
 
 autocmd BufRead,BufNewFile *.html source ~/.config/nvim/snippets/html.vim
 autocmd BufRead,BufNewFile *.html nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/html.vim<CR>
+
+" }}}
+
+" {{{ Vim-wiki
+
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " }}}
 
