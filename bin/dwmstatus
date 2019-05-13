@@ -4,11 +4,11 @@ function unread-mail(){
 	local count=0
 
 	for account in $HOME/.mail/*; do
-		new=$(find $account/INBOX/new -type f 2>/dev/null | wc -l)
+		local new=$(find $account/INBOX/new -type f 2>/dev/null | wc -l)
 		(( count = $count + $new ))
 	done
 
-	(( $count > 0 )) &&	echo " $count"
+	(( $count > 0 )) &&	echo -n " $count"
 }
 
 function batteries(){
@@ -16,18 +16,18 @@ function batteries(){
 	for bat in $(find /sys/class/power_supply -name "BAT*"); do
 		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
 	done
-	echo $STATUS
+	echo -n $STATUS
 }
 
 function ischarging(){
-	[ $(cat /sys/class/power_supply/AC/online 2>/dev/null) -eq "1" ] && echo "|" || echo ""
+	[ $(cat /sys/class/power_supply/AC/online 2>/dev/null) -eq "1" ] && echo -n "|" || echo -n ""
 }
 
 function volume(){
 	local STATUS="|"
 
 	vol=$(pamixer --get-volume)
-	echo "$STATUS $vol%"
+	echo -n "$STATUS $vol%"
 }
 
 function music(){
@@ -42,17 +42,16 @@ function music(){
 	local title=$(playerctl metadata title)
 	local STATUS="|$STATUS ${artist:0:15}: ${title:0:15}"
 
-	[[ $artist = "" || $title = "" ]] || echo $STATUS
+	[[ $artist = "" || $title = "" ]] || echo -n $STATUS
 }
 
 function cal(){
 	local STATUS="|"
 	apts=$(cat ~/.calcurse/apts)
 	now=$(date +"%m/%d/%Y" | sed -r "s/.\$//")
-	count=$(echo $apts | grep -i $now | wc -l)
-	# echo $now $count
+	count=$(echo -n $apts | grep -i $now | wc -l)
 	STATUS="$STATUS : $count"
-	[[ "$count" = "0" ]] ||	echo $STATUS
+	[[ "$count" = "0" ]] ||	echo -n $STATUS
 }
 
 function phone(){
@@ -75,15 +74,22 @@ function phone(){
 	local charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.isCharging)
 	[[ "$charging" = "true" ]] && icon=""
 
-	STATUS="$STATUS $bat%$icon"
+	STATUS="$STATUS $bat%"
 
-	grep "Znaleziono 0" <<<$dev > /dev/null || echo $STATUS
+	grep "Znaleziono 0" <<<$dev > /dev/null || echo -n $STATUS
 }
 
 function status(){
-	echo "$(phone)$(unread-mail)$(music)$(volume)$(cal)$(batteries)$(ischarging)|$(date +'%H:%M:%S')"
+	phone
+	unread-mail
+	music
+	volume
+	cal
+	batteries
+	ischarging
+	date +'|%H:%M:%S'
 }
 
-[[ -v DEBUG ]] && echo $(status)
+[[ -v DEBUG ]] && echo -n $(status)
 
 xsetroot -name "$(status)"
