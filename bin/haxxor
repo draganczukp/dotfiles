@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+doge <<EOL
+192.168.1.23
+NSA
+GitHub
+Microsoft
+Google
+Haxxor
+1337
+Arch
+SystemD
+zsh
+HACKED
+EOL
+
+sleep 5
+
+hollywood -q
