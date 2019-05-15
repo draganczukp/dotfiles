@@ -8,7 +8,7 @@ function unread-mail(){
 		(( count = $count + $new ))
 	done
 
-	(( $count > 0 )) &&	echo -n " $count"
+	(( $count > 0 )) &&	echo -n "| $count"
 }
 
 function batteries(){
