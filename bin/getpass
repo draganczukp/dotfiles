@@ -1,3 +1,12 @@
 #!/bin/zsh
 
-lpass show --password $@
+if [[ $# > 0 && $1 = -a ]]; then
+	resp=$(lpass ls --format="%an|%au|%al|%fn" --color=never | rofi -dmenu)
+	acc=$(awk -F\| '{print $1}' <<<$resp)
+	user=$(awk -F\| '{print $2}' <<<$resp)
+	pass=$(lpass show --password $acc)
+	echo "$user $pass"
+else
+	lpass show --password $@
+fi
+
