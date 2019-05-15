@@ -1,5 +1,6 @@
 import yaml
 
+config.load_autoconfig()
 
 # c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'x': 'quit --save'}
 c.auto_save.session = True
@@ -9,6 +10,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Password manager
 config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/qute-lastpass');
+config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/qute-lastpass', mode='insert');
 
 # Send to phone with KDE connect
 config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/send-to-kdeconnect {url}')
@@ -27,7 +29,8 @@ c.tabs.favicons.show = "never"
 c.tabs.title.format = "{title}"
 c.tabs.new_position.related = "last"
 c.content.cache.size = 52428800
-c.hints.border = "1px solid #CCCCCC"
+c.hints.border = "1px solid #222222"
+
 
 # searches
 c.url.searchengines['DEFAULT'] = 'https://duckduckgo.com/?q={}'
