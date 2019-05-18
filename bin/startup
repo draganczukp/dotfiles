@@ -11,6 +11,7 @@ spotify &
 
 ~/bin/run-on-clock 1m ~/bin/checkmail &
 ~/bin/run-on-clock 1m ~/bin/calendar a &
+~/bin/run-on-clock 1m ~/bin/check-phone &
 
 xset s 0
 xset r rate 500 50

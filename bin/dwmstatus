@@ -58,7 +58,8 @@ function phone(){
 	local STATUS="|"
 	local dev=$(kdeconnect-cli -a --id-only)
 
-	local bat=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.charge)
+	# local bat=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.charge)
+	read bat charging </tmp/phone.bat
 
 	local icon=""
 	[[ $bat < 90 ]] && icon=""
@@ -71,10 +72,10 @@ function phone(){
 	[[ $bat < 20 ]] && icon=""
 	[[ $bat < 10 ]] && icon=""
 
-	local charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.isCharging)
+	# local charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.isCharging)
 	[[ "$charging" = "true" ]] && icon=""
 
-	STATUS="$STATUS $bat%"
+	STATUS="$STATUS $icon $bat%"
 
 	grep "Znaleziono 0" <<<$dev > /dev/null || echo -n $STATUS
 }
