@@ -1,14 +1,9 @@
 #!/bin/zsh
 git add .
-message=$(curl -s whatthecommit.com/index.txt)
-repo='origin'
 
-if [[ $1 != '' ]]; then
-	if [[ $1 = '-m' || $1 = 'm' ]]; then
-		message=$2
-	else
-		repo=$1
-	fi
-fi
+[[ $# = 0 ]] && message=$(curl -s whatthecommit.com/index.txt)
+[[ $# = 1 ]] && message=$1
+[[ $# = 2 && "$1" = "-m" ]] && message=$2
+
 git commit -m "$message"
 git push $repo
