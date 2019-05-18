@@ -1,0 +1,35 @@
+mod4 + Return
+	st
+
+mod4 + d
+	rofi -show drun
+
+mod4 + F1
+	qutebrowser
+
+mod4 + F{2,3,4,5}
+	st -e {calcurse,neomutt,ranger,rtv}
+
+mod4 + ctrl + l
+	~/bin/lock
+
+XF86Audio{Play,Prev,Next}
+	playerctl {play-pause,previous,next}
+
+alt + {Down,Left,Right}
+	playerctl {play-pause,previous,next}
+
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume 0 {+,-}5%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+XF86MonBrightness{Up,Down}
+	xbacklight {+,-}5
+
+mod4 + shift + w
+	~/bin/wallpaper
+
+Print
+	~/bin/screenshot
