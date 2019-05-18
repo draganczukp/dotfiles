@@ -161,19 +161,19 @@ function man() {
 
 # Fancy cd that can cd into parent directory, if trying to cd into file.
 # useful with ^F fuzzy searcher.
-function cd() {
-	if (( $+2 )); then
-		builtin cd "$@"
-		return 0
-	fi
+# function cd() {
+# 	if (( $+2 )); then
+# 		builtin cd "$@"
+# 		return 0
+# 	fi
 
-	if [ -f "$1" ]; then
-		echo "${yellow}cd ${1:h}${NC}" >&2
-		builtin cd "${1:h}"
-	else
-		builtin cd "${@}"
-	fi
-}
+# 	if [ -f "$1" ]; then
+# 		echo "${yellow}cd ${1:h}${NC}" >&2
+# 		builtin cd "${1:h}"
+# 	else
+# 		builtin cd "${@}"
+# 	fi
+# }
 
 function mkcd(){
 	mkdir -p $1; cd $1
