@@ -1,0 +1,4 @@
+#!/bin/zsh
+b=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.charge)
+c=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/84c7a9e9bb0177b7 org.kde.kdeconnect.device.battery.isCharging)
+echo $b $c > /tmp/phone.bat
