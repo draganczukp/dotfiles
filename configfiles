@@ -18,3 +18,4 @@
 10 msmtp /home/killermenpl/.msmtprc
 10 offlineimap /home/killermenpl/.offlineimaprc
 4 i3conf /home/killermenpl/.config/i3/config
+3 keys $HOME/.config/sxhkd/sxhkdrc

@@ -157,6 +157,8 @@ Plug 'chemzqm/jsonc.vim'
 
 Plug 'chriskempson/base16-vim'
 
+Plug 'kovetskiy/sxhkd-vim'
+
 " }}}
 
 " {{{ Supertab
