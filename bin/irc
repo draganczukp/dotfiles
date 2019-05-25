@@ -1,0 +1,2 @@
+#!/bin/zsh
+ssh draganczuk.tk -t "tmux -u a -t irc"
