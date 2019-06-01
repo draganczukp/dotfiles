@@ -1,2 +1,3 @@
 #!/bin/zsh
-ssh draganczuk.tk -t "tmux -u a -t irc"
+# ssh draganczuk.tk -t "dtach -A /tmp/irc.socket weechat"
+weechat
