@@ -117,6 +117,7 @@ alias vimrc="vim ~/.config/nvim/init.vim"
 # That's the simplest way to run it from anywhere without problems with symlinks
 alias blog="~/dev/blog/blog"
 
+alias df="df -h"
 # }}}
 
 # {{{ Functions
