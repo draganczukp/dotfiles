@@ -8,6 +8,7 @@ setxkbmap -option caps:escape -layout pl &
 qutebrowser &
 spotify &
 /usr/lib/kdeconnectd &
+nm-applet &
 
 ~/bin/run-on-clock 1m ~/bin/checkmail &
 ~/bin/run-on-clock 1m ~/bin/calendar a &

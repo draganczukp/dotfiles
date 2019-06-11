@@ -2,8 +2,7 @@
 
 # {{{ Setup oh-my-zsh
 
-export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.6.0/bin
-export PATH="$(du $HOME/bin/ | cut -f2 | tr '\n' ':')$PATH"
+export PATH=$HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.gem/ruby/2.6.0/bin
 
 # export TERM="xterm-256color"
 
@@ -50,31 +49,13 @@ source $ZSH/oh-my-zsh.sh
 
 # }}}
 
-# {{{ ZSH config
-
-# setopt extendedGlob
-
-# autoload -U zmv
-
-# autoload -U zargs
-
-# setopt promptsubst
-
-# setopt noflowcontrol
-
-# setopt AUTO_PARAM_SLASH
-# unsetopt AUTO_REMOVE_SLASH
-
-# }}}
-
 # {{{ 3rd party plugins
 
 # source ~/dotfiles/.completions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(dirname $(gem which colorls))/tab_complete.sh
-source ~/.cargo/env
+# source $(dirname $(gem which colorls))/tab_complete.sh
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -123,19 +104,6 @@ alias df="df -h"
 
 # {{{ Functions
 
-function update(){
-	yay -Syu --needed --noconfirm
-	gem update
-}
-
-function launch() {
-	(xdg-open "$@" > /dev/null 2>&1 )&
-}
-
-function s(){
-	local server=$(echo "draganczuk.tk\nosmc@tv\nd198777@willow.imei.uz.zgora.pl" | fzf)
-	[ -z $server ] || ssh $server
-}
 function poweroff(){
 	if [[ -n $SSH_CONNECTION ]]; then
 		echo "Connected to server." | toilet -f future
@@ -144,46 +112,9 @@ function poweroff(){
 	fi
 }
 
-function lsmount() {
-	(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ;
-}
-
-# Colored manpages
-function man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-		man "$@"
-}
-
-# Fancy cd that can cd into parent directory, if trying to cd into file.
-# useful with ^F fuzzy searcher.
-# function cd() {
-# 	if (( $+2 )); then
-# 		builtin cd "$@"
-# 		return 0
-# 	fi
-
-# 	if [ -f "$1" ]; then
-# 		echo "${yellow}cd ${1:h}${NC}" >&2
-# 		builtin cd "${1:h}"
-# 	else
-# 		builtin cd "${@}"
-# 	fi
-# }
-
 function mkcd(){
 	mkdir -p $1; cd $1
 }
-
-# function \$(){
-# 	$@
-# }
 
 # }}}
 
@@ -202,6 +133,6 @@ motd
 # }}}
 
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
