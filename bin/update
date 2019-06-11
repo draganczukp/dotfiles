@@ -1,0 +1,3 @@
+#!/bin/zsh
+yay -Syu --needed --noconfirm
+gem update

@@ -8,7 +8,7 @@ mod4 + F1
 	qutebrowser
 
 mod4 + F{2,3,4,5,6}
-	st -e {calcurse,neomutt,ranger,rtv,irc}
+	st -e {calcurse,neomutt,ranger,rtv,weechat}
 
 mod4 + ctrl + l
 	~/bin/lock

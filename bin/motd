@@ -1,5 +1,5 @@
 #!/bin/zsh
-clear
+# clear
 # font="smmono12"
 font="future"
 out="";

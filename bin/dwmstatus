@@ -27,7 +27,7 @@ function volume(){
 	local STATUS="|"
 
 	vol=$(pamixer --get-volume)
-	echo -n "$STATUS $vol%"
+	[[ $(pamixer --get-mute) = "true" ]] && echo -n "|(muted)" || echo -n "$STATUS $vol%"
 }
 
 function music(){
