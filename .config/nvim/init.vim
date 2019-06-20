@@ -63,9 +63,8 @@ set splitbelow
 set splitright
 
 set formatoptions+=j
-
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+set formatoptions-=r
+set formatoptions-=o
 
 set spelllang=pl
 
@@ -92,13 +91,10 @@ inoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
 vnoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
 map <Leader><Leader> <Esc>/<++><Enter>:noh<CR>"_c4l
 
-" allow Tab and Shift+Tab to
-" tab  selection in visual mode
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-
 nnoremap <esc> :noh<return><esc>
 
+" Exit terminal mode
+tnoremap <C-x> <C-\><C-n>
 
 "Move between windows
 map <C-j> <C-W>j
@@ -280,11 +276,52 @@ let g:rainbow_active = 1
 
 " }}}
 
-" {{{ Tagbar
+" {{{
 
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 
-nnoremap <F8> :Tagbar<CR>
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'coc'
+
+" Set the executive for some filetypes explicitly. Use the explicit executive
+" instead of the default one for these filetypes when using `:Vista` without
+" specifying the executive.
+" let g:vista_executive_for = {
+"   \ 'cpp': 'vim_lsp',
+"   \ 'php': 'vim_lsp',
+"   \ }
+
+" Declare the command including the executable and options used to generate ctags output
+" for some certain filetypes.The file path will be appened to your custom command.
+" For example:
+let g:vista_ctags_cmd = {
+      \ 'haskell': 'hasktags -x -o - -c',
+      \ }
+
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+" let g:vista_fzf_preview = ['right:50%']
+
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+
+" }}}
+
+
+
+" {{{ ---Tagbar
+
+" Plug 'majutsushi/tagbar'
+
+" nnoremap <F8> :Tagbar<CR>
 
 "}}}
 
@@ -345,7 +382,7 @@ Plug 'Konfekt/FastFold'
 " {{{ coc.nvim
 
 " Install nightly build, replace ./install.sh with install.cmd on windows
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
