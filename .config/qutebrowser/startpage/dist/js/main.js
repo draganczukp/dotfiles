@@ -31,7 +31,6 @@ const config = {
         "Dev": {
             "localhost:8000": "http://localhost:8000",
             "Github": "https://github.com/",
-            "Projekt": "https://github.com/inzynieria-25inf-1/shootergame/projects/1?fullscreen=true",
             "MDN": "https://developer.mozilla.org/en-US/",
             "DigitalOcean": "https://cloud.digitalocean.com"
         },
