@@ -1,0 +1,2 @@
+request="wttr.in/${1-lubsko}"
+curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
