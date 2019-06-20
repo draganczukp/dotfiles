@@ -15,7 +15,7 @@ video/x-youtube; vlc '%s' --width 640 --height 480; test=test -n "$DISPLAY"
 video/*; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
 
 text/plain; nvim %s ;
-# text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/html; sh -c "mv %s %s.html && qutebrowser %s.html"; test=test -n "$DISPLAY"
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+# text/html; sh -c "mv %s %s.html && qutebrowser %s.html"; test=test -n "$DISPLAY"
 
 
