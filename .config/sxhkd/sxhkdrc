@@ -31,5 +31,8 @@ XF86MonBrightness{Up,Down}
 mod4 + shift + w
 	~/bin/wallpaper
 
+mod4 + shift + e
+	pkill xinit
+
 Print
 	~/bin/screenshot
