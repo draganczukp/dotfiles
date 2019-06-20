@@ -10,6 +10,7 @@ for account in $(ls ~/.mail); do
 	if [ "$newcount" -gt "0" ]; then
 		echo "New Mail" "$newcount new mail in mailbox $account" &
 		notify-send "New Mail" "$newcount new mail in mailbox $account" &
+		mpv --really-quiet ~/.config/mutt/notify.mp3 &
 		echo $(date) >> /tmp/test
 	fi
 done
