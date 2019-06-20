@@ -104,6 +104,11 @@ alias df="df -h"
 
 # {{{ Functions
 
+function cd(){
+	builtin cd $@
+	echo $PWD > /tmp/current-dir
+}
+
 function poweroff(){
 	if [[ -n $SSH_CONNECTION ]]; then
 		echo "Connected to server." | toilet -f future
@@ -122,17 +127,5 @@ function mkcd(){
 
 motd
 
-# load wall
-# [ -e ~/.cache/wal/sequences ] && cat ~/.cache/wal/sequences 
-# wal -r -t
-
-# Start a tmux session for IRC and stuff
-
-# tmux new-session -s "IRC" irssi
-
 # }}}
 
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
