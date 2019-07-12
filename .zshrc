@@ -78,9 +78,6 @@ alias lp="l | less"
 alias llp="ll | less"
 alias lt="ls --tree"
 
-# alias lg="ls --gs"
-# alias lgt="ls --gs --tree"
-
 alias lg="lazygit"
 
 alias dev="php -S 127.0.0.1:8000"
@@ -100,6 +97,7 @@ alias vimrc="vim ~/.config/nvim/init.vim"
 alias blog="~/dev/blog/blog"
 
 alias df="df -h"
+
 # }}}
 
 # {{{ Functions

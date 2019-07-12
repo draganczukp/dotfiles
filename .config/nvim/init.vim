@@ -276,7 +276,7 @@ let g:rainbow_active = 1
 
 " }}}
 
-" {{{
+" {{{ Vista
 
 Plug 'liuchengxu/vista.vim'
 
@@ -315,7 +315,23 @@ let g:vista#renderer#enable_icon = 1
 
 " }}}
 
+" {{{ VimWiki
 
+let main_wiki = {}
+let main_wiki.path = '~/vimwiki'
+let main_wiki.nested_syntaxes = {'python': 'python', 'java': 'java'}
+let main_wiki.auto_toc = 1
+
+let g:vimwiki_list = [main_wiki]
+
+let g:vimviki_hl_headers = 1
+let g:vimwiki_hl_cb_checked = 2
+let g:vimwiki_listsyms = '✗○◐●✓'
+let g:vimwiki_listsym_rejected = '✗'
+let g:vimwiki_folding = expr
+let g:vimwiki_dir_link = index
+
+" }}}
 
 " {{{ ---Tagbar
 
