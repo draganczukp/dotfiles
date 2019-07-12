@@ -1,13 +1,7 @@
 #!/bin/zsh
 
-# if [[ $HOST = laptop ]]; then
-	# feh --bg-scale ~/Obrazy/Wallpapers/wallpaper.jpg
-# else
-	# gif-soup ~/Obrazy/Wallpapers/wallpaper.gif
-# fi
-
 wp=$(/bin/ls ~/Obrazy/Wallpapers/|shuf|head -n1)
 echo $wp > /tmp/current-wallpaper
 feh --bg-scale ~/Obrazy/Wallpapers/$wp
-# wal -i ~/Obrazy/Wallpapers/$wp -o ~/.config/qutebrowser/startpage/build
+wal -i ~/Obrazy/Wallpapers/$wp -o ~/.config/qutebrowser/startpage/build
 # wal -R
