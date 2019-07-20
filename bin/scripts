@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+find ~/bin/ -type f \
+	| fzf +s \
+	| xargs -r $EDITOR
