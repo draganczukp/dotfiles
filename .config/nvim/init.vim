@@ -135,7 +135,7 @@ autocmd BufWritePost config.h !~/bin/compile %
 
 " {{{ No config needed
 
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 Plug 'ntpeters/vim-better-whitespace'
 
