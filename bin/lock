@@ -3,7 +3,7 @@
 pgrep -x i3lock > /dev/null && exit
 img=$(cat /tmp/current-wallpaper)
 
-i3lock -i $HOME/.cache/rice/lockscreens/$img -e -f
+i3lock -i $HOME/.cache/rice/lockscreens/$img -e -f -t
 
 # kbd=$(xbacklight -ctrl tpacpi::kbd_backlight -get)
 # while [[ $(pgrep -x i3lock) ]]; do
