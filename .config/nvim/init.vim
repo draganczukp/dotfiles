@@ -204,8 +204,12 @@ Plug 'tpope/vim-surround'
 " {{{ File management
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Exit if only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
