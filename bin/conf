@@ -1,10 +1,7 @@
 #!/bin/zsh
 
 # List config files added manually
-files=$(cat ~/dotfiles/configfiles;\
-		# Also list all scripts in ~/bin
-		find ~/bin/ -type f -exec echo 99 bin {} \; \
-		)
+files=$(cat ~/dotfiles/configfiles)
 # Print all the files for processing
 echo $files \
 	| sed -e 's/#.*//' -e '/^$/ d'\
