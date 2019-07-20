@@ -163,7 +163,7 @@ Plug 'kovetskiy/sxhkd-vim'
 
 " }}}
 
-" {{{ Startify
+" {{{ ---Startify
 
 " Plug 'mhinz/vim-startify'
 
