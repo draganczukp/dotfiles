@@ -15,6 +15,9 @@ config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowse
 # Send to phone with KDE connect
 config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/send-to-kdeconnect {url}')
 
+# Open youtube link in kodi
+config.bind('<Ctrl-k>', 'hint links userscript open-in-kodi')
+
 c.url.default_page = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
 c.url.start_pages = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
 
