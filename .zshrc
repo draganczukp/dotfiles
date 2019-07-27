@@ -88,6 +88,7 @@ alias cim="vim"
 alias v="vim"
 alias c="conf"
 alias sc="scripts"
+alias g="fzg"
 
 alias mkdir="mkdir -p"
 
