@@ -1,0 +1,25 @@
+#!/bin/zsh
+gitcommands=$(hub help 2>&1)
+gitcommands=$(awk '/  \w/{print $1}' <<< $gitcommands; echo "checkout -b")
+gitcommands=$(sort <<< $gitcommands)
+
+cmd=$(fzf --prompt="Git command: " <<< $gitcommands)
+
+function select-remote-branch(){
+	remotebranches=$(git branch -a | awk '/remotes/{print $1}')
+	remotebranchmap=$(awk <<<$remotebranches -F\/ '{print $2" "$3}')
+	fzf --prompt="Remote branch: " <<< $remotebranchmap | read remote branch
+	git checkout -b $branch --track $remote/$branch
+}
+
+case $cmd in
+	"checkout -b")
+		select-remote-branch
+		;;
+	checkout)
+		select-local-branch
+		;;
+	*)
+		git $cmd
+		;;
+esac
