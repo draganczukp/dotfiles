@@ -137,9 +137,13 @@ autocmd BufWritePost config.h !~/bin/compile %
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'tpope/vim-rhubarb'
+
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'farmergreg/vim-lastplace'
+
+Plug 'kjwon15/vim-transparent'
 
 " Plug 'tfnico/vim-gradle'
 
@@ -321,6 +325,7 @@ let g:vista#renderer#enable_icon = 1
 
 " {{{ VimWiki
 
+Plug 'vimwiki/vimwiki'
 let main_wiki = {}
 let main_wiki.path = '~/vimwiki'
 let main_wiki.nested_syntaxes = {'python': 'python', 'java': 'java'}
@@ -330,8 +335,8 @@ let g:vimwiki_list = [main_wiki]
 
 let g:vimviki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 2
-let g:vimwiki_listsyms = '✗○◐●✓'
-let g:vimwiki_listsym_rejected = '✗'
+let g:vimwiki_listsyms = '▁▂▃▄▅▆▇▉'
+let g:vimwiki_listsym_rejected = '×'
 let g:vimwiki_folding = 'expr'
 let g:vimwiki_dir_link = 'index'
 
@@ -597,14 +602,6 @@ autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
 
 autocmd BufRead,BufNewFile *.html source ~/.config/nvim/snippets/html.vim
 autocmd BufRead,BufNewFile *.html nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/html.vim<CR>
-
-" }}}
-
-" {{{ Vim-wiki
-
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " }}}
 
