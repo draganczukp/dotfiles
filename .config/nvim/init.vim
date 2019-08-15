@@ -159,6 +159,8 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'kovetskiy/sxhkd-vim'
 
+Plug 'jez/vim-superman'
+
 " }}}
 
 " {{{ Supertab
@@ -335,7 +337,6 @@ let g:vimwiki_list = [main_wiki]
 
 let g:vimviki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 2
-let g:vimwiki_listsyms = '▁▂▃▄▅▆▇▉'
 let g:vimwiki_listsym_rejected = '×'
 let g:vimwiki_folding = 'expr'
 let g:vimwiki_dir_link = 'index'
