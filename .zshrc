@@ -56,6 +56,8 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(dirname $(gem which colorls))/tab_complete.sh
+export PATH=$HOME/.local/share/nvim/plugged/vim-superman/bin/:$PATH
+compdef vman="man"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
