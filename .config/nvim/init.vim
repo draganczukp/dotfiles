@@ -501,21 +501,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " }}}
 
-" {{{ C/C++
-
-" Plug 'ncm2/ncm2-pyclang'
-" Plug 'ericcurtin/CurtineIncSw.vim'
-
-" autocmd FileType c,cpp nnoremap <buffer> <Leader><Leader> :call CurtineIncSw()<cr>
-" let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
-
-" autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
-" let g:ncm2_pyclang#database_path = [
-" 			\ 'compile_commands.json',
-" 			\ 'build/compile_commands.json'
-" 			\ ]
-" " }}}
-
 " {{{ JSON
 
 augroup json_ft
@@ -537,30 +522,15 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'shmargum/vim-sass-colors'
 
-" autocmd BufEnter *.scss call ncm2#register_source({'name' : 'css',
-" 			\ 'priority': 9,
-" 			\ 'subscope_enable': 1,
-" 			\ 'scope': ['css', 'scss', 'less'],
-" 			\ 'mark': 'css',
-" 			\ 'word_pattern': '[\w\-]+',
-" 			\ 'complete_pattern': ':\s*',
-" 			\ 'on_complete': ['ncm2#on_complete#omni',
-" 			\               'csscomplete#CompleteCSS'],
-" 			\ })
-
 " }}}
 
 " {{{ Latex
 
 Plug 'lervag/vimtex'
 
-autocmd Filetype tex setl updatetime=1
-
-au FocusGained,BufEnter * :checktime
-
-autocmd BufRead,BufNewFile *.tex setl filetype=tex
-autocmd BufRead,BufNewFile *.tex source ~/.config/nvim/snippets/tex.vim
-autocmd BufRead,BufNewFile *.tex nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/tex.vim<CR>
+" For some reason not all .tex file get the correct filetype
+" This is meant to fix that
+autocmd BufRead,BufNewFile *.tex setfiletype tex
 
 " }}}
 
@@ -597,13 +567,6 @@ function! ProseSetup() " {{{ ProseSetup
 endfunction " }}}
 
 autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
-
-" }}}
-
-" {{{ html
-
-autocmd BufRead,BufNewFile *.html source ~/.config/nvim/snippets/html.vim
-autocmd BufRead,BufNewFile *.html nmap <F12> :40vnew \| 0read ! sed -r '/inoremap (,.*)\<esc\>.*/\\1/gi' < ~/.config/nvim/snippets/html.vim<CR>
 
 " }}}
 
