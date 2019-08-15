@@ -5,3 +5,5 @@
 .config/nvim/.netrwhist
 
 .config/mutt/*/cache
+
+.config/mpv/watch_later/
