@@ -1,5 +1,5 @@
 #!/bin/zsh
 
-find ~/bin/ -type f \
+find ~/bin/ -type f -exec basename {} \; \
 	| fzf +s \
-	| xargs -r $EDITOR
+	| xargs -r -I {} $EDITOR $HOME/bin/{}
