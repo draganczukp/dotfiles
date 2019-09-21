@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+function choose(){
+	files="$(find ~/Dokumenty/studia/ -maxdepth 1 -mindepth 1 -type d -exec basename {} \;; echo 'new')"
+
+	selection=$(fzf -i --border --margin=5% --prompt="Przedmiot: " --preview='[[ {} = new ]] || head -$FZF_PREVIEW_LINES ~/Dokumenty/studia/{}/notes.md' --preview-window=right:50% <<<$files)
+
+	[[ "$selection" = "" ]] && exit
+
+	[[ $selection = new ]] && read selection"?Prezedmiot: "
+
+	selection=${selection/ /\ }
+
+	mkdir -p ~/Dokumenty/studia/$selection
+	touch ~/Dokumenty/studia/$selection/notes.md
+	nvim ~/Dokumenty/studia/$selection/notes.md
+
+}
+
+if [[ ! -v $1 ]]; then
+	choose
+else
+	nvim "~/Dokumenty/studia/$1/notes.md"
+fi
