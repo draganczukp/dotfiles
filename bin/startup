@@ -11,9 +11,8 @@ spotify &
 nm-applet &
 
 ~/bin/run-on-clock 1m ~/bin/checkmail &
-~/bin/run-on-clock 1m ~/bin/calendar a &
 ~/bin/run-on-clock 5m ~/bin/check-phone &
-~/bin/run-on-clock 1m /usr/bin/newsboat -x reload &
+~/bin/run-on-clock 2m ~/bin/refresh-news &
 
 xset s 0
 xset r rate 500 50
