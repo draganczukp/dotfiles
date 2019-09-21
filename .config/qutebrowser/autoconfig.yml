@@ -7,3 +7,8 @@ settings:
     global: white
   content.autoplay:
     global: false
+  content.notifications:
+    https://www.reddit.com: false
+    https://www.tutorialspoint.com: false
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false

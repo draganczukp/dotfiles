@@ -57,14 +57,15 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(dirname $(gem which colorls))/tab_complete.sh
 export PATH=$HOME/.local/share/nvim/plugged/vim-superman/bin/:$PATH
+export PATH=$PATH:/var/lib/snapd/snap/bin
 compdef vman="man"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-base16_monokai
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
+# base16_monokai
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

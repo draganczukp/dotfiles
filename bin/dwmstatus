@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+function unread-news(){
+	local count=$(awk '{ print $1 }' < /tmp/news)
+	[[ $count > 0 ]] && echo -n "| $count"
+}
+
 function unread-mail(){
 	local count=0
 
@@ -81,6 +86,7 @@ function phone(){
 }
 
 function status(){
+	unread-news
 	phone
 	unread-mail
 	music
