@@ -1,12 +1,13 @@
 # vim:ft=zsh
 # Yes, it's ugly. But it's mine
 
-local RESET="%{$reset_color%}"
-local L_BRACKET="𛰧"
-local R_BRACKET="𛰨 "
+add-zsh-hook precmd prompt_draganczukp_precmd
+RESET="%F{white}"
+L_BRACKET="𛰧"
+R_BRACKET="𛰨 "
 
 local function p-print(){
-	echo "%{$FG[$1]%}$L_BRACKET$2$R_BRACKET"
+	echo "%F{$1}$L_BRACKET$2$R_BRACKET"
 }
 
 local function getHost(){
@@ -24,11 +25,10 @@ local function getPWD(){
 local function getGIT(){
 	# Return if not in git
 	local ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-	ZSH_THEME_GIT_PROMPT_DIRTY="125"
-	ZSH_THEME_GIT_PROMPT_CLEAN="050"
-	local dirty=$(parse_git_dirty)
-	local ahead=$(git_commits_ahead)
-	[[ $ref != "" ]] && p-print $dirty " $(git_current_branch)"
+	local dirty=$(git status --porcelain 2>/dev/null | tail -1)
+	local color="050"
+	[[ -n $dirty ]] && color="125"
+	[[ $ref != "" ]] && p-print $color " $(git branch --quiet | grep \* | awk '{print $2}')"
 }
 
 local function getUptime(){
@@ -40,8 +40,10 @@ local function isSSH(){
 	[[ -n $SSH_CONNECTION ]] && p-print 007 "" || echo "" >/dev/null
 }
 
-PROMPT='$RESET
+prompt_draganczukp_precmd(){
+PROMPT="$RESET
 ╭─$(getHost)$(getUser)$(getPWD)
-$RESET╰─'
+$RESET╰─"
 
-RPROMPT='$RESET $(getGIT)$(isSSH)$(getUptime)$RESET'
+RPROMPT="$RESET $(getGIT)$(isSSH)$(getUptime)$RESET"
+}
