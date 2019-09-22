@@ -5,3 +5,4 @@ inoremap ,lim \displaystyle\lim_{<--> \to <++>} <++><ESC>?<--><CR>4s
 inoremap ,fr \frac{<-->}{<++>} <++><ESC>?<--><CR>4s
 inoremap ,sq \sqrt{<-->} <++><ESC>?<--><CR>4s
 inoremap ,vec \vec{<-->} <++><ESC>?<--><CR>4s
+inoremap ,mat <CR>\begin{bmatrix}<CR><--><CR>\end{bmatrix}<CR><++><ESC>?<--><CR>4s

@@ -12,7 +12,3 @@ let b:did_md_ftplugin=1
 
 source ~/.config/nvim/snippets/md.vim
 
-func Preview(timer)
-	MarkdownPreview
-endfunc
-let timer = timer_start(1000, 'Preview')

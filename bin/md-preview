@@ -1,0 +1,9 @@
+#!/bin/zsh
+current=$(xdotool getactivewindow)
+echo $@ > /tmp/md
+
+qutebrowser $@ --target window
+sleep 0.5s
+
+xdotool windowactivate $current
+xdotool windowfocus $current
