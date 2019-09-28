@@ -1,14 +1,14 @@
 #!/bin/zsh
-# clear
-# font="smmono12"
+clear
 font="future"
 out="";
 
-# neofetch
 
 out+="Hello, $USER\n";
 out+="It's $(LC_ALL='en_US.UTF-8' date '+%a, %d %b, %H:%M')\n";
-# out+="Quote: $(fortune -a)"
 
 echo $out | toilet -f $font -t
-# fortune | cowsay -f default
+
+cow=$(find /usr/share/cows -type f -name "*.cow" | sed 's!/usr/share/cows/\(.*\)!\1!g' | shuf -n 1)
+
+fortune -a -s | cowsay -n -f $cow
