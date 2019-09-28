@@ -1,3 +1,8 @@
+#####################################################
+# Filename: completion.zsh							#
+# Author: Przemek Dragańczuk <mail@draganczuk.tk>	#
+# Description: Configuration for tab completion		#
+#####################################################
 autoload -U compaudit compinit
 
 # Save the location of the current completion dump file.
