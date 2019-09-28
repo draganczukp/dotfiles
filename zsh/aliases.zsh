@@ -1,3 +1,9 @@
+#####################################################
+# Filename: aliases.zsh								#
+# Author: Przemek Dragańczuk <mail@draganczuk.tk>	#
+# Description: Aliases I often use					#
+#####################################################
+
 alias ls="colorls --sd "
 
 alias ll="ls -Al"
