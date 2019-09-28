@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-function unread-news(){
-	local count=$(awk '{ print $1 }' < /tmp/news)
-	[[ $count > 0 ]] && echo -n "| $count"
+function network(){
+	local speed=$(~/bin/network)
+	echo -n "| $speed"
 }
 
 function unread-mail(){
@@ -86,7 +86,7 @@ function phone(){
 }
 
 function status(){
-	unread-news
+	network
 	phone
 	unread-mail
 	music

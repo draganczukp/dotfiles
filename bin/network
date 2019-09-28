@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+RAW_RX=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
+RAW_TX=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
+
+PREV_RX=$(cat /tmp/net_rx)
+PREV_TX=$(cat /tmp/net_tx)
+
+PREV_RX=${PREV_RX:-0}
+PREV_TX=${PREV_TX:-0}
+
+echo $RAW_RX > /tmp/net_rx
+echo $RAW_TX > /tmp/net_tx
+
+(( CURR_RX = RAW_RX - PREV_RX ))
+(( CURR_TX = RAW_TX - PREV_TX ))
+
+rx_unit=1
+tx_unit=1
+
+while [[ $CURR_RX -ge 800 ]]; do
+	(( CURR_RX = CURR_RX / 1024 ))
+	(( rx_unit++ ))
+done
+
+while [[ $CURR_TX -ge 800 ]]; do
+	(( CURR_TX = CURR_TX / 1024 ))
+	(( tx_unit++ ))
+done
+
+units=('B/s' 'KB/s' 'MB/s' 'GB/s')
+
+echo $CURR_RX$units[$rx_unit] $CURR_TX$units[$tx_unit]
