@@ -18,12 +18,12 @@ echo $RAW_TX > /tmp/net_tx
 rx_unit=1
 tx_unit=1
 
-while [[ $CURR_RX -ge 800 ]]; do
+while [[ $CURR_RX -ge 1024 ]]; do
 	(( CURR_RX = CURR_RX / 1024 ))
 	(( rx_unit++ ))
 done
 
-while [[ $CURR_TX -ge 800 ]]; do
+while [[ $CURR_TX -ge 1024 ]]; do
 	(( CURR_TX = CURR_TX / 1024 ))
 	(( tx_unit++ ))
 done

@@ -22,13 +22,13 @@ const config = {
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
-			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=20885",
-			"Egzaminy": "http://25infsp.tk/egzaminy.php",
+			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=21422",
 			"Studnet": "https://webapps.uz.zgora.pl/studnet/"
 		},
 		"Dev": {
 			"localhost:8000": "http://localhost:8000",
 			"Github": "https://github.com/",
+			"Projekt": "https://app.zenhub.com/workspaces/projekt-5d9c5e8de81af90001ae3513/board?repos=212521279,212541220",
 			"MDN": "https://developer.mozilla.org/en-US/",
 			"DigitalOcean": "https://cloud.digitalocean.com"
 		},

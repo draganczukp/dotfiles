@@ -11,11 +11,8 @@ let b:did_tex_ftplugin=1
 
 setl updatetime=1
 
+let g:vimtex_view_method='zathura'
+
 au FocusGained,BufEnter * :checktime
 
 source ~/.config/nvim/snippets/tex.vim
-
-let b:undo_ftplugin = "call s:undo()"
-function s:undo()
-	setl updatetime<
-endfunction
