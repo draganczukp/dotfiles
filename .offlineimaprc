@@ -53,8 +53,8 @@ remoterepository = grupowy-remote
 [Repository grupowy-remote]
 auth_mechanisms = LOGIN
 type = IMAP
-remoteuser = mail@25infsp.tk
-remotepasseval = mailpass("grupowy")
+remoteuser = mail@33inf-ssi.tk
+remotepass = zaq1@WSX
 remotehost = mail.cba.pl
 remoteport = 993
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt

@@ -9,6 +9,7 @@ fi
 
 wm="dwm"
 # wm="i3"
+# wm="xmonad"
 
 case $wm in
 	"dwm" )

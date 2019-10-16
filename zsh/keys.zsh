@@ -15,6 +15,7 @@ fi
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^E" edit-command-line
+bindkey "^X^E" edit-command-line
 
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
