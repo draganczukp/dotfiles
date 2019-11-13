@@ -45,3 +45,5 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 zstyle '*' single-ignored show
 
 compdef vman="man"
+
+fpath=(~/dotfiles/zsh/completions $fpath)

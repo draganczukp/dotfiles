@@ -9,6 +9,7 @@ fi
 
 wm="dwm"
 # wm="i3"
+# wm="qtile"
 # wm="xmonad"
 
 case $wm in
@@ -22,7 +23,7 @@ case $wm in
 			sleep 1
 		done &
 
-	dwm > ~/.dwm.log 2> ~/.dwm.err.log
+	dwm > /tmp/dwm.log 2> /tmp/dwm.err.log
 
 ;;
 	* )

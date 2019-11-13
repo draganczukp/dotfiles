@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+while true; do
+
+	total=0
+
+	for bat in $(find /sys/class/power_supply -name "BAT*"); do
+		read < $bat/capacity cur
+		(( total = total + cur))
+		STATUS="$STATUS|$(basename $bat) $(cat $bat/capacity)%"
+	done
+
+	read < /sys/class/power_supply/AC/online charging
+
+	echo $total $charging
+
+	if [[ $total -lt 30 && $charging -neq "1" ]]; then
+		notify-send -u critical -i battery "Low Battery: $total%"
+		sleep 9m
+	fi
+
+	sleep 1m
+done

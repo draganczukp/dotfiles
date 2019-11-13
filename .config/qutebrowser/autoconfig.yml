@@ -10,8 +10,12 @@ settings:
     global: white
   content.autoplay:
     global: false
+  content.geolocation:
+    https://www.google.com: false
   content.notifications:
     https://anime-odcinki.pl: false
+    https://cloud.draganczuk.tk: true
+    https://mirrorace.com: false
     https://vidlox.me: false
     https://www.facebook.com: false
     https://www.reddit.com: false
