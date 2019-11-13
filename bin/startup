@@ -14,9 +14,11 @@ nm-applet &
 ~/bin/run-on-clock 5m ~/bin/check-phone &
 ~/bin/run-on-clock 2m ~/bin/refresh-news &
 
+~/bin/battery-notify &
+
 xset s 0
 xset r rate 500 50
-pgrep sxhkd || nohup sxhkd &
+pgrep sxhkd || sxhkd &
 
 sleep 10s
 wmname LG3D

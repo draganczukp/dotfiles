@@ -14,7 +14,7 @@
 # 90 i3conf $HOME/.config/i3/config
 90 quteconf $HOME/.config/qutebrowser/config.py
 90 qutestart $HOME/.config/qutebrowser/startpage/src/ts/main.ts
-10 compton .config/compton.conf
+10 compton $HOME/.config/compton.conf
 10 msmtp /home/killermenpl/.msmtprc
 10 offlineimap /home/killermenpl/.offlineimaprc
 4 i3conf /home/killermenpl/.config/i3/config
