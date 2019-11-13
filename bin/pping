@@ -1,4 +1,0 @@
-#!/bin/sh
-a=$1
-shift
-ping $a $@ | sed -u 's/^.*time=//g; s/ ms//g' | ttyplot -t "ping to $a" -u ms
