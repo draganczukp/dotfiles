@@ -87,9 +87,9 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 
 
 " Navigating with guides
-inoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
-vnoremap <Leader><Leader> <Esc>/<++><Enter>"_c4l
-map <Leader><Leader> <Esc>/<++><Enter>:noh<CR>"_c4l
+inoremap ,, <Esc>/<++><Enter>:noh<CR>"_c4l
+vnoremap ,, <Esc>/<++><Enter>:noh<CR>"_c4l
+map ,, <Esc>/<++><Enter>:noh<CR>"_c4l
 
 nnoremap <esc> :noh<return><esc>
 
@@ -135,6 +135,8 @@ autocmd BufWritePost config.h !~/bin/compile %
 
 " {{{ No config needed
 
+packadd! justify
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-rhubarb'
@@ -161,23 +163,7 @@ Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'jez/vim-superman'
 
-" }}}
-
-" {{{ Supertab
-
-" Plug 'ervandew/supertab'
-
-" }}}
-
-" {{{ ---Startify
-
-" Plug 'mhinz/vim-startify'
-
-" let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'z': '~/.zshrc'} ]
-" let g:startify_update_oldfiles = 1
-" let g:startify_fortune_use_unicode = 1
-" let g:startify_change_to_dir = 0
-" let g:startify_change_to_vcs_root = 1
+Plug 'tpope/vim-surround'
 
 " }}}
 
@@ -201,21 +187,15 @@ map <Leader>/ :Commentary<CR>
 
 " }}}
 
-" {{{ Surrond
-
-Plug 'tpope/vim-surround'
-
-" }}}
-
 " {{{ File management
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Exit if only nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -224,51 +204,23 @@ map <C-p> :FZF<CR>
 
 " }}}
 
-" {{{ Syntastic
-
-" Plug 'scrooloose/syntastic'
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_java_checkers=['javac']
-" let g:syntastic_java_javac_config_file_enabled = 1
-
-" let g:syntastic_tex_checkers=['lacheck']
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" let g:syntastic_style_error_symbol = '✗'
-" let g:syntastic_style_warning_symbol = '⚠'
-" let g:syntastic_aggregate_errors = 1
-
-" }}}
-
 " {{{ Colorscheme
 
 Plug 'flazz/vim-colorschemes'
-
-Plug 'Nequo/vim-allomancer'
 
 " }}}
 
 " {{{ Lightline
 
+" Config is below, since it doesn't work here
 Plug 'itchyny/lightline.vim'
 
 " }}}
 
 " {{{ Snippets
 
-" Track the engine.
 Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
+
 Plug 'honza/vim-snippets'
 
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -290,6 +242,8 @@ let g:rainbow_active = 1
 
 Plug 'liuchengxu/vista.vim'
 
+nnoremap <F8> :Vista<CR>
+
 " How each level is indented and what to prepend.
 " This could make the display more compact or more spacious.
 " e.g., more compact: ["▸ ", ""]
@@ -297,7 +251,7 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 " Executive used when opening vista sidebar without specifying it.
 " See all the avaliable executives via `:echo g:vista#executives`.
-let g:vista_default_executive = 'ctags'
+let g:vista_default_executive = 'coc'
 
 " Set the executive for some filetypes explicitly. Use the explicit executive
 " instead of the default one for these filetypes when using `:Vista` without
@@ -321,7 +275,6 @@ let g:vista_ctags_cmd = {
 
 " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
 let g:vista#renderer#enable_icon = 1
-
 
 " }}}
 
@@ -351,22 +304,6 @@ let g:vimwiki_dir_link = 'index'
 
 " }}}
 
-" {{{ ---Tagbar
-
-" Plug 'majutsushi/tagbar'
-
-" nnoremap <F8> :Tagbar<CR>
-
-"}}}
-
-" {{{ vim-stay
-
-" Plug 'zhimsel/vim-stay'
-
-" set viewoptions-=options
-
-" }}}
-
 " {{{ Unimpaired
 
 Plug 'tpope/vim-unimpaired'
@@ -382,36 +319,6 @@ Plug 'Konfekt/FastFold'
 " }}}
 
 " {{{ Completion
-
-" {{{ YCM
-
-" Plug 'Valloric/YouCompleteMe'
-
-" " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" }}}
-
-" {{{ NCM2
-
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-path'
-" Plug 'ncm2/ncm2-tmux'
-" Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-" Plug 'yuki-ycino/ncm2-dictionary'
-" Plug 'fgrsnau/ncm2-otherbuf', { 'branch': 'ncm2' }
-" Plug 'ncm2/ncm2-ultisnips'
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" set completeopt=noinsert,menuone,noselect
-
-" let g:ncm2_look_enabled = 1
-
-" }}}
 
 " {{{ coc.nvim
 
@@ -502,13 +409,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " {{{ Language specific
 
-" {{{ Java
-
-" Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
-" Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
-
-" }}}
-
 " {{{ JSON
 
 augroup json_ft
@@ -521,8 +421,6 @@ augroup END
 " {{{ Typescript
 
 Plug 'HerringtonDarkholme/yats.vim'
-
-" Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
 
 " }}}
 
@@ -591,11 +489,6 @@ autocmd BufRead,BufNewFile *.tex,*.md call ProseSetup()
 
 " }}}
 
-" {{{ Rust
-
-" Plug 'ncm2/ncm2-racer'
-
-" }}}
 
 " }}}
 
@@ -603,8 +496,7 @@ call plug#end()
 
 " {{{ After plug#end
 " These will not work if placed before plug#end for some reason, so they're here
-colorscheme Monokai
-
+colorscheme badwolf
 
 if filereadable(expand("~/.vimrc_background"))
 	set termguicolors
@@ -612,7 +504,7 @@ if filereadable(expand("~/.vimrc_background"))
 	source ~/.vimrc_background
 endif
 
-" {{{Lightline
+" {{{ Lightline
 let g:lightline = {
 			\   'colorscheme': 'one',
 			\   'active': {
@@ -638,45 +530,6 @@ let g:lightline.tabline = {
 			\   'left': [ ['tabs'] ],
 			\   'right': [ ['close'] ]
 			\ }
-" }}}
-
-" " {{{ Make ultisnips and YCM work together
-" function! g:UltiSnips_Complete()
-" 	call UltiSnips#ExpandSnippet()
-" 	if g:ulti_expand_res == 0
-" 		if pumvisible()
-" 			return "\<C-n>"
-" 		else
-" 			call UltiSnips#JumpForwards()
-" 			if g:ulti_jump_forwards_res == 0
-" 				return "\<TAB>"
-" 			endif
-" 		endif
-" 	endif
-" 	return ""
-" endfunction
-
-" function! g:UltiSnips_Reverse()
-" 	call UltiSnips#JumpBackwards()
-" 	if g:ulti_jump_backwards_res == 0
-" 		return "\<C-P>"
-" 	endif
-
-" 	return ""
-" endfunction
-
-
-" if !exists("g:UltiSnipsJumpForwardTrigger")
-" 	let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" endif
-
-" if !exists("g:UltiSnipsJumpBackwardTrigger")
-" 	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" endif
-
-" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-
 " }}}
 
 "}}}

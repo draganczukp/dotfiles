@@ -7,8 +7,8 @@ mod4 + d
 mod4 + F1
 	$BROWSER
 
-mod4 + F{2,3,4,5}
-	st -e {calcurse,neomutt,tuir,weechat}
+mod4 + F{2,3,4,5,12}
+	st -e {calcurse,neomutt,tuir,weechat,spt}
 
 mod4 + ctrl + l
 	~/bin/lock
@@ -31,11 +31,5 @@ XF86MonBrightness{Up,Down}
 mod4 + shift + w
 	~/bin/wallpaper
 
-mod4 + shift + e
-	pkill xinit
-
 Print
 	~/bin/screenshot
-
-mod4 + n
-	st -e note
