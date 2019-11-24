@@ -20,5 +20,7 @@ xset s 0
 xset r rate 500 50
 pgrep sxhkd || sxhkd &
 
+disown
+
 sleep 10s
 wmname LG3D
