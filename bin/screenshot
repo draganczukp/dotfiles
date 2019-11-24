@@ -4,20 +4,41 @@ opts="focused\nselection\nfullscreen\ncancel"
 
 choice=$(echo -e $opts | dmenu -p "Scrot mode")
 [[ "$choice" == "" ]] && exit
-name=$( (echo "$HOME/Obrazy/Screenshots/%Y-%m-%d-scrot.png" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
+name=$( (echo "$HOME/Obrazy/Screenshots/%Y-%m-%d-scrot.png\nclipboard" && find -P ~/Obrazy -maxdepth 4 -type d) | dmenu -p "Name")
 [ -f "$HOME/Obrazy/Screenshots" ] || mkdir $HOME/Obrazy/Screenshots
 
-case $choice in
-	(focused)
-		scrot -d 1 "$name" -u
-		;;
-	(selection)
-		scrot -d 1 "$name" -s
-		;;
-	(fullscreen)
-		scrot -d 1 "$name"
-		;;
-	(*)
-		exit 0
-		;;
-esac
+if [[ "$name" = "clipboard" ]]; then
+	case $choice in
+		(focused)
+			scrot -d 1 /tmp/scrot.png -u
+			;;
+		(selection)
+			scrot -d 1 /tmp/scrot.png -s
+			;;
+		(fullscreen)
+			scrot -d 1 /tmp/scrot.png
+			;;
+		(*)
+			exit 0
+			;;
+	esac
+
+	xclip -selection clipboard -t image/png -i /tmp/scrot.png
+
+else
+
+	case $choice in
+		(focused)
+			scrot -d 1 "$name" -u
+			;;
+		(selection)
+			scrot -d 1 "$name" -s
+			;;
+		(fullscreen)
+			scrot -d 1 "$name"
+			;;
+		(*)
+			exit 0
+			;;
+	esac
+fi
