@@ -478,7 +478,7 @@ Plug 'junegunn/goyo.vim'
 function! ProseSetup() " {{{ ProseSetup
 	" echo "Setting prose"
 	" Goyo 100
-	setl spell spelllang=pl
+	setl spell spelllang=pl,en
 	setl formatoptions=t
 	setl textwidth=100
 	setl wrapmargin=0
