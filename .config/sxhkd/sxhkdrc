@@ -33,3 +33,6 @@ mod4 + shift + w
 
 Print
 	~/bin/screenshot
+
+mod4 + F10
+	~/bin/civ6-exploit

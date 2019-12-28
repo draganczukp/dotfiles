@@ -120,7 +120,6 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 noremap <leader>a ggVG
-map <Leader>b :ls<CR>:b<Space>
 map <Leader>g mggg=G`g:StripWhitespace<CR>
 
 " }}}
@@ -198,9 +197,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 map <Leader>f :NERDTreeToggle<CR>
 map <C-p> :FZF<CR>
+map <Leader>b :Buffers<CR>
 
 " }}}
 
@@ -213,9 +214,16 @@ Plug 'flazz/vim-colorschemes'
 " {{{ Lightline
 
 " Config is below, since it doesn't work here
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 " }}}
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:airline_theme='badwolf'
 
 " {{{ Snippets
 
@@ -498,38 +506,32 @@ call plug#end()
 " These will not work if placed before plug#end for some reason, so they're here
 colorscheme badwolf
 
-if filereadable(expand("~/.vimrc_background"))
-	set termguicolors
-	let base16colorspace=256
-	source ~/.vimrc_background
-endif
-
 " {{{ Lightline
-let g:lightline = {
-			\   'colorscheme': 'one',
-			\   'active': {
-			\     'left':[ [ 'mode', 'paste' ],
-		  	\             [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ],
-			\     ]
-			\   },
-			\   'component': {
-			\     'lineinfo': ' %3l:%-2v',
-			\   },
-			\   'component_function': {
-			\     'gitbranch': 'fugitive#head',
-			\   'cocstatus': 'coc#status'
-			\   }
-			\ }
-let g:lightline.separator = {
-			\   'left': '', 'right': ''
-			\}
-let g:lightline.subseparator = {
-			\   'left': '', 'right': ''
-			\}
-let g:lightline.tabline = {
-			\   'left': [ ['tabs'] ],
-			\   'right': [ ['close'] ]
-			\ }
-" }}}
+" let g:lightline = {
+" 			\   'colorscheme': 'one',
+" 			\   'active': {
+" 			\     'left':[ [ 'mode', 'paste' ],
+" 		  	\             [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ],
+" 			\     ]
+" 			\   },
+" 			\   'component': {
+" 			\     'lineinfo': ' %3l:%-2v',
+" 			\   },
+" 			\   'component_function': {
+" 			\     'gitbranch': 'fugitive#head',
+" 			\   'cocstatus': 'coc#status'
+" 			\   }
+" 			\ }
+" let g:lightline.separator = {
+" 			\   'left': '', 'right': ''
+" 			\}
+" let g:lightline.subseparator = {
+" 			\   'left': '', 'right': ''
+" 			\}
+" let g:lightline.tabline = {
+" 			\   'left': [ ['tabs'] ],
+" 			\   'right': [ ['close'] ]
+" 			\ }
+" " }}}
 
 "}}}
