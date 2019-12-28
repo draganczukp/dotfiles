@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+
+find ~/.config/nvim/snippets/ -name '*.vim' -exec basename -s .vim {} \; \
+	 | fzf -1 -0 -e -i --border --prompt="filetype: " --preview='cat ~/.config/nvim/snippets/{}.vim' \
+	 | xargs -r -I{} $EDITOR ~/.config/nvim/snippets/{}.vim

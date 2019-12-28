@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 function choose(){
-	files="$(find ~/Dokumenty/studia/ -maxdepth 1 -mindepth 1 -type d -exec basename {} \;; echo 'new')"
+	files="$(find ~/Dokumenty/studia/ -maxdepth 1 -mindepth 1 -not -name .git -type d -exec basename {} \;; echo 'new')"
 
 	selection=$(fzf -i --border --margin=5% --prompt="Przedmiot: " --preview='[[ {} = new ]] || head -$FZF_PREVIEW_LINES ~/Dokumenty/studia/{}/notes.md' --preview-window=right:50% <<<$files)
 

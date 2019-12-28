@@ -1,5 +1,8 @@
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
+
+bindkey -e
+
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   function zle-line-init() {
     echoti smkx
