@@ -5,14 +5,17 @@ setxkbmap -option caps:escape -layout pl &
 ~/bin/wallpaper &
 ~/bin/start-compton &
 dunst &
+
 qutebrowser &
+
 spotify &
 /usr/lib/kdeconnectd &
+kdeconnect-indicator &
 nm-applet &
 
 ~/bin/run-on-clock 1m ~/bin/checkmail &
 ~/bin/run-on-clock 5m ~/bin/check-phone &
-~/bin/run-on-clock 2m ~/bin/refresh-news &
+~/bin/run-on-clock 1s ~/bin/dwmstatus &
 
 ~/bin/battery-notify &
 
@@ -20,9 +23,9 @@ xset s 0
 xset r rate 500 50
 pgrep sxhkd || sxhkd &
 
-udiskie -t2 &
-
-disown
+udiskie -t &
 
 sleep 10s
 wmname LG3D
+
+disown
