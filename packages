@@ -91,10 +91,6 @@ jdk8-openjdk
 jetbrains-toolbox
 jq
 kodi-cli-git
-lazygit
-linux
-linux-firmware
-linux-headers
 lolcat
 lxappearance
 mailcap
@@ -166,8 +162,6 @@ sed
 siji-git
 simple-scan
 simplescreenrecorder
-spicetify-cli
-spicetify-themes-git
 spotify-dev
 spotifywm-git
 sqlitebrowser
@@ -211,7 +205,6 @@ ttf-dejavu
 ttf-joypixels
 ttf-liberation
 ttf-ms-fonts
-ttf-symbola
 tty-clock
 ttylog
 ttyplot
@@ -221,11 +214,8 @@ unzip
 urlscan
 vim
 vim-runtime
-virtualbox
-virtualbox-guest-iso
 visual-studio-code-bin
 vlc
-whippet
 wine
 wmname
 words
