@@ -36,10 +36,10 @@ c.hints.border = "1px solid #222222"
 
 
 # searches
-c.url.searchengines['DEFAULT'] = 'https://duckduckgo.com/?q={}'
 c.url.searchengines['a'] = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['w'] = 'https://pl.wikipedia.org/w/index.php?search={}'
 c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q={}'
+c.url.searchengines['DEFAULT'] = c.url.searchengines['g']
 
 # fonts
 #c.fonts.monospace = "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono", monospace
@@ -55,4 +55,3 @@ c.fonts.messages.error = c.fonts.messages.info
 c.fonts.completion.entry = c.fonts.statusbar
 c.fonts.completion.category = c.fonts.statusbar
 
-config.source('qutewal.py')
