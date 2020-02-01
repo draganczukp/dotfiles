@@ -488,7 +488,7 @@ function! ProseSetup() " {{{ ProseSetup
 	" Goyo 100
 	setl spell spelllang=pl,en
 	setl formatoptions=t
-	setl textwidth=100
+	setl textwidth=80
 	setl wrapmargin=0
 
 endfunction " }}}
