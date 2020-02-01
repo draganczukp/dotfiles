@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+
+function get-contact(){
+	echo $@
+}
+
+function notify(){
+	/usr/bin/notify-send $@
+}
+
+function process-commands(){
+
+
+	return 1;
+}
+
+for i in `seq $SMS_MESSAGES`; do
+	eval "echo \"\$SMS_${i}_TEXT\"" | read text
+	eval "echo \"\$SMS_${i}_NUMBER\"" | read number
+
+	process-commands $number $text && exit
+
+
+	contact=$(get-contact $number)
+
+	notify $contact $text
+done
