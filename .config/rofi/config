@@ -1,2 +1,1 @@
-include "/usr/share/rofi/themes//Monokai.theme"
 rofi.theme: /home/killermenpl/.local/share/rofi/themes/sidebar.rasi
