@@ -8,7 +8,7 @@ mod4 + F1
 	$BROWSER
 
 mod4 + F{2,3,4,5,12}
-	st -e {calcurse,neomutt,tuir,weechat,spt}
+	alacritty -e {calcurse,neomutt,weechat,rainbowstream,spt}
 
 mod4 + ctrl + l
 	~/bin/lock
@@ -16,8 +16,8 @@ mod4 + ctrl + l
 XF86Audio{Play,Prev,Next}
 	playerctl {play-pause,previous,next}
 
-alt + {Down,Left,Right}
-	playerctl {play-pause,previous,next}
+alt + {Down,Right}
+	playerctl {play-pause,next}
 
 XF86Audio{Raise,Lower}Volume
 	pactl set-sink-volume 0 {+,-}5%
