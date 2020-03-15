@@ -6,7 +6,7 @@ setxkbmap -option caps:escape -layout pl &
 ~/bin/start-compton &
 dunst &
 
-qutebrowser &
+vivaldi-stable &
 
 spotify &
 /usr/lib/kdeconnectd &

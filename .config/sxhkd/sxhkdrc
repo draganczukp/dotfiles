@@ -1,11 +1,11 @@
 mod4 + Return
-	st
+	alacritty
 
 mod4 + d
 	rofi -show drun
 
 mod4 + F1
-	$BROWSER
+	vivaldi-stable
 
 mod4 + F{2,3,4,5,12}
 	alacritty -e {calcurse,neomutt,weechat,rainbowstream,spt}
@@ -15,6 +15,9 @@ mod4 + ctrl + l
 
 XF86Audio{Play,Prev,Next}
 	playerctl {play-pause,previous,next}
+
+XF86Explorer
+	~/bin/toggle-touchpad
 
 alt + {Down,Right}
 	playerctl {play-pause,next}
