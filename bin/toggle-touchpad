@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# Use xinput list and do a search for touchpads. Then get the first one and get its name.
+device="$(xinput list | awk -F'( |=|	)*' '/Synaptics/{print $6}')"
+
+echo $device
+# If it was activated disable it and if it wasn't disable it
+[[ "$(xinput list-props $device | awk -F'( |	)+' '/Device Enabled/{print $5}')" == "1" ]] && xinput disable "$device" || xinput enable "$device"
