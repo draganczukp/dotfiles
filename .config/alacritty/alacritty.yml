@@ -1,7 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
 window:
-
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
@@ -30,20 +27,20 @@ scrolling:
 
 # Font configuration
 font:
-  normal:
-    family: monospace
-    style: Regular
-  bold:
-    family: monospace
-    style: Bold
-  italic:
-    family: monospace
-    style: Italic
-  bold_italic:
-    family: monospace
-    style: Bold Italic
+  # normal:
+  #   family: DejaVuSansMono Nerd Font
+  #   style: Book
+  # bold:
+  #   family: DejaVuSansMono Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: DejaVuSansMono Nerd Font
+  #   style: Italic
+  # bold_italic:
+  #   family: DejaVuSansMono Nerd Font
+  #   style: Bold Italic
 
-  size: 9.0
+  size: 8
 
   offset:
     x: 0
@@ -55,33 +52,33 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-colors:
-  # Default colors
-  primary:
-    background: '0x000000'
-    foreground: '0xababab'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x000000'
+#     foreground: '0xababab'
 
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xe92f2f'
-    green:   '0x0ed839'
-    yellow:  '0xdddd13'
-    blue:    '0x3b48e3'
-    magenta: '0xf996e2'
-    cyan:    '0x23edda'
-    white:   '0xababab'
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xe92f2f'
+#     green:   '0x0ed839'
+#     yellow:  '0xdddd13'
+#     blue:    '0x3b48e3'
+#     magenta: '0xf996e2'
+#     cyan:    '0x23edda'
+#     white:   '0xababab'
 
-  # Bright colors
-  bright:
-    black:   '0x343434'
-    red:     '0xe92f2f'
-    green:   '0x0ed839'
-    yellow:  '0xdddd13'
-    blue:    '0x3b48e3'
-    magenta: '0xf996e2'
-    cyan:    '0x23edda'
-    white:   '0xf9f9f9'
+#   # Bright colors
+#   bright:
+#     black:   '0x343434'
+#     red:     '0xe92f2f'
+#     green:   '0x0ed839'
+#     yellow:  '0xdddd13'
+#     blue:    '0x3b48e3'
+#     magenta: '0xf996e2'
+#     cyan:    '0x23edda'
+#     white:   '0xf9f9f9'
 
 
 # Visual Bell
