@@ -473,7 +473,7 @@ let g:mkdp_preview_options = {
 			\ 'disable_sync_scroll': 0,
 			\ 'sync_scroll_type': 'middle'
 			\ }
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 let g:mkdp_refresh_slow = 1
 let g:mkdp_browser = 'md-preview'
 

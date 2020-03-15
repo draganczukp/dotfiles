@@ -4,11 +4,11 @@
 " Creator: Przemk Dragańczuk <admin@draganczuk.tk>
 " Licence: WTFPL
 
-if exists("b:did_markdown_ftplugin")
+if exists("b:did_ftplugin")
 	finish
 endif
 
-let b:did_md_ftplugin=1
+let b:did_ftplugin=1
 
 source ~/.config/nvim/snippets/md.vim
 

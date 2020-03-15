@@ -6,3 +6,6 @@ inoremap ,fr \frac{<-->}{<++>} <++><ESC>?<--><CR>4s
 inoremap ,sq \sqrt{<-->} <++><ESC>?<--><CR>4s
 inoremap ,vec \vec{<-->} <++><ESC>?<--><CR>4s
 inoremap ,mat <CR>\begin{bmatrix}<CR><--><CR>\end{bmatrix}<CR><++><ESC>?<--><CR>4s
+
+inoremap ,a [<-->](++) <++><ESC>?<--><CR>"_4s
+inoremap ,img ![<-->](++)<CR><++><ESC>?<--><CR>"_4s

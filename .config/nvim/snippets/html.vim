@@ -10,3 +10,5 @@ inoremap <buffer> ,h6 <h6>\|</h6><CR><++><Esc>kf\|"_xi
 inoremap <buffer> ,pre <pre><code><CR>\|<CR></code></pre><CR><++><ESC>2ks
 inoremap <buffer> ,img <img src="\|" alt="<++>/><CR><++><ESC>F\|"_xi
 inoremap <buffer> ,code <code>\|</code><++><Esc>F\|"_xi
+inoremap <buffer> ,ul <ul><CR><--><CR></ul><CR><++><ESC>?<--><CR>"_4s
+inoremap <buffer> ,li <li><--></li><CR><++><ESC>?<--><CR>"_4s
