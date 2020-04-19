@@ -1,14 +1,14 @@
 mod4 + Return
-	alacritty
+	$TERMINAL
 
 mod4 + d
 	rofi -show drun
 
 mod4 + F1
-	vivaldi-stable
+	$BROWSER
 
 mod4 + F{2,3,4,5,12}
-	alacritty -e {calcurse,neomutt,weechat,rainbowstream,spt}
+	$TERMINAL -e {calcurse,neomutt,weechat,rainbowstream,spt}
 
 mod4 + ctrl + l
 	~/bin/lock

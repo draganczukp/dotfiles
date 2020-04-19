@@ -1,10 +1,12 @@
 // @import '/home/killermenpl/.cache/wal/colors.scss';
-$color-list: rgb(255, 255, 133), red, blue, green, lightgreen, lightblue;
+$bg: #0a0a0a;
+$darker: darken($bg, 10%);
+$text: #fafafa;
 
 body{
-	font-family: 'Lato';
-	background-color: #333;
-	color: #fafafa;
+	font-family: "SFNS Display";
+	background-color: $bg;
+	color: $text;
 }
 
 #links{
@@ -12,49 +14,29 @@ body{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-row-gap: 20px;
+
+
 	.link-list{
 		width: 90%;
-		border: 1px solid black;
-		border-radius: 10px;
 		margin: auto;
 		margin-top: 0;
 		text-align: center;
+		// box-shadow: 3px 3px 1px 1px $darker;
+		border: solid 1px lighten($bg, 7%);
 
-		@for $i from 1 to 6 {
-			&:nth-child(#{$i}){
-				$bg: nth($color-list, $i);
-				$color: #fafafa;
-
-				@if(lightness($bg) > 50){
-					$color: #040404;
-				}
-
-				background-color: $bg;
-
-				h3{
-					background-color: darken($bg, 5%);
-				}
-
-				color: $color;
-
-				ul{ li{ a{
-							color: $color;
-				}}}
-
-			}
-		}
+		background-color: $darker;
 
 		h3{
+			background: lighten($darker, 3%);
+			border-bottom: solid 1px lighten($darker, 10%);
 			width: 100%;
 			height: 50px;
 			line-height: 50px;
 			margin: 0;
 			padding: 0;
-			border-radius: 10px 10px 0 0;
 		}
 
 		ul{
-			border-top: solid 2px #111;
 			margin: 0;
 			padding: 0;
 			list-style: none;
@@ -67,7 +49,7 @@ body{
 					width: 100%;
 					height: 40px;
 					line-height: 40px;
-					color: #fafafa;
+					color: $text;
 					text-decoration: none;
 				}
 

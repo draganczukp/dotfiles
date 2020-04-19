@@ -4,13 +4,10 @@
 # Description: Aliases I often use					#
 #####################################################
 
-alias ls="colorls --sd "
+alias ls="lsd -h"
 
 alias ll="ls -Al"
 alias l="ls -l"
-alias lp="l | less"
-alias llp="ll | less"
-alias lt="ls --tree"
 
 alias lg="lazygit"
 

@@ -23,7 +23,7 @@ case $wm in
 			sleep 1
 		done &
 
-	dwm > /tmp/dwm.log 2> /tmp/dwm.err.log
+	dwm
 
 ;;
 	* )

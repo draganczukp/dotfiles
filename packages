@@ -3,18 +3,11 @@ acpid
 acpilight
 alacritty
 alsa-utils
-android-sdk
-android-studio
-android-studio-launcher
-android-tools
 android-udev
 arandr
 arc-gtk-theme
 arch-install-scripts
-at
 atool
-autoconf
-automake
 base
 bash-completion
 blender
@@ -27,8 +20,6 @@ breezy
 btrfs-progs
 calcurse
 calibre
-chromaprint
-chromium-widevine
 cli-visualizer
 compton-tryone-git
 cowsay
@@ -65,7 +56,6 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 gzip
-hollywood
 hplip
 htop-vim-git
 hub
@@ -79,8 +69,6 @@ iftop
 inetutils
 inkscape
 intel-ucode
-intellij-idea-ultimate-edition
-intellij-idea-ultimate-edition-jre
 iotop
 iw
 jdk-openjdk
@@ -89,7 +77,6 @@ jnettop
 joyutils
 jq
 kodi-cli-git
-lazygit
 linux-firmware
 linux-zen
 linux-zen-docs
@@ -121,11 +108,8 @@ noto-fonts-all
 noto-fonts-emoji
 npm
 ntfs-3g
-numix-gtk-theme-git
-numix-icon-theme-git
 obs-studio
 offlineimap
-ookla-speedtest-bin
 opencv
 openssh
 opera
@@ -179,7 +163,6 @@ sxhkd
 sxiv
 teamviewer
 terminus-font
-tewisay-git
 texinfo
 texlive-bibtexextra
 texlive-bin
@@ -209,12 +192,11 @@ ttf-dejavu-sans-mono-powerline-git
 ttf-joypixels
 ttf-liberation
 ttf-ms-fonts
-ttf-symbola
+ttf-symbola-free
 tty-clock
 ttylog
 ttyplot
 udiskie
-unityhub
 unrar
 unzip
 urlscan

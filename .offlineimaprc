@@ -1,5 +1,5 @@
 [general]
-accounts = gmail, studnet, grupowy, draganczuktk, mailinglist
+accounts = gmail, studnet, grupowy, draganczuktk
 starttls = yes
 ssl = yes
 pythonfile = ~/.offlineimap.py
@@ -45,43 +45,6 @@ createfolders = False
 [Repository studnet-local]
 type = Maildir
 localfolders = ~/.mail/studnet
-
-[Account grupowy]
-localrepository = grupowy-local
-remoterepository = grupowy-remote
-
-[Repository grupowy-remote]
-auth_mechanisms = LOGIN
-type = IMAP
-remoteuser = mail@33inf-ssi.tk
-remotepass = zaq1@WSX
-remotehost = mail.cba.pl
-remoteport = 993
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-ssl_version=tls1_2
-createfolders = False
-
-[Repository grupowy-local]
-type = Maildir
-localfolders = ~/.mail/grupowy
-
-[Account mailinglist]
-localrepository = mailinglist-local
-remoterepository = mailinglist-remote
-
-[Repository mailinglist-remote]
-auth_mechanisms = LOGIN
-type = IMAP
-remoteuser = mailing-list@draganczuk.tk
-remotepasseval = mailpass("mail-prywatny")
-remotehost = imap.migadu.com
-remoteport = 993
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-createfolders = False
-
-[Repository mailinglist-local]
-type = Maildir
-localfolders = ~/.mail/mailinglist
 
 [Account draganczuktk]
 localrepository = draganczuktk-local
