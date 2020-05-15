@@ -47,7 +47,7 @@ function music(){
 	local title=$(playerctl metadata title)
 	local STATUS="|$STATUS ${artist:0:15}: ${title:0:15}"
 
-	[[ $artist = "" || $title = "" ]] || echo -n $STATUS
+	[[ $artist != "" || $title != "" ]] && echo -n $STATUS
 }
 
 function phone(){

@@ -14,7 +14,7 @@ spotify &
 kdeconnect-indicator &
 nm-applet &
 
-# ~/bin/run-on-clock 1m ~/bin/checkmail &
+~/bin/run-on-clock 1m ~/bin/checkmail &
 ~/bin/run-on-clock 5m ~/bin/check-phone &
 
 xset s 0

@@ -1,5 +1,5 @@
 [general]
-accounts = gmail, studnet, grupowy, draganczuktk
+accounts = gmail, studnet, draganczuktk
 starttls = yes
 ssl = yes
 pythonfile = ~/.offlineimap.py
