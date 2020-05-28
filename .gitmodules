@@ -4,3 +4,6 @@
 [submodule "Obrazy/Wallpapers"]
 	path = Obrazy/Wallpapers
 	url = git://github.com/draganczukp/Wallpapers.git
+[submodule "startpage"]
+	path = startpage
+	url = git@github.com:draganczukp/startpage.git
