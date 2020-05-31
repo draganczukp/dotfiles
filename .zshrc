@@ -32,4 +32,3 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd -i'
 
-motd

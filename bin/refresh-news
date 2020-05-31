@@ -1,4 +1,0 @@
-#!/bin/zsh
-
-/usr/bin/newsboat -x reload
-/usr/bin/newsboat -x print-unread > /tmp/news

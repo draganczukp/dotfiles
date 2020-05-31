@@ -27,20 +27,20 @@ scrolling:
 
 # Font configuration
 font:
-  # normal:
-  #   family: DejaVuSansMono Nerd Font
-  #   style: Book
-  # bold:
-  #   family: DejaVuSansMono Nerd Font
-  #   style: Bold
-  # italic:
-  #   family: DejaVuSansMono Nerd Font
-  #   style: Italic
-  # bold_italic:
-  #   family: DejaVuSansMono Nerd Font
-  #   style: Bold Italic
+  normal:
+    family: DejaVuSansMono Nerd Font
+    style: Regular
+  bold:
+    family: DejaVuSansMono Nerd Font
+    style: Bold
+  italic:
+    family: DejaVuSansMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: DejaVuSansMono Nerd Font
+    style: Bold Italic
 
-  size: 8
+  size: 10
 
   offset:
     x: 0

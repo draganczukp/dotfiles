@@ -30,3 +30,6 @@ alias blog="~/dev/blog/blog"
 alias df="df -h"
 
 alias grep="grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
+
+# I don't use just `.` for running scripts
+alias .="cd ~/dotfiles"

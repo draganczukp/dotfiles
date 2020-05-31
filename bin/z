@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+fd . ~/dotfiles/zsh/ --maxdepth 1 --type f --exec basename {} .zsh \; \
+	| fzf +s -1 -0 -e -i --border --preview='cat ~/dotfiles/zsh/{}.zsh' \
+	| xargs -r -I {} $EDITOR $HOME/dotfiles/zsh/{}.zsh

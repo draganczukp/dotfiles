@@ -3,7 +3,6 @@
 [ -e ~/.screenlayout/layout.sh ] && ~/.screenlayout/layout.sh &
 setxkbmap -option caps:escape -layout pl &
 ~/bin/wallpaper &
-~/bin/start-compton &
 dunst &
 
 qutebrowser &
@@ -21,7 +20,9 @@ xset s 0
 xset r rate 500 50
 pgrep sxhkd || sxhkd &
 
-# udiskie -t &
+udiskie -t &
+
+~/bin/start-compton &
 
 sleep 10s
 wmname LG3D

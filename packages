@@ -1,13 +1,11 @@
 acpi_call
 acpid
-acpilight
 alacritty
 alsa-utils
 android-udev
 arandr
 arc-gtk-theme
 arch-install-scripts
-arch-plymouthize
 atool
 autoconf
 automake
@@ -29,7 +27,6 @@ calibre
 chromium-widevine
 clang
 cli-visualizer
-compton-tryone-git
 cowsay
 dialog
 discord
@@ -73,7 +70,6 @@ gvfs-nfs
 gvfs-smb
 gzip
 hplip
-htop-vim-git
 hub
 hunspell-en_US
 hunspell-pl
@@ -110,7 +106,6 @@ man-db
 man-pages
 mariadb
 maven
-mimi-git
 mousetweaks
 mpv
 msmtp
@@ -149,11 +144,6 @@ pia-manager
 pia-tools
 pkgconf
 playerctl
-plymouth
-plymouth-theme-arch-charge-big
-plymouth-theme-arch-glow
-plymouth-theme-manjaro-redefined-bsplash
-polybar-git
 powertop
 pulseaudio
 pulsemixer
@@ -182,7 +172,6 @@ siji-git
 simplescreenrecorder
 slack-desktop
 smartmontools
-spotify-dev
 spotifywm-git
 sqlitebrowser
 sshfs
@@ -192,7 +181,6 @@ steam-native-runtime
 sudo
 sxhkd
 sxiv
-teamviewer
 terminus-font
 texinfo
 texlab
@@ -226,7 +214,6 @@ ttf-joypixels
 ttf-liberation
 ttf-ms-fonts
 ttf-symbola-free
-ttf-unifont
 tty-clock
 ttylog
 ttyplot

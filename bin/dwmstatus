@@ -43,8 +43,8 @@ function music(){
 		&& STATUS="$STATUS()" \
 		|| STATUS="$STATUS()"
 
-	local artist=$(playerctl metadata artist)
-	local title=$(playerctl metadata title)
+	local artist=$(playerctl metadata xesam:artist)
+	local title=$(playerctl metadata xesam:title)
 	local STATUS="|$STATUS ${artist:0:15}: ${title:0:15}"
 
 	[[ $artist != "" || $title != "" ]] && echo -n $STATUS
