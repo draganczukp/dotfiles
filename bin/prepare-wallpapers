@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+xrandr | grep '\bconnected' | awk -F'[ x+]' '{print $3" "$4}' | sort -r | head -n1 | read w h
+
+tmp=$(mktemp -d)
+
+for file in ~/Pobrane/wallpapers/*; do
+	name=$(basename $file)
+	convert $file -size ${w}x${h} $tmp/${name:r}.png && echo ${name:r}
+done
+
+cp $tmp/*.png ~/Obrazy/Wallpapers/
+rm -rf $tmp
