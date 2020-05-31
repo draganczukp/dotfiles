@@ -7,8 +7,8 @@ mod4 + d
 mod4 + F1
 	$BROWSER
 
-mod4 + F{2,3,4,5,12}
-	$TERMINAL -e {calcurse,neomutt,weechat,rainbowstream,spt}
+mod4 + F{2,3,4}
+	$TERMINAL -e {calcurse,neomutt,lf}
 
 mod4 + ctrl + l
 	~/bin/lock
@@ -19,7 +19,7 @@ XF86Audio{Play,Prev,Next}
 XF86Explorer
 	~/bin/toggle-touchpad
 
-alt + {Down,Right}
+mod4 + {Down,Right}
 	playerctl {play-pause,next}
 
 XF86Audio{Raise,Lower}Volume
@@ -36,6 +36,3 @@ mod4 + shift + w
 
 Print
 	~/bin/screenshot
-
-mod4 + F10
-	~/bin/civ6-exploit

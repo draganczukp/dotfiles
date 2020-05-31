@@ -1,6 +1,6 @@
-[submodule "submodules/polybar-kdeconnect"]
-	path = submodules/polybar-kdeconnect
-	url = git://github.com/HackeSta/polybar-kdeconnect.git
 [submodule "Obrazy/Wallpapers"]
 	path = Obrazy/Wallpapers
 	url = git://github.com/draganczukp/Wallpapers.git
+[submodule "startpage"]
+	path = startpage
+	url = git@github.com:draganczukp/startpage.git

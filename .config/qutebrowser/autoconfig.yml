@@ -16,11 +16,14 @@ settings:
     global: no-3rdparty
   content.geolocation:
     https://www.google.com: false
+  content.media_capture:
+    https://meet.google.com: true
   content.notifications:
     https://anime-odcinki.pl: false
     https://cloud.draganczuk.tk: true
     https://jellyfin.draganczuk.tk: true
     https://mediamarkt.pl: false
+    https://meet.google.com: false
     https://mirrorace.com: false
     https://vidlox.me: false
     https://www.facebook.com: false
@@ -28,6 +31,7 @@ settings:
     https://www.tutorialspoint.com: false
     https://www.youtube.com: false
   content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: false
     https://mail.google.com?extsrc=mailto&url=%25s: false
     https://poczta.stud.uz.zgora.pl?view=compose&to=%25s: false
     https://webmail.migadu.com?mailto&to=%25s: true
