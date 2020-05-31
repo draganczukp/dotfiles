@@ -18,8 +18,8 @@ config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qute
 # Open youtube link in kodi
 config.bind('<Ctrl-k>', 'hint links userscript open-in-kodi')
 
-c.url.default_page = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
-c.url.start_pages = 'file:///home/killermenpl/dotfiles/.config/qutebrowser/startpage/index.html'
+c.url.default_page = 'file:///home/killermenpl/dotfiles/startpage/index.html'
+c.url.start_pages = 'file:///home/killermenpl/dotfiles/startpage/index.html'
 
 c.editor.command = ["st", "-e", "nvim", "{}"]
 c.new_instance_open_target = "tab"
