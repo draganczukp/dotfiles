@@ -10,5 +10,5 @@ export TERMINAL="/usr/bin/alacritty"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx -- vt1 &>/dev/null
+	exec startx -- vt1 &> /tmp/startx.log
 fi

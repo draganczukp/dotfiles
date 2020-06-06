@@ -14,7 +14,7 @@ wm="dwm"
 
 case $wm in
 	"dwm" )
-		~/bin/startup &
+		~/bin/startup & &> /tmp/xinit.log
 
 		xset s 0
 
