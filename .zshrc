@@ -22,11 +22,10 @@ setopt interactivecomments
 
 autoload -U colors && colors
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
-source /usr/share/zsh-dwim/init.zsh
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -21,6 +21,7 @@ settings:
   content.notifications:
     https://anime-odcinki.pl: false
     https://cloud.draganczuk.tk: true
+    https://draganczuk.cloud: false
     https://jellyfin.draganczuk.tk: true
     https://mediamarkt.pl: false
     https://meet.google.com: false

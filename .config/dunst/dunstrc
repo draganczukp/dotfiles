@@ -4,13 +4,13 @@
     geometry = "400x100-24+24"
     indicate_hidden = yes
     shrink = true
-    transparency = 20
+    transparency = 50
     notification_height = 3
     separator_height = 2
     padding = 5
     horizontal_padding = 8
     frame_width = 1
-    #  frame_color = "#282828"
+    frame_color = "#282828"
 
     # Define a color for the separator.
     # possible values are:

@@ -41,14 +41,16 @@ c.url.searchengines['w'] = 'https://pl.wikipedia.org/w/index.php?search={}'
 c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q={}'
 c.url.searchengines['DEFAULT'] = c.url.searchengines['g']
 
+ui_font = "SFNS Display"
+mono_font = "DefaVu Sans Mono"
 # fonts
-#c.fonts.monospace = "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono", monospace
-c.fonts.tabs = "10pt DejaVu Sans Mono"
-c.fonts.statusbar = "8pt DejaVu Sans Mono"
+# c.fonts.monospace = "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono", monospace
+c.fonts.tabs.selected = c.fonts.tabs.unselected = "10pt " + ui_font
+c.fonts.statusbar = "10pt " + ui_font
 c.fonts.downloads = c.fonts.statusbar
 c.fonts.prompts = c.fonts.statusbar
-c.fonts.hints = "13px DejaVu Sans Mono"
-c.fonts.messages.info = "7pt DejaVu Sans Mono"
+c.fonts.hints = "14px " + mono_font
+c.fonts.messages.info = "11pt " + ui_font
 c.fonts.keyhint = c.fonts.messages.info
 c.fonts.messages.warning = c.fonts.messages.info
 c.fonts.messages.error = c.fonts.messages.info

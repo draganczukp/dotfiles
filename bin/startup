@@ -23,9 +23,8 @@ pgrep sxhkd || sxhkd &
 
 udiskie -t &
 
-~/bin/start-compton &
+~/bin/start-compton
 
-sleep 10s
 wmname LG3D
 
 disown

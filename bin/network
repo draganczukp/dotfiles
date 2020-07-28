@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-RAW_RX=$(cat /sys/class/net/enp27s0/statistics/rx_bytes)
-RAW_TX=$(cat /sys/class/net/enp27s0/statistics/tx_bytes)
+RAW_RX=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
+RAW_TX=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
 
 PREV_RX=$(cat /tmp/net_rx)
 PREV_TX=$(cat /tmp/net_tx)

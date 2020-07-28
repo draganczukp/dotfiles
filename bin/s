@@ -1,4 +1,5 @@
 #!/bin/zsh
-server=$(fzf <<< """draganczuk.tk
-admin@tv""")
+server=$(fzf <<< """draganczuk.cloud
+admin@tv
+pi""")
 [ -z $server ] || ssh $server
