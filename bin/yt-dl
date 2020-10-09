@@ -31,11 +31,11 @@ params+="--add-metadata --all-subs --embed-subs --embed-thumbnail"
 
 # Go to output folder. Shouldn't be needed, but might as well
 pushd $output &> /dev/null
-# If we have tsp
+
 [[ "$commands[tsp]" != "" ]] \
-	# Enqueue download
 	&& sh -c "tsp youtube-dl $params $url" > /dev/null \
-	|| youtube-dl $params $url > /dev/null # Directly download now
+	|| youtube-dl $params $url > /dev/null
+
 popd &> /dev/null
 # For whatever reason this often returns non-zero code. No idea why, but whatever
 return true
