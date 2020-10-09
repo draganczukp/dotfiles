@@ -25,7 +25,7 @@ params+=" --format '$format'"
 # Ignore errors, it'll get redownloaded next time
 params+=" -i"
 # Embed all the metadata
-params+="--add-metadata --all-subs --embed-subs --embed-thumbnail"
+params+=" --add-metadata --all-subs --embed-subs --embed-thumbnail"
 # Use a file with all the inputs if it's set
 [[ "$input_file" != "" ]] && params+=" --batch-file $input_file"
 
