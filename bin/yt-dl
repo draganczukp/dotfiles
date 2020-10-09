@@ -27,7 +27,7 @@ params+=" -i"
 # Embed all the metadata
 params+="--add-metadata --all-subs --embed-subs --embed-thumbnail"
 # Use a file with all the inputs if it's set
-[[ "$input_file" != "" ]] && params+="--batch-file $input_file"
+[[ "$input_file" != "" ]] && params+=" --batch-file $input_file"
 
 # Go to output folder. Shouldn't be needed, but might as well
 pushd $output &> /dev/null
