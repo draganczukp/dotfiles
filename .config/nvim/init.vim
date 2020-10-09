@@ -124,6 +124,8 @@ map <Leader>g mggg=G`g:StripWhitespace<CR>
 
 " }}}
 
+" {{{ suckless
+autocmd BufWritePost config.h !sudo make install
 " }}}
 
 " {{{ No config needed
@@ -259,15 +261,18 @@ let main_wiki.path = '~/vimwiki'
 let main_wiki.nested_syntaxes = {'python': 'python', 'java': 'java'}
 let main_wiki.auto_toc = 1
 
-let notes_wiki = {}
-let notes_wiki.path = '~/Dokumenty/studia'
-let notes_wiki.syntax = 'markdown'
-let notes_wiki.ext = '.md'
-let notes_wiki.auto_toc = 1
-let notes_wiki.index = 'notes'
+let studia_wiki = {}
+let studia_wiki.path = '~/Dokumenty/studia'
+let studia_wiki.syntax = 'markdown'
+let studia_wiki.ext = '.md'
+let studia_wiki.auto_toc = 1
+let studia_wiki.index = 'notes'
 
+let weterynarz_wiki = {}
+let weterynarz_wiki.path = '~/Nextcloud/Weterynarz/dokumentacja'
+let weterynarz_wiki.auto_toc = 1
 
-let g:vimwiki_list = [main_wiki, notes_wiki]
+let g:vimwiki_list = [main_wiki, studia_wiki, weterynarz_wiki]
 
 let g:vimviki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 2

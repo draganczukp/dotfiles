@@ -10,12 +10,10 @@ qutebrowser &
 
 spotify &
 /usr/lib/kdeconnectd &
-kdeconnect-indicator &
 nm-applet &
 
 ~/bin/run-on-clock 1m ~/bin/checkmail &
 ~/bin/run-on-clock 5m ~/bin/check-phone &
-~/bin/run-on-clock 1m ~/bin/battery-notify &
 
 xset s 0
 xset r rate 500 50
@@ -23,7 +21,10 @@ pgrep sxhkd || sxhkd &
 
 udiskie -t &
 
-~/bin/start-compton
+# ~/bin/start-compton
+~/bin/battery-notify &
+
+sh -c 'sleep 5s && ~/.config/polybar/launch' &
 
 wmname LG3D
 

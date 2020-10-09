@@ -4,10 +4,10 @@
 killall -q picom
 while pgrep -x picom >/dev/null; do sleep 1; done
 
-picom --config ~/.config/picom.conf --experimental-backends > /dev/null & disown
+picom --config ~/.config/picom.conf > /dev/null & disown
 
 while ! pgrep -x picom >/dev/null; do
-	picom --config ~/.config/picom.conf --experimental-backends > /dev/null & disown
+	picom --config ~/.config/picom.conf > /dev/null & disown
 	sleep 1;
 done
 

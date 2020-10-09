@@ -16,18 +16,29 @@ settings:
     global: no-3rdparty
   content.geolocation:
     https://www.google.com: false
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/83.0.4103.61 Safari/537.36
   content.media_capture:
     https://meet.google.com: true
   content.notifications:
     https://anime-odcinki.pl: false
+    https://cdax.pl: false
+    https://chat.dr-zoo.tk: true
     https://cloud.draganczuk.tk: true
     https://draganczuk.cloud: false
+    https://firebirdsql.org: false
     https://jellyfin.draganczuk.tk: true
+    https://media.draganczuk.cloud: true
     https://mediamarkt.pl: false
     https://meet.google.com: false
     https://mirrorace.com: false
+    https://sickgear.draganczuk.cloud: true
     https://vidlox.me: false
     https://www.facebook.com: false
+    https://www.infoworld.com: false
+    https://www.mediaexpert.pl: false
+    https://www.netflix.com: false
     https://www.reddit.com: false
     https://www.tutorialspoint.com: false
     https://www.youtube.com: false

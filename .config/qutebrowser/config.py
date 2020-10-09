@@ -17,9 +17,10 @@ config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qute
 
 # Open youtube link in kodi
 config.bind('<Ctrl-k>', 'hint links userscript open-in-kodi')
+config.bind('<Ctrl-Shift-d>', 'hint links spawn /home/killermenpl/bin/yt-dl {hint-url}')
 
-c.url.default_page = 'file:///home/killermenpl/dotfiles/startpage/index.html'
-c.url.start_pages = 'file:///home/killermenpl/dotfiles/startpage/index.html'
+c.url.default_page = 'https://startpage.draganczuk.cloud'
+c.url.start_pages = c.url.default_page
 
 c.editor.command = ["st", "-e", "nvim", "{}"]
 c.new_instance_open_target = "tab"
@@ -38,7 +39,7 @@ c.hints.border = "1px solid #222222"
 # searches
 c.url.searchengines['a'] = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['w'] = 'https://pl.wikipedia.org/w/index.php?search={}'
-c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q={}'
+c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&q={}'
 c.url.searchengines['DEFAULT'] = c.url.searchengines['g']
 
 ui_font = "SFNS Display"

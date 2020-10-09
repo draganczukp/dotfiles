@@ -9,6 +9,7 @@
 5 stconf $HOME/dev/st/config.h
 5 alacritty $HOME/.config/alacritty/alacritty.yml
 6 dunstrc $HOME/.config/dunst/dunstrc
+2 polybar $HOME/.config/polybar/config
 7 muttfolder $HOME/.config/mutt
 15 muttrc $HOME/.config/mutt/muttrc
 90 quteconf $HOME/.config/qutebrowser/config.py

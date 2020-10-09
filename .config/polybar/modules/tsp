@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+tsp | awk 'BEGIN{
+done=0
+running=0
+error=0
+queued=0
+}
+$2 == "finished" {
+	done++
+}
+$2 == "running" {
+	running++
+}
+$2 == "queued" {
+	queued++
+}
+$2 == "finished" && $4 != 0 {
+	finished--
+	error++
+}
+END{
+if(running > 0 || done > 0 || error > 0){
+	print "  "queued"  "running"  "done"  "error
+}
+}'

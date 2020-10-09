@@ -1,6 +1,0 @@
-#!/bin/zsh
-
-DEVICE=$(kdeconnect-cli --id-only -l | sed '1q')
-FOUND=$(kdeconnect-cli --id-only -a | sed '1q')
-
-[ "$DEVICE" = "$FOUND" ] && echo "" || echo ""

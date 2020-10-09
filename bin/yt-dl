@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+url=$1
+
+output=$2
+output=${output:-"~/Wideo"}
+
+input_file=$3
+
+file_template="$output/"'%(uploader)s/%(playlist)s%/%(title)s.%(ext)s'
+
+# Shamelesly stolen from https://www.reddit.com/r/DataHoarder/comments/c6fh4x/after_hoarding_over_50k_youtube_videos_here_is/
+format='(bestvideo[vcodec^=av01][height>=1080][fps>30]/bestvideo[vcodec=vp9.2][height>=1080][fps>30]/bestvideo[vcodec=vp9][height>=1080][fps>30]/bestvideo[vcodec^=av01][height>=1080]/bestvideo[vcodec=vp9.2][height>=1080]/bestvideo[vcodec=vp9][height>=1080]/bestvideo[height>=1080]/bestvideo[vcodec^=av01][height>=720][fps>30]/bestvideo[vcodec=vp9.2][height>=720][fps>30]/bestvideo[vcodec=vp9][height>=720][fps>30]/bestvideo[vcodec^=av01][height>=720]/bestvideo[vcodec=vp9.2][height>=720]/bestvideo[vcodec=vp9][height>=720]/bestvideo[height>=720]/bestvideo)+(bestaudio[acodec=opus]/bestaudio)/best'
+
+
+params=""
+# Don't redownload files
+params+=" --download-archive $output/.ytdl"
+# Output according to the template
+params+=" --output '$file_template'"
+# Don't show progress
+params+=" --no-progress"
+# Use the long and complicated format
+params+=" --format '$format'"
+# Ignore errors, it'll get redownloaded next time
+params+=" -i"
+# Embed all the metadata
+params+="--add-metadata --all-subs --embed-subs --embed-thumbnail"
+# Use a file with all the inputs if it's set
+[[ "$input_file" -neq "" ]] && params+="--batch-file $input_file"
+
+# Go to output folder. Shouldn't be needed, but might as well
+pushd $output &> /dev/null
+# If we have tsp
+[[ "$commands[tsp]" -neq "" ]] \
+	# Enqueue download
+	&& sh -c "tsp youtube-dl $params $url" > /dev/null \
+	|| youtube-dl $params $url > /dev/null # Directly download now
+popd &> /dev/null
+# For whatever reason this often returns non-zero code. No idea why, but whatever
+return true

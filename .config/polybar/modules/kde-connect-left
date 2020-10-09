@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-DEVICE=$(kdeconnect-cli -a --id-only | sed '1q')
-DEV_NAME=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$DEVICE org.kde.kdeconnect.device.name)
-BATTERY=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$DEVICE org.kde.kdeconnect.device.battery.charge)
-
-notify-send "$DEV_NAME ${BATTERY}%"

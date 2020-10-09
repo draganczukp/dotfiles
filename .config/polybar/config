@@ -9,9 +9,9 @@
 
 [colors]
 background = #80333333
-background-alt = #80333333
+background-alt = #80777777
 foreground = ${xrdb:color7:#fafafa}
-foreground-alt = ${xrdb:color7:#fafafa}
+foreground-alt = ${xrdb:color7:#afafaf}
 primary = ${xrdb:color1:#fafafa}
 secondary = ${xrdb:color2:#fafafa}
 alert = ${xrdb:color3:#fafafa}
@@ -23,7 +23,7 @@ offset-x = 0
 offset-y = 0
 radius = 0
 fixed-center = true
-; override-redirect = true
+override-redirect = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -49,9 +49,9 @@ font-3 = DejaVuSansMono Nerd Font:size=12
 ; font-2 = siji:pixelsize=12
 ; font-3 = FontAwesome:pixelsize=12;0
 
-modules-left = i3
+modules-left = dwm i3
 modules-center = date
-modules-right = musicprev musicplaypause musicnext music volume memory cpu battery1 battery2
+modules-right = tsp musicprev musicplaypause musicnext music volume
 
 
 ;wm-restack = bspwm
@@ -79,6 +79,7 @@ tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 1
 tray-scale = 1.0
+modules-right = tsp musicprev musicplaypause musicnext music volume battery1 battery2
 
 
 [bar/bar1]
@@ -95,11 +96,82 @@ tray-padding = 0
 tray-scale = 1.0
 
 monitor = DVI-0
+
 [bar/bar2]
 inherit = bar/base
 monitor = DVI-1
 modules-right = memory cpu battery
 
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+
+; Left-click to view tag, right-click to toggle tag view
+enable-tags-click = true
+; Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = true
+; Scroll to cycle between available layouts
+enable-layout-scroll = true
+; Wrap when scrolling and reaching begining/end of layouts
+layout-scroll-wrap = true
+; Reverse scroll direction
+layout-scroll-reverse = false
+
+; If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+; Separator in between shown tags
+; label-separator = |
+
+; Title of currently focused window
+; Available tokens:
+;   %title%
+label-title = %title%
+label-title-padding = 2
+label-title-forefround = ${colors.primary}
+label-title-maxlen = 30
+
+; Symbol of current layout
+; Available tokens:
+;   %symbol%
+label-layout = %symbol%
+label-layout-padding = 2
+label-layout-foreground = ${colors.foreground}
+label-layout-background = ${colors.background-alt}
+
+; Text to show when currently focused window is floating
+label-floating = F
+
+; States: focused, unfocused, visible, urgent, empty
+; Available tokens:
+;   %name%
+
+; focused = Selected tag on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Unselected tag on unselected monitor
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+; visible = Unselected tag, but occupied tag on any monitor
+label-visible = %name%
+label-visible-background = ${colors.background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Unselected tag with window that has urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; empty = Unselected and unoccupied tag
+; This can be set to an empty string to hide empty tags
+label-empty = %name%
+label-empty-background = ${colors.background}
+label-empty-padding = 2
 
 [module/music]
 type = custom/script
@@ -179,7 +251,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
+; format-underline = #f90000
 label = %percentage%%
 
 [module/memory]
@@ -187,7 +259,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-underline = #4bffdc
+; format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/date]
@@ -202,20 +274,19 @@ time-alt = %H:%M:%S
 
 #format-prefix = " "
 #format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+; format-underline = #0a6cf5
 
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = 
+label-volume =  %percentage%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = ""
+format-muted = " (muted)"
 format-muted-foreground = ${colors.foreground}
-label-muted = sound muted
 
 bar-volume-width = 7
 bar-volume-foreground-0 = #acc267
@@ -312,16 +383,13 @@ type = custom/text
 content = ""
 click-left = playerctl play-pause
 
-[module/kdeconnect]
+[module/tsp]
 type = custom/script
-exec = ~/.config/polybar/modules/kde-connect-exec
-click-left = ~/.config/polybar/modules/kde-connect-left
-click-right = ~/.config/polybar/modules/kde-connect-right
-tail = true
+exec = "~/.config/polybar/modules/tsp"
 
 [settings]
 screenchange-reload = true
-pseudo-transparency = true
+pseudo-transparency = false
 ; compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
