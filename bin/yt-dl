@@ -26,6 +26,8 @@ params+=" --format '$format'"
 params+=" -i"
 # Embed all the metadata
 params+=" --add-metadata --all-subs --embed-subs --embed-thumbnail"
+# Output to mp4
+params+=" --merge-output-format mp4"
 # Use a file with all the inputs if it's set
 [[ "$input_file" != "" ]] && params+=" --batch-file $input_file"
 
@@ -37,5 +39,5 @@ pushd $output &> /dev/null
 	|| sh -c "youtube-dl $params $url" > /dev/null
 
 popd &> /dev/null
-# For whatever reason this often returns non-zero code. No idea why, but whatever
+# For whatever reason this often rturns non-zero code. No idea why, but whatever
 return true
