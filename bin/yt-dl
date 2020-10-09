@@ -34,7 +34,7 @@ pushd $output &> /dev/null
 
 [[ "$commands[tsp]" != "" ]] \
 	&& sh -c "tsp youtube-dl $params $url" > /dev/null \
-	|| youtube-dl $params $url > /dev/null
+	|| sh -c "youtube-dl $params $url" > /dev/null
 
 popd &> /dev/null
 # For whatever reason this often returns non-zero code. No idea why, but whatever
