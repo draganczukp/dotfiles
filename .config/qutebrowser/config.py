@@ -8,6 +8,9 @@ config.set('content.javascript.enabled', True, 'file://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Tell websites to use dark mode
+config.set('colors.webpage.darkmode.enabled', True)
+
 # Password manager
 config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/qute-lastpass');
 config.bind('<Ctrl-p>', 'spawn --userscript /home/killermenpl/.config/qutebrowser/qute-lastpass', mode='insert');
@@ -17,6 +20,8 @@ config.bind('<Ctrl-Shift-s>', 'spawn --userscript /home/killermenpl/.config/qute
 
 # Open youtube link in kodi
 config.bind('<Ctrl-k>', 'hint links userscript open-in-kodi')
+
+# Download youtube video
 config.bind('<Ctrl-Shift-d>', 'hint links spawn /home/killermenpl/bin/yt-dl {hint-url}')
 
 c.url.default_page = 'https://startpage.draganczuk.cloud'
@@ -39,7 +44,7 @@ c.hints.border = "1px solid #222222"
 # searches
 c.url.searchengines['a'] = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['w'] = 'https://pl.wikipedia.org/w/index.php?search={}'
-c.url.searchengines['g'] = 'http://www.google.com/search?hl=en&source=hp&q={}'
+c.url.searchengines['g'] = 'http://www.google.com/search?q={}'
 c.url.searchengines['DEFAULT'] = c.url.searchengines['g']
 
 ui_font = "SFNS Display"

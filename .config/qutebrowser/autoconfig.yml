@@ -10,6 +10,8 @@ settings:
     global: webengine
   colors.webpage.bg:
     global: white
+  colors.webpage.darkmode.enabled:
+    global: false
   content.autoplay:
     global: false
   content.cookies.accept:
@@ -19,7 +21,11 @@ settings:
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/83.0.4103.61 Safari/537.36
-  content.media_capture:
+  content.media.audio_capture:
+    https://meet.google.com: true
+  content.media.audio_video_capture:
+    https://meet.google.com: true
+  content.media.video_capture:
     https://meet.google.com: true
   content.notifications:
     https://anime-odcinki.pl: false
